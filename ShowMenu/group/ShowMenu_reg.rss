@@ -1,0 +1,17 @@
+/*
+ * ShowMenu_reg.rss
+ *
+ *  Created on: 06.10.2011
+ *      Author: SQR
+ */
+
+#include <appinfo.rh>
+
+UID2 KUidAppRegistrationResourceFile
+UID3 0xe1ffff54
+RESOURCE APP_REGISTRATION_INFO
+	{
+	app_file="ShowMenu";
+	localisable_resource_file = "\\resource\\apps\\ShowMenu";
+	group_name = "SQR Soft";
+	}

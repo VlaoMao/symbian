@@ -1,0 +1,30 @@
+/*
+============================================================================
+ Name		: keylock.mmp
+ Author	  : 
+ Copyright   : Your copyright notice
+ Description : This is the project specification file for keylock.
+============================================================================
+*/
+
+TARGET		  EasyKeyLock.exe
+TARGETTYPE	  exe
+UID			 0 0xE8CB8D04
+
+SYSTEMINCLUDE   \epoc32\include
+USERINCLUDE ..\inc
+SOURCEPATH ..\src
+
+SOURCE keylock.cpp play.cpp
+START RESOURCE EasyKeyLock_reg.rss
+	TARGET EasyKeyLock_reg.rsc
+	TARGETPATH private\10003a3f\import\apps
+END
+START RESOURCE EasyKeyLock.rss
+	TARGET EasyKeyLock.rsc
+	TARGETPATH resource\apps
+	LANG 01 16
+END
+LIBRARY euser.lib avkon.lib mediaclientaudio.lib flogger.lib profileeng.lib efsrv.lib hwrmvibraclient.lib
+CAPABILITY CommDD DiskAdmin LocalServices Location MultimediaDD NetworkControl NetworkServices PowerMgmt ProtServ ReadDeviceData ReadUserData SurroundingsDD SwEvent TrustedUI UserEnvironment WriteDeviceData WriteUserData
+

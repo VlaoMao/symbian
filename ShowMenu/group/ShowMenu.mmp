@@ -1,0 +1,24 @@
+TARGET ShowMenu.exe
+TARGETTYPE exe
+UID 0 0xe1ffff54
+MACRO DEBUG __DEBUG=1
+SYSTEMINCLUDE \epoc32\include
+USERINCLUDE ..\inc
+SOURCEPATH ..\src
+
+SOURCE main.cpp
+
+SOURCEPATH ..\group
+
+START RESOURCE ShowMenu_reg.rss
+	TARGET ShowMenu_reg.rsc
+	TARGETPATH private\10003a3f\import\apps
+END
+START RESOURCE ShowMenu.rss
+	TARGET ShowMenu.rsc
+	TARGETPATH resource\apps
+END
+
+LIBRARY euser.lib flogger.lib ws32.lib efsrv.lib apgrfx.lib apparc.lib estor.lib
+CAPABILITY LocalServices NetworkServices ReadUserData WriteUserData UserEnvironment ProtServ// PowerMgmt
+

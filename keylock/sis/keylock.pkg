@@ -1,0 +1,11 @@
+#{"EasyKeyLock"},(0xE8CB8D04),1,2,0,TYPE=SA
+%{"SQR"}
+:"SQR aka Vladislav"
+[0x101F7961], 0, 0, 0, {"Series60ProductID"}
+"$(EPOCROOT)epoc32/release/gcce/urel/EasyKeyLock.exe" -"!:\sys\bin\EasyKeyLock.exe"
+"$(EPOCROOT)epoc32/data/z/private/10003a3f/import/apps/EasyKeyLock_reg.rsc" -"!:\private\10003a3f\import\apps\EasyKeyLock_reg.rsc"
+"$(EPOCROOT)epoc32/data/z/resource/apps/EasyKeyLock.r01" -"!:\resource\apps\EasyKeyLock.rsc"
+"$(EPOCROOT)epoc32/data/z/resource/apps/EasyKeyLock.mif" -"!:\resource\apps\EasykeyLock.mif"
+"/home/vl/workspace/keylock/group/lock.mp3" - "C:\System\Apps\EasyKeyLock\lock.mp3"
+"/home/vl/workspace/keylock/group/unlock.mp3" - "C:\System\Apps\EasyKeyLock\unlock.mp3"
+"/home/vl/workspace/keylock/group/vibra" - "C:\System\Apps\EasyKeyLock\vibra"
