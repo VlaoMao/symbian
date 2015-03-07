@@ -1,0 +1,13 @@
+&EN,RU
+#{"ProShow","ProShow"},(0x3232ff00),1,0,0,TYPE=SA
+%{"SQR","SQR"}
+:"SQR aka Vladislav"
+[0x101F7961], 0, 0, 0, {"Series60ProductID","Series60ProductID"}
+[0x102032BE], 0, 0, 0, {"Series60ProductID","Series60ProductID"}
+[0x102752AE], 0, 0, 0, {"Series60ProductID","Series60ProductID"}
+[0x1028315F], 0, 0, 0, {"Series60ProductID","Series60ProductID"}
+
+"/home/vl/symbian-sdks/s60_30mr/epoc32/release/gcce/urel/ProShow.exe" -"!:\sys\bin\ProShow.exe"
+"/home/vl/symbian-sdks/s60_30mr/epoc32/data/z/private/10003a3f/import/apps/ProShow_reg.rsc" -"!:\private\10003a3f\import\apps\ProShow_reg.rsc"
+"/home/vl/symbian-sdks/s60_30mr/epoc32/data/z/resource/apps/ProShow.rsc" -"!:\resource\apps\ProShow.rsc"
+"/home/vl/workspace/ProShow/sis/SetupGisWeather.mif" -"!:\resource\apps\ProShow.mif"

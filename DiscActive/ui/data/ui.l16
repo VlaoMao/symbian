@@ -1,0 +1,5 @@
+CHARACTER_SET UTF8
+#define STR_uiApplication_3 "Настройка DiskActive"
+#define STR_uiApplication_4 "Настройка DiskActive"
+#define STR_uiApplication_1 ""
+#define STR_uiApplication_2 ""

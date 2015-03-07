@@ -1,0 +1,41 @@
+&EN,RU
+#{"GisWeather","GisWeather"},(0x20041D0F),1,4,0,TYPE=SA
+%{"SQR","SQR"}
+:"SQR aka Vladislav"
+[0x101F7961], 0, 0, 0, {"Series60ProductID","Series60ProductID"}
+[0x102032BE], 0, 0, 0, {"Series60ProductID","Series60ProductID"}
+[0x102752AE], 0, 0, 0, {"Series60ProductID","Series60ProductID"}
+[0x1028315F], 0, 0, 0, {"Series60ProductID","Series60ProductID"}
+
+{
+"/home/vl/workspace/GisWeather/sis/readme_en.txt"
+"/home/vl/workspace/GisWeather/sis/readme_ru.txt"
+} -"", FT, TA
+"/home/vl/symbian-sdks/s60_30mr/epoc32/release/gcce/urel/GisWeather.exe" -"!:\sys\bin\GisWeather.exe"
+"/home/vl/symbian-sdks/s60_30mr/epoc32/data/z/private/10003a3f/import/apps/GisWeather_reg.rsc" -"!:\private\10003a3f\import\apps\GisWeather_reg.rsc"
+"/home/vl/symbian-sdks/s60_30mr/epoc32/data/z/resource/apps/GisWeather.rsc" -"!:\resource\apps\GisWeather.rsc"
+"/home/vl/workspace/GisWeather/sis/GisWeather.mif" -"!:\resource\apps\GisWeather.mif"
+"/home/vl/workspace/GisWeather/sis/url" -"C:\System\Apps\GisWeather\url"
+"/home/vl/workspace/GisWeather/sis/cfg" -"C:\System\Apps\GisWeather\cfg"
+;GisWeatherDownloader
+"/home/vl/symbian-sdks/s60_30mr/epoc32/release/gcce/urel/GisWeatherDownloader.exe"-"!:\sys\bin\GisWeatherDownloader.exe"
+"/home/vl/symbian-sdks/s60_30mr/epoc32/data/z/resource/apps/GisWeatherDownloader.rsc"-"!:\resource\apps\GisWeatherDownloader.rsc"
+;"/home/vl/symbian-sdks/s60_30mr/epoc32/data/z/resource/apps/GisWeatherDownloader.mif"-"!:\resource\apps\GisWeatherDownloader.mif"
+"/home/vl/symbian-sdks/s60_30mr/epoc32/data/z/private/10003a3f/apps/GisWeatherDownloader_reg.rsc"-"!:\private\10003a3f\import\apps\GisWeatherDownloader_reg.rsc"
+;Setup
+"/home/vl/symbian-sdks/s60_30mr/epoc32/release/gcce/urel/SetupGisWeather.exe"		-"!:\sys\bin\SetupGisWeather.exe"
+{
+"/home/vl/symbian-sdks/s60_30mr/epoc32/data/z/resource/apps/SetupGisWeather.r01"
+"/home/vl/symbian-sdks/s60_30mr/epoc32/data/z/resource/apps/SetupGisWeather.r16"
+ }-"!:\resource\apps\SetupGisWeather.r16"
+{
+"/home/vl/symbian-sdks/s60_30mr/epoc32/data/z/private/10003a3f/apps/SetupGisWeather_reg.r01"
+"/home/vl/symbian-sdks/s60_30mr/epoc32/data/z/private/10003a3f/apps/SetupGisWeather_reg.r16"
+ }-"!:\private\10003a3f\import\apps\SetupGisWeather_reg.r16"
+"/home/vl/workspace/GisWeather/sis/SetupGisWeather.mif" -"!:\resource\apps\SetupGisWeather.mif"
+"/home/vl/symbian-sdks/s60_30mr/epoc32/data/z/resource/apps/SetupGisWeather.mbm" -"!:\resource\apps\SetupGisWeather.mbm"
+;autostart
+"/home/vl/symbian-sdks/s60_30mr/epoc32/data/z/private/10003a3f/import/apps/GisWeather_starter_reg.rsc" -"C:\private\10003a3f\import\apps\GisWeather_starter_reg.rsc"
+"/home/vl/symbian-sdks/s60_30mr/epoc32/data/z/resource/apps/GisWeather_starter.rsc" -"C:\resource\apps\GisWeather_starter.rsc"
+"/home/vl/symbian-sdks/s60_30mr/epoc32/release/gcce/urel/GisWeather_starter.exe" -"C:\sys\bin\GisWeather_starter.exe"
+"/home/vl/symbian-sdks/s60_30mr/epoc32/data/20041D0F.rsc" - "C:\private\101f875a\import\[20041d0f].rsc"

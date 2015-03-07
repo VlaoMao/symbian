@@ -1,0 +1,472 @@
+/*
+========================================================================
+ Name        : FreejeSettingsContainer.cpp
+ Author      : arok
+ Copyright   : Freeje project 2010
+ Description : 
+========================================================================
+*/
+// [[[ begin generated region: do not modify [Generated System Includes]
+#include <aknviewappui.h>
+#include <eikappui.h>
+#include <Freeje.rsg>
+// ]]] end generated region [Generated System Includes]
+#include <html/htmlcontrol.h>
+#include <html/htmlctlutils.h>
+// [[[ begin generated region: do not modify [Generated User Includes]
+#include "FreejeSettingsContainer.h"
+#include "FreejeSettingsContainerView.h"
+#include "Freeje.hrh"
+#include "FreejeMainContainer.hrh"
+// ]]] end generated region [Generated User Includes]
+#include "FreejeAppUi.h"
+#include "Settings.h"
+#include "logger.h"
+#include <utf.h>
+#include <eikedwin.h>
+#include <apgcli.h>
+// [[[ begin generated region: do not modify [Generated Constants]
+// ]]] end generated region [Generated Constants]
+_LIT(KIdLogin, "login");
+_LIT(KIdPassword, "password");
+_LIT(KIdNumber, "phoneNumber");
+_LIT(KNullNumber, "-1");
+/**
+ * First phase of Symbian two-phase construction. Should not 
+ * contain any code that could leave.
+ */
+CFreejeSettingsContainer::CFreejeSettingsContainer()
+	{
+	// [[[ begin generated region: do not modify [Generated Contents]
+	// ]]] end generated region [Generated Contents]
+	
+	}
+/** 
+ * Destroy child controls.
+ */
+CFreejeSettingsContainer::~CFreejeSettingsContainer()
+	{
+	// [[[ begin generated region: do not modify [Generated Contents]
+	// ]]] end generated region [Generated Contents]
+	if (iControl)
+		{
+		delete iControl;
+		iControl = NULL;
+		}
+	}
+				
+/**
+ * Construct the control (first phase).
+ *  Creates an instance and initializes it.
+ *  Instance is not left on cleanup stack.
+ * @param aRect bounding rectangle
+ * @param aParent owning parent, or NULL
+ * @param aCommandObserver command observer
+ * @return initialized instance of CFreejeSettingsContainer
+ */
+CFreejeSettingsContainer* CFreejeSettingsContainer::NewL( 
+		const TRect& aRect, 
+		const CCoeControl* aParent, 
+		MEikCommandObserver* aCommandObserver )
+	{
+	CFreejeSettingsContainer* self = CFreejeSettingsContainer::NewLC( 
+			aRect, 
+			aParent, 
+			aCommandObserver );
+	CleanupStack::Pop( self );
+	return self;
+	}
+
+/**
+ * Construct the control (first phase).
+ *  Creates an instance and initializes it.
+ *  Instance is left on cleanup stack.
+ * @param aRect The rectangle for this window
+ * @param aParent owning parent, or NULL
+ * @param aCommandObserver command observer
+ * @return new instance of CFreejeSettingsContainer
+ */
+CFreejeSettingsContainer* CFreejeSettingsContainer::NewLC( 
+		const TRect& aRect, 
+		const CCoeControl* aParent, 
+		MEikCommandObserver* aCommandObserver )
+	{
+	CFreejeSettingsContainer* self = new ( ELeave ) CFreejeSettingsContainer();
+	CleanupStack::PushL( self );
+	self->ConstructL( aRect, aParent, aCommandObserver );
+	return self;
+	}
+			
+/**
+ * Construct the control (second phase).
+ *  Creates a window to contain the controls and activates it.
+ * @param aRect bounding rectangle
+ * @param aCommandObserver command observer
+ * @param aParent owning parent, or NULL
+ */ 
+void CFreejeSettingsContainer::ConstructL( 
+		const TRect& aRect, 
+		const CCoeControl* aParent, 
+		MEikCommandObserver* aCommandObserver )
+	{
+	if ( aParent == NULL )
+	    {
+		CreateWindowL();
+	    }
+	else
+	    {
+	    SetContainerWindowL( *aParent );
+	    }
+	iFocusControl = NULL;
+	iCommandObserver = aCommandObserver;
+	SetRect( aRect );
+	InitializeControlsL();
+	ActivateL();
+	// [[[ begin generated region: do not modify [Post-ActivateL initializations]
+	// ]]] end generated region [Post-ActivateL initializations]
+	
+	}
+			
+/**
+* Return the number of controls in the container (override)
+* @return count
+*/
+TInt CFreejeSettingsContainer::CountComponentControls() const
+	{
+	return 1;
+	}
+				
+/**
+* Get the control with the given index (override)
+* @param aIndex Control index [0...n) (limited by #CountComponentControls)
+* @return Pointer to control
+*/
+CCoeControl* CFreejeSettingsContainer::ComponentControl( TInt aIndex ) const
+	{
+	// [[[ begin generated region: do not modify [Generated Contents]
+	switch ( aIndex )
+		{
+		case 0:
+			return iControl;
+		}
+	// ]]] end generated region [Generated Contents]
+	
+	// handle any user controls here...
+	
+	return NULL;
+	}
+				
+/**
+ *	Handle resizing of the container. This implementation will lay out
+ *  full-sized controls like list boxes for any screen size, and will layout
+ *  labels, editors, etc. to the size they were given in the UI designer.
+ *  This code will need to be modified to adjust arbitrary controls to
+ *  any screen size.
+ */				
+void CFreejeSettingsContainer::SizeChanged()
+	{
+	CCoeControl::SizeChanged();
+	LayoutControls();
+	// [[[ begin generated region: do not modify [Generated Contents]
+			
+	// ]]] end generated region [Generated Contents]
+	
+	}
+				
+// [[[ begin generated function: do not modify
+/**
+ * Layout components as specified in the UI Designer
+ */
+void CFreejeSettingsContainer::LayoutControls()
+	{
+	}
+// ]]] end generated function
+
+/**
+ *	Handle key events.
+ */				
+TKeyResponse CFreejeSettingsContainer::OfferKeyEventL( 
+		const TKeyEvent& aKeyEvent, 
+		TEventCode aType )
+	{
+	// [[[ begin generated region: do not modify [Generated Contents]
+	
+	// ]]] end generated region [Generated Contents]
+	if (aKeyEvent.iCode == EKeyDelete || aKeyEvent.iCode == EKeyBackspace)
+		{
+		iIsDelete = ETrue;
+		}
+	else
+		{
+		iIsDelete = EFalse;
+		}
+		
+	if ( iFocusControl != NULL
+		&& iFocusControl->OfferKeyEventL( aKeyEvent, aType ) == EKeyWasConsumed )
+		{
+		return EKeyWasConsumed;
+		}
+	return CCoeControl::OfferKeyEventL( aKeyEvent, aType );
+	}
+				
+// [[[ begin generated function: do not modify
+/**
+ *	Initialize each control upon creation.
+ */				
+void CFreejeSettingsContainer::InitializeControlsL()
+	{
+	iIsDelete = EFalse;
+	iControl = CHtmlControl::NewL(this);
+	iControl->SetMopParent(this);
+	iControl->SetRect(Rect());
+	iControl->SetEventObserver(this);
+	
+	_LIT(KHtml, "<div id='path' style='width:100%;height:10%;padding:auto 0 auto 2; color:white; background-color:#000000;filter:alpha(opacity=50)' line-wrap='clip' align='right'><text res='"MAKESTR(R_SETTINGS_TITLE)"'></div>");
+	iControl->AppendContentL(KHtml);
+	    
+	iFocusControl = iControl;
+	
+	_LIT(KHtml2, "<div style='height:90%;width:100%'>"
+		"<form id='form'>"
+	         "<text res='"MAKESTR(R_SETTINGS_LOGIN_TITLE)"'><br><div id='address' style='font-style:bold;font-size:large'><input id='login' direct-focus='true' type='text' max-length='40' style='width:auto'></div><br>"
+	         "<text res='"MAKESTR(R_SETTINGS_PASSWORD_TITLE)"'><br><div id='address' style='font-style:bold;font-size:large'><input id='password' direct-focus='true' type='password' max-length='40' style='width:auto'></div><br>"
+	         "<text res='"MAKESTR(R_SETTINGS_NUMBER_TITLE)"'><br><div id='address' style='font-style:bold;font-size:large'><input id='phoneNumber' direct-focus='true' type='text' input-mode='number' max-length='17' style='width:auto'></div><br>"
+//	         "<a id='freejeUrl' href='http://freeje.com'>Need Login and Password? Register!</a>"
+	         "<div style='width:100%;padding:2 auto'>"MAKESTR(R_STRING_TITLE)/*Need Login and Password?*/"</div>"
+	         "<input id='freejeUrl' class='button' type='submit' value='"MAKESTR(R_STRING_REGISTER)"' style='height:15%;margin:2 auto'>"
+	    "</form>"
+	    "</div>"
+	    );
+	iControl->AppendContentL(KHtml2);
+	    
+	SetSkin();
+	    
+	SetSettingsValues();
+    
+	((CEikEdwin*)(iControl->Element(KIdLogin)->EmbedObject()))->SetAknEditorSpecialCharacterTable(R_AVKON_LOGIN_SPECIAL_CHARACTER_TABLE_DIALOG);
+	((CEikEdwin*)(iControl->Element(KIdPassword)->EmbedObject()))->SetAknEditorSpecialCharacterTable(R_AVKON_PASSWORD_SPECIAL_CHARACTER_TABLE_DIALOG);
+	((CEikEdwin*)(iControl->Element(KIdNumber)->EmbedObject()))->SetAknEditorSpecialCharacterTable(0);
+
+	((CEikEdwin*)(iControl->Element(KIdLogin)->EmbedObject()))->SetAknEditorAllowedInputModes(EAknEditorNumericInputMode|EAknEditorTextInputMode);
+	((CEikEdwin*)(iControl->Element(KIdPassword)->EmbedObject()))->SetAknEditorAllowedInputModes(EAknEditorNumericInputMode|EAknEditorTextInputMode|EAknEditorSecretAlphaInputMode);
+	((CEikEdwin*)(iControl->Element(KIdNumber)->EmbedObject()))->SetAknEditorAllowedInputModes(EAknEditorNumericInputMode);
+
+	((CEikEdwin*)(iControl->Element(KIdLogin)->EmbedObject()))->SetEdwinObserver(this);
+	((CEikEdwin*)(iControl->Element(KIdPassword)->EmbedObject()))->SetEdwinObserver(this);
+//	((CEikEdwin*)(iControl->Element(KIdLogin)->EmbedObject()))
+	
+	iControl->RefreshAndDraw();
+	}
+// ]]] end generated function
+
+/** 
+ * Handle global resource changes, such as scalable UI or skin events (override)
+ */
+void CFreejeSettingsContainer::HandleResourceChange( TInt aType )
+	{
+	CCoeControl::HandleResourceChange( aType );
+	SetRect( iAvkonViewAppUi->View( TUid::Uid( EFreejeSettingsContainerViewId ) )->ClientRect() );
+	// [[[ begin generated region: do not modify [Generated Contents]
+	// ]]] end generated region [Generated Contents]
+	HtmlCtlLib::ReportResourceChange(aType);
+		    
+	if(aType==KEikDynamicLayoutVariantSwitch)
+		{
+		iControl->SetRect(Rect());
+		iControl->Refresh();
+		}
+	}
+				
+/**
+ *	Draw container contents.
+ */				
+void CFreejeSettingsContainer::Draw( const TRect& aRect ) const
+	{
+	// [[[ begin generated region: do not modify [Generated Contents]
+	CWindowGc& gc = SystemGc();
+	gc.Clear( aRect );
+	
+	// ]]] end generated region [Generated Contents]
+	
+	}
+				
+void CFreejeSettingsContainer::SetSkin()
+    {
+    iControl->ClearStyleSheet();
+    _LIT(KStyleSheet,
+    	"body { background-image: skin#1000; color:skin#5}"
+        ".button { background-image:frame#1400;  filter:corner(3,3); color:skin#9 }"
+    );
+    iControl->AddStyleSheetL(KStyleSheet);
+    }
+
+void CFreejeSettingsContainer::HandleHtmlCtlEventL(const THtmlCtlEvent& aEvent)
+    {
+	if(aEvent.iType==THtmlCtlEvent::EOnClick)
+        {
+		LOG(_L("url click"));
+		const TInt KWmlBrowserUid = 0x10008D39;
+		
+		TBuf<256> ptr;
+		//"4 " is to Start/Continue the browser specifying a URL 
+//		param->Des().Append(_L("4 "));
+//		param->Des().Append(aUrl);
+		ptr.Insert(0, _L("4 http://www.caller-mate.com"));
+		RApaLsSession appArcSession;
+		// connect to AppArc server
+		User::LeaveIfError(appArcSession.Connect());
+		TThreadId id;
+		appArcSession.StartDocument( ptr, TUid::Uid( KWmlBrowserUid) , id );
+		appArcSession.Close();
+//		CleanupStack::PopAndDestroy(param);
+        }
+    }
+
+TBool CFreejeSettingsContainer::GetSettingsValues()
+	{
+	TBool isChanged = EFalse;
+	TBuf<40> buf;
+	CFreejeAppUi* appUi = static_cast<CFreejeAppUi*>(iAvkonViewAppUi);
+
+	buf.FillZ();
+	iControl->Element(KIdLogin)->GetProperty(KHStrValue, buf);
+	if (buf.Length() > 0)
+		{
+		LOGF(_L8("old %S"), &(appUi->Settings()->SetStruct().login));
+		LOGF(_L("new %S"), &buf);
+		if (buf.Compare(*CnvUtfConverter::ConvertToUnicodeFromUtf8L(appUi->Settings()->SetStruct().login)) != 0)
+			{
+			LOG(_L("changed"));
+			isChanged = ETrue;
+			appUi->SetLogin(*CnvUtfConverter::ConvertFromUnicodeToUtf8L(buf));
+			}
+		else
+			{
+			appUi->SetLogin(appUi->Settings()->SetStruct().login);
+			}
+		}
+	else
+		{
+		appUi->RunInfoDlg(R_SETTINGS_LOGIN_ERROR);
+		return EFalse;
+		}
+	
+	buf.FillZ();
+	iControl->Element(KIdPassword)->GetProperty(KHStrValue, buf);
+	if (buf.Length() > 0)
+		{
+		LOGF(_L8("old %S"), &(appUi->Settings()->SetStruct().password));
+		LOGF(_L("new %S"), &buf);
+		if (buf.Compare(*CnvUtfConverter::ConvertToUnicodeFromUtf8L(appUi->Settings()->SetStruct().password)) != 0)
+			{
+			LOG(_L("changed"));
+			isChanged = ETrue;
+			appUi->SetPassword(*CnvUtfConverter::ConvertFromUnicodeToUtf8L(buf));
+			}
+		else
+			{
+			appUi->SetPassword(appUi->Settings()->SetStruct().password);
+			}
+		}
+	else
+		{
+		appUi->RunInfoDlg(R_SETTINGS_PASSWORD_ERROR);
+		return EFalse;
+		}
+	
+	buf.FillZ();
+	iControl->Element(KIdNumber)->GetProperty(KHStrValue, buf);
+	if (buf.Length() > 0)
+		{
+		if (buf.Compare(appUi->Settings()->SetStruct().number) != 0)
+			{
+			isChanged = ETrue;
+			LOGF(_L("new number %S"), &buf);
+			appUi->SetOwnNumber(buf);
+			}
+		}
+	else
+		{
+		appUi->RunInfoDlg(R_SETTINGS_NUMBER_ERROR);
+		return EFalse;
+		}
+	
+	if (isChanged)
+		{
+		appUi->NewNumberRequest(*CnvUtfConverter::ConvertFromUnicodeToUtf8L( ((appUi->Settings()->SetStruct().number.Length()) > 0 ? appUi->Settings()->SetStruct().number : KNullNumber())), *CnvUtfConverter::ConvertFromUnicodeToUtf8L(buf));
+		return EFalse;
+		}
+	return ETrue;
+	}
+
+void CFreejeSettingsContainer::SetSettingsValues()
+	{
+	CFreejeAppUi* appUi = static_cast<CFreejeAppUi*>(iAvkonViewAppUi);
+	iControl->Element(KIdLogin)->SetProperty(KHStrValue, *CnvUtfConverter::ConvertToUnicodeFromUtf8L(appUi->Settings()->SetStruct().login));
+	iControl->Element(KIdPassword)->SetProperty(KHStrValue, *CnvUtfConverter::ConvertToUnicodeFromUtf8L(appUi->Settings()->SetStruct().password));
+	iControl->Element(KIdNumber)->SetProperty(KHStrValue, appUi->Settings()->SetStruct().number);
+	iControl->Refresh();
+	}
+
+void CFreejeSettingsContainer::HandleEdwinEventL(CEikEdwin* aEdwin,TEdwinEvent aEventType)
+	{
+//	LOGF(_L("edwin event %d"), aEventType);
+	if (aEventType == EEventTextUpdate && !iIsDelete)
+		{
+//		LOGF(_L("edwin event pos %d"), aEdwin->CursorPos());
+		TInt curPos = aEdwin->CursorPos()-1;
+		CPlainText* text = aEdwin->Text();
+		if (curPos >= 0 && text->DocumentLength() > 0)
+			{
+			TBuf<1> buf;
+			text->Extract(buf, curPos, 1);
+//			LOGF(_L("edwin buf %S"), &buf);
+//			LOGF(_L("edwin char %d"), (TInt)buf[0]);
+			if (!IsValidChar(buf[0]))
+				{
+//				LOG(_L("delete"));
+				TRAP_IGNORE(text->DeleteL(curPos, 1));
+				char nullChar = 0;
+				aEdwin->Text()->InsertL(curPos, nullChar);
+				aEdwin->HandleTextChangedL();
+				aEdwin->SetCursorPosL(curPos, EFalse);
+				}
+			}
+		}
+	}
+
+TBool CFreejeSettingsContainer::IsValidChar(TInt aChar)
+	{
+//	LOGF(_L("focus control %S"), &GetFocusControl());
+	if (GetFocusControl().Compare(KIdLogin) == 0)
+		{
+		//A(65)-Z(90) a(97)-z(122) 0(48)-9(57) -(45) _(95) .(46) and @(64)
+		//45-46
+		//48-57
+		//64-90
+		//95
+		//97-122
+		if (aChar == 45 || aChar == 46 || (aChar >= 48 && aChar <= 57) ||
+			(aChar >= 64 && aChar <= 90) || aChar == 95 || (aChar >= 97 && aChar <= 122))
+			return ETrue;
+		}
+	else if (GetFocusControl().Compare(KIdPassword) == 0)
+		{
+		//A-Z(65-90) a-z(97-122) 0-9(48-57) -(45)
+		//_(95) =(61) +(43) %(37) &(38) #(35) ?(63) !(33) and *(42)
+		//
+		if (aChar == 33 || aChar == 35 || aChar == 37 || aChar == 38 ||
+			aChar == 42 || aChar == 43 || aChar == 45 || (aChar >= 48 && aChar <= 57) ||
+			aChar == 61 || aChar == 63 || (aChar >= 65 && aChar <= 90) ||
+			aChar == 95 || (aChar >= 97 && aChar <= 122))
+			return ETrue;
+		}
+	return EFalse;
+	}
+
+const TDesC& CFreejeSettingsContainer::GetFocusControl() const
+	{
+	return iControl->FocusedElement()->Id();
+	}
+
+

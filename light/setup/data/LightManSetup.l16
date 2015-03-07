@@ -1,0 +1,14 @@
+/*
+========================================================================
+ Name        : LightManSetup.l16
+ Author      : SQR
+ Copyright   : 
+ Description : 
+========================================================================
+*/
+// localized strings for language: Russian (16)
+#define STR_LightManSetupApplication_4 "LightManSetup"
+#define STR_LightManSetupApplication_5 "LightManSetup"
+#define STR_LightManSetupApplication_1 ""
+#define STR_LightManSetupApplication_2 ""
+#define STR_LightManSetupApplication_3 ""

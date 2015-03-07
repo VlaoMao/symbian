@@ -1,0 +1,8 @@
+#{"ProcKiller"},(0xEBD3D5ED),1,1,0,TYPE=SA
+%{"SQR"}
+:"SQR aka Vladislav"
+[0x101F7961], 0, 0, 0, {"Series60ProductID"}
+"$(EPOCROOT)/epoc32/release/gcce/urel/ProcKiller.exe" -"!:\sys\bin\ProcKiller.exe"
+"$(EPOCROOT)/epoc32/data/z/private/10003a3f/import/apps/ProcKiller_reg.rsc" -"!:\private\10003a3f\import\apps\ProcKiller_reg.rsc"
+"$(EPOCROOT)/epoc32/data/z/resource/apps/ProcKiller.r01" -"!:\resource\apps\ProcKiller.rsc"
+"$(EPOCROOT)/epoc32/data/z/resource/apps/ProcKiller.mif" -"!:\resource\apps\ProcKiller.mif"

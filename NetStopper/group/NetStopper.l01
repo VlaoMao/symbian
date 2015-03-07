@@ -1,0 +1,2 @@
+#define MESSAGE "Active connections not found"
+#define MESSAGE_NUM "Connections stopped: %N"

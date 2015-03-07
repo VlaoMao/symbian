@@ -1,0 +1,7 @@
+CHARACTER_SET UTF8
+#ifdef LANGUAGE_01
+#include "NetStopper.l01"
+#endif
+#ifdef LANGUAGE_16
+#include "NetStopper.l16"
+#endif

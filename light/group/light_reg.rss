@@ -1,0 +1,17 @@
+/*
+ * light_reg.rss
+ *
+ *  Created on: 21.10.2011
+ *      Author: SQR
+ */
+
+#include <appinfo.rh>
+
+UID2 KUidAppRegistrationResourceFile
+UID3 0x2004bb05
+RESOURCE APP_REGISTRATION_INFO
+	{
+    app_file="LightMan";
+    localisable_resource_file = "\\resource\\apps\\LightMan";
+	group_name = "SQR Soft";
+	}

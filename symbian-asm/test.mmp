@@ -1,0 +1,8 @@
+TARGET test.exe
+TARGETTYPE exe
+UID 0 0x2004bb02
+SYSTEMINCLUDE \epoc32\include
+SOURCEPATH .
+SOURCE test.s
+LIBRARY euser.lib flogger.lib
+CAPABILITY ALL -TCB -DRM

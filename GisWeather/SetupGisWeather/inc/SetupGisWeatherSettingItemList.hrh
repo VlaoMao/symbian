@@ -1,0 +1,32 @@
+/*
+========================================================================
+ Name        : SetupGisWeatherSettingItemList.hrh
+ Author      : SQR
+ Copyright   : Created SQR, 2010, Russia
+ Description : 
+========================================================================
+*/
+enum TSetupGisWeatherSettingItemListViewCommands
+	{
+	ESetupGisWeatherSettingItemListViewMenuItem1Command = 0x6000,
+	ESetupGisWeatherSettingItemListView_MenuItem2Command,
+	ESetupGisWeatherSettingItemListView_MenuItem3Command,
+	ESetupGisWeatherSettingItemListView_MenuItem5Command,
+	ESetupGisWeatherSettingItemListView_MenuItem1Command,
+	ESetupGisWeatherSettingItemListView_MenuItem4Command,
+	ESetupGisWeatherSettingItemListView_MenuItemCommand
+	};
+enum TSetupGisWeatherSettingItemListViewItems
+	{
+	ESetupGisWeatherSettingItemListViewIntegerEditor1 = 1,
+	ESetupGisWeatherSettingItemListViewIntegerEditor2,
+	ESetupGisWeatherSettingItemListViewIntegerEditor_land_y,
+	ESetupGisWeatherSettingItemListViewIntegerEditor_land_x,
+	ESetupGisWeatherSettingItemListViewIntegerEditor3,
+	ESetupGisWeatherSettingItemListViewEdit1,
+	ESetupGisWeatherSettingItemListViewEdit2,
+	ESetupGisWeatherSettingItemListViewEdit3,
+	ESetupGisWeatherTimeEditFrom,
+	ESetupGisWeatherTimeEditDo,
+	ESetupGisWeatherAutostart
+	};

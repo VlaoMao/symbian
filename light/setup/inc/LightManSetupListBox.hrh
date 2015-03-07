@@ -1,0 +1,23 @@
+/*
+========================================================================
+ Name        : LightManSetupListBox.hrh
+ Author      : SQR
+ Copyright   : 
+ Description : 
+========================================================================
+*/
+enum TLightManSetupListBoxViewCommands
+	{
+	ELightManSetupListBoxViewAddMenuItemCommand = 0x6000,
+	ELightManSetupListBoxViewChangeMenuItemCommand,
+	ELightManSetupListBoxViewDeleteMenuItemCommand,
+	ELightManSetupListBoxViewAboutMenuItemCommand,
+        ELightManSetupListBoxViewExitMenuItemCommand,
+        ELightSave
+	};
+enum TTestFormViewControls
+                        {
+                        EmyformDlgCIdEdwin = 100,
+                        EmyformDlgCIdEdwin2,
+                        EmyformDlgCIdEdwin3
+                        };

@@ -1,0 +1,49 @@
+--- media/truecrypt1/workspace/CallBack/src/Window.cpp	2012-10-22 16:30:28.197389243 +0400
++++ media/truecrypt2/workspace/CallBack/src/Window.cpp	2012-10-23 09:50:27.115554791 +0400
+@@ -95,7 +95,7 @@
+     iReader = CATReader::NewLC();//+3 в стек
+     iSender = CATSender::NewLC(*iReader);//+4 в стек
+     iTimer = CMyTimer::NewL();//Засунуть в стек!
+-    iTimer->SetObserver(this);
++    iTimer->SetObserver(NULL);
+ }
+ void CWindow::ReadConf()
+ {
+@@ -313,7 +313,7 @@
+         }else{
+             switch(e.Type())
+             {
+-                case EEventPointerEnter:
++                /*case EEventPointerEnter:
+                 {
+                     __LOGSTR("Start timer");
+                     iTimer->StartTimer();
+@@ -324,16 +324,26 @@
+                     __LOGSTR("Stop Timer");
+                     iTimer->StopTimer();
+                     break;
+-                }
++                }*/
+                 case EEventPointer:
+                 {
+                     __LOGSTR("Event pointer");
+-                    //iWorkMode = EModeNormal;
+                     if(Abs(e.Pointer()->iPosition.iX - iOldpos.iX) > 5 ||
+                        Abs(e.Pointer()->iPosition.iY - iOldpos.iY) > 5)
+                     {
++                        //Если тапнули дальше, чем в 5 пикселах от старой позиции, обновить картинку
+                         iOldpos = e.Pointer()->iPosition;
+                         Draw_pos();
++                    }else{
++                        //Иначе остановить
++                        if(!iTimer->IsActive())
++                        {
++                            iTimer->StartTimer();
++                        }else{
++                            iTimer->StopTimer();
++                            iWorkMode = EModeNormal;
++                            SaveConfig();
++                        }
+                     }
+                     break;
+                 }

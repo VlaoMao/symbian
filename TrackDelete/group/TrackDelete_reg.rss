@@ -1,0 +1,17 @@
+/*
+ * TrackDelete_reg.rss
+ *
+ *  Created on: 03.11.2012
+ *      Author: SQR
+ */
+
+#include <appinfo.rh>
+
+UID2 KUidAppRegistrationResourceFile
+UID3 0x2004bb02
+RESOURCE APP_REGISTRATION_INFO
+	{
+	app_file="TrackDelete";
+	localisable_resource_file = "\\resource\\apps\\TrackDelete";
+	group_name = "SQR Soft";
+	}

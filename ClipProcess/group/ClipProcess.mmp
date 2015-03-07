@@ -1,0 +1,28 @@
+TARGET		  ClipProcess.exe
+TARGETTYPE	  exe
+UID			 0 0xEFF2875E
+
+MACRO __DEBUG __DEBUG=1
+MACRO __DEBUG_MACROS__=1
+
+SYSTEMINCLUDE   \epoc32\include
+USERINCLUDE ..\inc
+SOURCEPATH ..\src
+SOURCE main.cpp server.cpp change_trap.cpp timer.cpp caller.cpp
+
+SOURCEPATH ..\group
+
+START RESOURCE ClipProcess_reg.rss
+	TARGET ClipProcess_reg.rsc
+	TARGETPATH private\10003a3f\import\apps
+END
+START RESOURCE ClipProcess.rss
+	TARGET ClipProcess.rsc
+	TARGETPATH resource\apps
+	LANG 01
+END
+
+LIBRARY euser.lib flogger.lib bafl.lib etext.lib efsrv.h estor.lib etel3rdparty.lib apgrfx.h ws32.lib
+LIBRARY fbscli.lib gdi.h bitgdi.lib hal.lib browserengine.lib cone.lib
+LIBRARY browserlauncher.lib apparc.lib
+CAPABILITY ALL -TCB -DRM

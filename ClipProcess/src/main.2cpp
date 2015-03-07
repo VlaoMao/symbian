@@ -1,0 +1,40 @@
+/*
+ * main.cpp
+ *
+ *  Created on: 19.02.2011
+ *      Author: vl
+ */
+
+#include <e32base.h>
+#include "logger1.h"
+
+LOCAL_C void Work()
+    {
+    TBuf<256> buf;
+    TTime time(14772437);
+   // time.HomeTime();
+    time.FormatL(buf, _L("%/0%1%/1%2%/2%3%/3%X"));
+
+    __LOGSTR1("%d",time.Int64());
+    __LOGSTR1("buf: %S",&buf);
+    time.FormatL(buf, _L("%-B%:0%J%:1%T%:2%S%:3%+B"));
+    __LOGSTR1("buf: %S",&buf);
+    }
+
+LOCAL_C void SavePanic(TInt aError)
+    {
+    __LOGSTR1("Panic: %d",&aError);
+    }
+
+GLDEF_C TInt E32Main()
+    {
+	CActiveScheduler* shed=new(ELeave) CActiveScheduler();
+	CActiveScheduler::Install(shed);
+	__UHEAP_MARK;
+	CTrapCleanup* cleanup=CTrapCleanup::New();
+	TRAPD(error,Work());
+	__ASSERT_ALWAYS(!error,SavePanic(error));
+	delete cleanup;
+	__UHEAP_MARKEND;
+	return 0;
+    }

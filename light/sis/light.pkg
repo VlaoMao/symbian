@@ -1,0 +1,27 @@
+&EN,RU
+#{"LightMan","LightMan"},(0x2004bb05),1,0,0,TYPE=SA
+%{"SQR","SQR"}
+:"SQR aka Vladislav"
+[0x101F7961], 0, 0, 0, {"Series60ProductID","Series60ProductID"}
+[0x102032BE], 0, 0, 0, {"Series60ProductID","Series60ProductID"}
+[0x102752AE], 0, 0, 0, {"Series60ProductID","Series60ProductID"}
+[0x1028315F], 0, 0, 0, {"Series60ProductID","Series60ProductID"}
+
+"$(EPOCROOT)epoc32/data/z/private/10003a3f/import/apps/LightMan_reg.rsc" -"!:\private\10003a3f\import\apps\LightMan_reg.rsc"
+"$(EPOCROOT)epoc32/data/z/resource/apps/LightMan.rsc" -"!:\resource\apps\LightMan.rsc"
+"$(EPOCROOT)epoc32/data/z/resource/apps/LightMan.mif" -"!:\resource\apps\LightMan.mif"
+"$(EPOCROOT)epoc32/release/gcce/urel/LightMan.exe" -"!:\sys\bin\LightMan.exe",FR,RI
+"$(EPOCROOT)epoc32/data/2004BB05.rsc" - "C:\private\101f875a\import\[2004BB05].rsc"
+
+;Setup
+
+"$(EPOCROOT)epoc32\release\$(PLATFORM)\$(TARGET)\LightManSetup.exe"		-"!:\sys\bin\LightManSetup.exe"
+{
+"$(EPOCROOT)epoc32\data\z\resource\apps\LightManSetup.r01"
+"$(EPOCROOT)epoc32\data\z\resource\apps\LightManSetup.r16"
+} - "!:\resource\apps\LightManSetup.rsc"
+{
+"$(EPOCROOT)epoc32\data\z\private\10003a3f\apps\LightManSetup_reg.r01"
+"$(EPOCROOT)epoc32\data\z\private\10003a3f\apps\LightManSetup_reg.r16"
+} - "!:\private\10003a3f\import\apps\LightManSetup_reg.rsc"
+

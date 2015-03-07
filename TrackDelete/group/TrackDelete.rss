@@ -1,0 +1,23 @@
+/*
+ * TrackDelete.rss
+ *
+ *  Created on: 03.11.2012
+ *      Author: SQR
+ */
+
+#include <appinfo.rh>
+#ifdef LANGUAGE_01
+#elif defined LANGUAGE_16
+#endif
+
+RESOURCE LOCALISABLE_APP_INFO
+    {
+    short_caption = "TrackDelete";
+    caption_and_icon = 
+    CAPTION_AND_ICON_INFO
+        {
+        caption = "TrackDelete";
+        number_of_icons = 1;
+        icon_file ="\\resource\\apps\\TrackDelete.mif";
+        };
+    }

@@ -1,0 +1,17 @@
+/*
+ * vcall_reg.rss
+ *
+ *  Created on: date
+ *      Author: SQR
+ */
+
+#include <appinfo.rh>
+
+UID2 KUidAppRegistrationResourceFile
+UID3 0x2004bbbb
+RESOURCE APP_REGISTRATION_INFO
+	{
+	app_file="vcall";
+	localisable_resource_file = "\\resource\\apps\\vcall";
+	group_name = "SQR Soft";
+	}

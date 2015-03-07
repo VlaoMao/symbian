@@ -1,0 +1,20 @@
+/*
+ * AutoMacro.rss
+ *
+ *  Created on: 20.02.2010
+ *      Author: Vladislav
+ */
+
+#include <appinfo.rh>
+
+RESOURCE LOCALISABLE_APP_INFO
+    {
+    short_caption = "GisWeather";
+    caption_and_icon = 
+    CAPTION_AND_ICON_INFO
+        {
+        caption = "GisWeather";
+        number_of_icons = 1;
+        icon_file ="\\resource\\apps\\GisWeather.mif";
+        };
+    }

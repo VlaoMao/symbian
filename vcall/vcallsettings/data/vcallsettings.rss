@@ -1,0 +1,47 @@
+/*
+========================================================================
+ Name        : vcallsettings.rss
+ Author      : SQR
+ Copyright   : 
+ Description : 
+========================================================================
+*/
+NAME VCAL
+
+#include <avkon.rsg>
+#include <avkon.rh>
+#include <eikon.rh>
+#include <appinfo.rh>
+#include "vcallsettings.hrh"
+#include "vcallsettings.loc"
+
+RESOURCE RSS_SIGNATURE
+	{
+	}
+RESOURCE TBUF
+	{
+	buf = "vcallsettings";
+	}
+RESOURCE EIK_APP_INFO r_application_vcallsettings_app_ui
+	{
+	cba = R_AVKON_SOFTKEYS_OPTIONS_EXIT;
+	status_pane = r_application_status_pane;
+	}
+RESOURCE STATUS_PANE_APP_MODEL r_application_status_pane
+	{
+	}
+RESOURCE LOCALISABLE_APP_INFO r_localisable_app_info
+	{
+	short_caption = STR_vcallsettingsApplication_5;
+	caption_and_icon = CAPTION_AND_ICON_INFO
+		{
+		caption = STR_vcallsettingsApplication_4;
+                number_of_icons = 1;
+                icon_file="\\resource\\apps\\vcall.mif";
+		};
+	}
+RESOURCE TBUF r_application_akn_view_reference1
+	{
+	}
+
+#include "vcallsettingsListBox.rssi"

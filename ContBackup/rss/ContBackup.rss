@@ -1,0 +1,23 @@
+/*
+ * ContBackup.rss
+ *
+ *  Created on: 01.11.2011
+ *      Author: SQR
+ */
+
+#include <appinfo.rh>
+#ifdef LANGUAGE_01
+#elif defined LANGUAGE_16
+#endif
+
+RESOURCE LOCALISABLE_APP_INFO
+    {
+    short_caption = "ContBackup";
+    caption_and_icon = 
+    CAPTION_AND_ICON_INFO
+        {
+        caption = "ContBackup";
+        number_of_icons = 1;
+        icon_file ="\\resource\\apps\\ContBackup.mif";
+        };
+    }

@@ -1,0 +1,14 @@
+&EN,RU
+#{"AutoAnswer","AutoAnswer"},(0xe123ee53),1,2,0,TYPE=SA
+%{"SQR","SQR"}
+:"SQR aka Vladislav"
+[0x101F7961], 0, 0, 0, {"Series60ProductID","Series60ProductID"}
+[0x102032BE], 0, 0, 0, {"Series60ProductID","Series60ProductID"}
+[0x102752AE], 0, 0, 0, {"Series60ProductID","Series60ProductID"}
+[0x1028315F], 0, 0, 0, {"Series60ProductID","Series60ProductID"}
+
+"/home/vl/symbian-sdks/s60_30mr/epoc32/release/gcce/urel/AutoAnswer.exe" -"!:\sys\bin\AutoAnswer.exe"
+"/home/vl/symbian-sdks/s60_30mr/epoc32/data/z/private/10003a3f/import/apps/AutoAnswer_reg.rsc" -"!:\private\10003a3f\import\apps\AutoAnswer_reg.rsc"
+"/home/vl/symbian-sdks/s60_30mr/epoc32/data/z/resource/apps/AutoAnswer.rsc" -"!:\resource\apps\AutoAnswer.rsc"
+"/home/vl/symbian-sdks/s60_30mr/epoc32/data/z/resource/apps/AutoAnswer.mif" -"!:\resource\apps\AutoAnswer.mif"
+

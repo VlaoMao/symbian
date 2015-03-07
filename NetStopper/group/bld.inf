@@ -1,0 +1,16 @@
+/*
+============================================================================
+ Name		: bld.inf
+ Author	  : 
+ Copyright   : Your copyright notice
+ Description : This file provides the information required for building the
+				whole of a stopper.
+============================================================================
+*/
+
+PRJ_PLATFORMS
+DEFAULT
+
+PRJ_MMPFILES
+NetStopper.mmp
+gnumakefile Icons_scalable_dc.mk

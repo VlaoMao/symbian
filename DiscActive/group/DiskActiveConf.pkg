@@ -1,0 +1,23 @@
+; HelloWorldBasic.pkg
+;
+;Language - standard language definitions
+&EN
+
+; standard SIS file header
+#{"DiskActiveConf"},(0xe3434344),1,0,0
+
+;Localised Vendor name
+%{"SQR"}
+
+;Unique Vendor name
+:"SQR"
+
+;Supports Series 60 v 3.0
+[0x101F7961], 0, 0, 0, {"Series60ProductID"}
+
+;Files to install
+"..\..\..\symbian-sdks\s60_30mr\epoc32\release\gcce\urel\DiskActiveConf.exe"                 -"!:\sys\bin\DiskActiveConf.exe"
+"..\..\..\symbian-sdks\s60_30mr\epoc32\data\z\resource\apps\helloworldbasic.rsc"              -"!:\resource\apps\DiskActiveConf.rsc"
+"..\..\..\symbian-sdks\s60_30mr\epoc32\data\z\private\10003a3f\import\apps\helloworldbasic_reg.rsc"  -"!:\private\10003a3f\import\apps\DiskActiveConf_reg.rsc"
+"..\..\..\symbian-sdks\s60_30mr\epoc32\data\z\resource\apps\helloworldbasic_aif.mif"		-"!:\resource\apps\DiskActiveConf.mif"
+

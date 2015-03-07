@@ -1,0 +1,262 @@
+/*
+========================================================================
+ Name        : LightManSetupListBox.rssi
+ Author      : SQR
+ Copyright   : 
+ Description : 
+========================================================================
+*/
+#include "LightManSetupListBox.hrh"
+#include "LightManSetupListBox.loc"
+
+RESOURCE AVKON_VIEW r_light_man_setup_list_box_light_man_setup_list_box_view
+	{
+	cba = R_AVKON_SOFTKEYS_OPTIONS_EXIT;
+    menubar = r_light_menubar_main;
+	toolbar = 0;
+	}
+RESOURCE TBUF r_time_title
+    {
+    buf = STR_form_time;
+    }
+RESOURCE TBUF r_level_title
+    {
+    buf = STR_form_level;
+    }
+RESOURCE TBUF r_note_title_val
+    {
+        buf = STR_form_note_val;
+    }
+RESOURCE TBUF r_main_time
+    {
+        buf = STR_Time;
+    }
+RESOURCE TBUF r_save_failed
+    {
+        buf = STR_save_failed;
+    }
+RESOURCE TBUF r_save_success
+    {
+        buf = STR_save_success;
+    }
+RESOURCE TBUF r_main_level
+    {
+        buf = STR_Level;
+    }
+RESOURCE TBUF r_exit
+    {
+        buf = STR_exit;
+    }
+RESOURCE MENU_BAR r_light_menubar_main
+	{titles =
+			{
+			MENU_TITLE
+				{
+				menu_pane = r_light_man_setup_list_box_menu_pane1_menu_pane;
+				}
+			};
+
+	}
+RESOURCE MENU_BAR r_light_menubar_add
+    {titles =
+            {
+            MENU_TITLE
+                {
+                menu_pane = r_light_menu_add;
+                }
+            };
+
+    }
+RESOURCE STATUS_PANE_APP_MODEL r_light_man_setup_list_box_status_pane
+	{
+	panes =
+		{
+		SPANE_PANE
+			{
+            id = EEikStatusPaneUidTitle;
+			type = EAknCtTitlePane;
+			resource = r_light_man_setup_list_box_title_resource;
+			}
+		};
+	}
+RESOURCE TITLE_PANE r_light_man_setup_list_box_title_resource
+	{
+	txt = STR_LightManSetupListBoxView_4;
+	}
+RESOURCE LISTBOX r_light_man_setup_list_box_list_box
+	{
+	flags = EAknListBoxSelectionList | EAknListBoxMultiselectionList;
+	}
+RESOURCE MENU_PANE r_light_man_setup_list_box_menu_pane1_menu_pane
+	{
+	items =
+		{
+		MENU_ITEM
+			{
+			command = ELightManSetupListBoxViewAddMenuItemCommand;
+            txt = STR_LightManSetupListBoxView_5;
+			},
+        MENU_ITEM
+            {
+            command = ELightSave;
+            txt = STR_Save;
+            },
+		MENU_ITEM
+			{
+			command = ELightManSetupListBoxViewChangeMenuItemCommand;
+			txt = STR_LightManSetupListBoxView_6;
+			},
+		MENU_ITEM
+			{
+			command = ELightManSetupListBoxViewDeleteMenuItemCommand;
+			txt = STR_LightManSetupListBoxView_7;
+			},
+		MENU_ITEM
+			{
+			command = ELightManSetupListBoxViewAboutMenuItemCommand;
+			txt = STR_LightManSetupListBoxView_8;
+			},
+		MENU_ITEM
+			{
+			command = ELightManSetupListBoxViewExitMenuItemCommand;
+			txt = STR_LightManSetupListBoxView_9;
+			}
+		};
+	}
+RESOURCE MENU_PANE r_light_menu_add
+    {
+    items =
+        {
+        MENU_ITEM
+            {
+            command = ELightManSetupListBoxViewAddMenuItemCommand;
+            txt = STR_LightManSetupListBoxView_5;
+            },
+        MENU_ITEM
+            {
+            command = ELightManSetupListBoxViewAboutMenuItemCommand;
+            txt = STR_LightManSetupListBoxView_8;
+            },
+        MENU_ITEM
+            {
+            command = ELightManSetupListBoxViewExitMenuItemCommand;
+            txt = STR_LightManSetupListBoxView_9;
+            }
+        };
+    }
+RESOURCE DIALOG r_myform_form_dialog
+{
+    flags = EEikDialogFlagNoDrag |
+            EEikDialogFlagFillAppClientRect |
+            EEikDialogFlagWait |
+            EEikDialogFlagCbaButtons;
+
+    buttons = R_AVKON_SOFTKEYS_OK_CANCEL;
+    form = r_myform_form;
+}
+
+
+// r_myform_form is defined as :
+
+RESOURCE FORM r_myform_form
+    {
+    flags =  EEikFormEditModeOnly | EEikFormUseDoubleSpacedFormat;
+    items =
+        {
+        DLG_LINE
+            {
+            type=EEikCtTimeEditor;
+            prompt=STR_form_time;
+            id=EmyformDlgCIdEdwin;
+            itemflags = EEikDlgItemTakesEnterKey | EEikDlgItemOfferAllHotKeys;
+            control=TIME_EDITOR
+                {
+                flags = EEikTimeWithoutSecondsField | EEikTimeForce24HourFormat;
+                minTime=TIME
+                {
+
+                };
+                maxTime=TIME
+                {
+                    second=59;
+                    minute=59;
+                    hour=23;
+                };
+                };
+            },
+            DLG_LINE
+            {
+            type=EAknCtSlider;
+            prompt=STR_form_level;
+            id=EmyformDlgCIdEdwin2;
+            itemflags = EEikDlgItemTakesEnterKey;
+            control=SLIDER
+                {
+                layout = EAknFormSliderLayout2;
+                minvalue = 0;
+                maxvalue = 100;
+                step = 1;
+                valuetype = EAknSliderValueNone;
+                minlabel = STR_slider_min;
+                maxlabel = STR_slider_max;
+                valuelabel = STR_slider_label;
+                };
+            }/*,
+            DLG_LINE
+            {
+            type=EEikCtEdwin;
+            prompt=STR_form_note;
+            id=EmyformDlgCIdEdwin3;
+            control=EDWIN
+                {
+                width=50;
+                maxlength=50;
+                };
+            }*/
+        };
+    }
+RESOURCE DIALOG r_about_dialog
+    {
+        flags = EGeneralQueryFlags | EEikDialogFlagNoBorder | EEikDialogFlagNoShadow;
+        buttons = R_AVKON_SOFTKEYS_BACK;
+        items=
+            {
+            DLG_LINE
+                {
+                type = EAknCtPopupHeadingPane;
+                id = EAknMessageQueryHeaderId;
+                itemflags = EEikDlgItemNonFocusing;
+                control=AVKON_HEADING
+                    {
+                    headinglayout=R_AVKON_LIST_HEADING_PANE_POPUPS;
+                    };
+                },
+            DLG_LINE
+                {
+                type = EAknCtMessageQuery;
+                id = EAknMessageQueryContentId;
+                control = AVKON_MESSAGE_QUERY
+                    {
+                    message="";
+                    };
+                }
+            };
+    }
+RESOURCE DIALOG r_query_dialog
+    {
+    flags = EGeneralQueryFlags;
+    buttons = R_AVKON_SOFTKEYS_YES_NO;
+    items=
+        {
+        DLG_LINE
+            {
+            type = EAknCtQuery;
+            id = EGeneralQuery;
+            control = AVKON_CONFIRMATION_QUERY
+                {
+                layout = EConfirmationLayout;
+                label = STR_exit;
+                };
+            }
+        };
+    }

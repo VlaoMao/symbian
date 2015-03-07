@@ -1,0 +1,26 @@
+TARGET LightMan.exe
+TARGETTYPE exe
+UID 0 0x2004bb05
+MACRO DEBUG __DEBUG=1
+SYSTEMINCLUDE \epoc32\include
+USERINCLUDE ..\inc
+SOURCEPATH ..\src
+
+SOURCE main.cpp configuration_manager.cpp active.cpp light_change.cpp timer_active.cpp
+
+SOURCEPATH ..\group
+
+START RESOURCE light_reg.rss
+        TARGET LightMan_reg.rsc
+	TARGETPATH private\10003a3f\import\apps
+END
+START RESOURCE  light.rss
+        TARGET  LightMan.rss
+	TARGETPATH resource\apps
+END
+START RESOURCE 2004BB05.rss
+END
+LIBRARY euser.lib flogger.lib efsrv.lib hwrmlightclient.lib centralrepository.lib cenrepnotifhandler.lib
+LIBRARY avkon.lib eikctl.lib eikcdlg.lib
+CAPABILITY LocalServices NetworkServices ReadUserData WriteUserData WriteDeviceData UserEnvironment ProtServ SwEvent// PowerMgmt
+

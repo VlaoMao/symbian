@@ -1,0 +1,451 @@
+/*
+========================================================================
+ Name        : SetupGisWeatherSettingItemList.rssi
+ Author      : SQR
+ Copyright   : Created SQR, 2010, Russia
+ Description : 
+========================================================================
+*/
+#include "SetupGisWeatherSettingItemList.hrh"
+#include "SetupGisWeatherSettingItemList.loc"
+
+RESOURCE AVKON_VIEW r_setup_gis_weather_setting_item_list_setup_gis_weather_setting_item_list_view
+	{
+	cba = R_AVKON_SOFTKEYS_OPTIONS_EXIT;
+	menubar = r_setup_gis_weather_setting_item_list_options_menu;
+	toolbar = 0;
+	}
+RESOURCE MENU_BAR r_setup_gis_weather_setting_item_list_options_menu
+	{
+	titles =
+		{
+		MENU_TITLE
+			{
+			menu_pane = r_setup_gis_weather_setting_item_list_menu_pane1_menu_pane;
+			}
+		};
+	}
+RESOURCE MENU_PANE r_setup_gis_weather_setting_item_list_menu_pane1_menu_pane
+	{
+	items =
+		{
+		MENU_ITEM
+			{
+			command = ESetupGisWeatherSettingItemListViewMenuItem1Command;
+			txt = STR_SetupGisWeatherSettingItemListView_6;
+			},
+		MENU_ITEM
+			{
+			command = ESetupGisWeatherSettingItemListView_MenuItem2Command;
+			txt = STR_SetupGisWeatherSettingItemListView_77;
+			},
+		MENU_ITEM
+			{
+			command = ESetupGisWeatherSettingItemListView_MenuItem3Command;
+			txt = STR_SetupGisWeatherSettingItemListView_78;
+			},
+		MENU_ITEM
+			{
+			command = ESetupGisWeatherSettingItemListView_MenuItem5Command;
+			txt = STR_SetupGisWeatherSettingItemListView_80;
+			},
+		MENU_ITEM
+			{
+			command = ESetupGisWeatherSettingItemListView_MenuItem1Command;
+			txt = STR_SetupGisWeatherSettingItemListView_76;
+			},
+		MENU_ITEM
+			{
+			command = ESetupGisWeatherSettingItemListView_MenuItem4Command;
+			txt = STR_SetupGisWeatherSettingItemListView_79;
+			},
+		MENU_ITEM
+			{
+			command = ESetupGisWeatherSettingItemListView_MenuItemCommand;
+			txt = STR_SetupGisWeatherSettingItemListView_75;
+			}
+		};
+	}
+RESOURCE STATUS_PANE_APP_MODEL r_setup_gis_weather_setting_item_list_status_pane
+	{
+	panes =
+		{
+		SPANE_PANE
+			{
+			id = EEikStatusPaneUidTitle;
+			type = EAknCtTitlePane;
+			resource = r_setup_gis_weather_setting_item_list_title_resource;
+			}
+		};
+	}
+RESOURCE TITLE_PANE r_setup_gis_weather_setting_item_list_title_resource
+	{
+	txt = STR_SetupGisWeatherSettingItemListView_4;
+	}
+RESOURCE AVKON_SETTING_ITEM_LIST r_setup_gis_weather_setting_item_list_setup_gis_weather_setting_item_list
+	{
+	//flags = EAknSettingItemNumberedStyle;
+	items =
+		{
+		AVKON_SETTING_ITEM
+			{
+			name = STR_SetupGisWeatherSettingItemListView_9;
+			identifier = ESetupGisWeatherSettingItemListViewIntegerEditor1;
+			setting_page_resource = r_setup_gis_weather_setting_item_list_integer_editor1_setting_page_resource;
+			},
+		AVKON_SETTING_ITEM
+			{
+			name = STR_SetupGisWeatherSettingItemListView_10;
+			identifier = ESetupGisWeatherSettingItemListViewIntegerEditor2;
+			setting_page_resource = r_setup_gis_weather_setting_item_list_integer_editor2_setting_page_resource;
+			},
+		AVKON_SETTING_ITEM
+			{
+			name = STR_SetupGisWeatherSettingItemListView_land_y;
+			identifier = ESetupGisWeatherSettingItemListViewIntegerEditor_land_y;
+			setting_page_resource = r_setup_gis_weather_setting_item_list_integer_editor_land_y_setting_page_resource;
+			},
+		AVKON_SETTING_ITEM
+			{
+			name = STR_SetupGisWeatherSettingItemListView_land_x;
+			identifier = ESetupGisWeatherSettingItemListViewIntegerEditor_land_x;
+			setting_page_resource = r_setup_gis_weather_setting_item_list_integer_editor_land_x_setting_page_resource;
+			},
+		AVKON_SETTING_ITEM
+			{
+			name = STR_SetupGisWeatherSettingItemListView_11;
+			identifier = ESetupGisWeatherSettingItemListViewIntegerEditor3;
+			setting_page_resource = r_setup_gis_weather_setting_item_list_integer_editor3_setting_page_resource;
+			},
+		AVKON_SETTING_ITEM
+			{
+			name = STR_SetupGisWeatherSettingItemListView_16;
+			identifier = ESetupGisWeatherSettingItemListViewEdit1;
+			setting_page_resource = r_setup_gis_weather_setting_item_list_edit1_setting_page_resource;
+			},
+		AVKON_SETTING_ITEM
+			{
+			name = STR_SetupGisWeatherSettingItemListView_73;
+			identifier = ESetupGisWeatherSettingItemListViewEdit2;
+			setting_page_resource = r_setup_gis_weather_setting_item_list_edit2_setting_page_resource;
+			},
+		AVKON_SETTING_ITEM
+			{
+			name = STR_SetupGisWeatherSettingItemListView_82;
+			identifier = ESetupGisWeatherSettingItemListViewEdit3;
+			setting_page_resource = r_setup_gis_weather_setting_item_list_edit3_setting_page_resource;
+			},
+        AVKON_SETTING_ITEM
+            {
+            name = STR_Time_From;
+            identifier = ESetupGisWeatherTimeEditFrom;
+            setting_page_resource = r_time_setting_page_from;
+            },
+        AVKON_SETTING_ITEM
+            {
+            name = STR_Time_Do;
+            identifier = ESetupGisWeatherTimeEditDo;
+            setting_page_resource = r_time_setting_page_do;
+            },
+        AVKON_SETTING_ITEM
+            {
+            identifier = ESetupGisWeatherAutostart;
+			setting_page_resource = r_binary_page;
+            associated_resource = r_binary_setting_texts;
+            name = STR_Autostart;
+            }
+		};
+	}
+RESOURCE AVKON_SETTING_PAGE r_binary_page
+	{
+	//label="Binary Options";
+	type = EAknCtPopupSettingList;
+	editor_resource_id = r_binary;
+	//hint_text="hint text";
+	}
+RESOURCE POPUP_SETTING_LIST r_binary
+	{
+	// no definitions required - values obtained from 
+	// associated_resource of owning AVKON_SETTING_ITEM_LIST
+	}
+RESOURCE AVKON_POPUP_SETTING_TEXTS r_binary_setting_texts
+    {
+    setting_texts_resource = r_binary_settingitem_texts;
+    }
+RESOURCE ARRAY r_binary_settingitem_texts
+    {
+    items =
+        {
+        AVKON_ENUMERATED_TEXT
+            {
+            value = 0;
+            text = STR_Autostart_off;
+            },
+        AVKON_ENUMERATED_TEXT
+            {
+            value = 1;
+            text = STR_Autostart_on;
+            }
+        };
+    }
+ 
+RESOURCE AVKON_SETTING_PAGE r_setup_gis_weather_setting_item_list_integer_editor1_setting_page_resource
+	{
+	label = STR_SetupGisWeatherSettingItemListView_9;
+	type = EAknCtIntegerEdwin;
+	editor_resource_id = r_setup_gis_weather_setting_item_list_integer_editor1_editor_resource_id;
+	}
+RESOURCE AVKON_INTEGER_EDWIN r_setup_gis_weather_setting_item_list_integer_editor1_editor_resource_id
+	{
+	unset_value = 0;
+	min = -2147483647;
+	max = 2147483647;
+	}
+RESOURCE AVKON_INTEGER_EDWIN r_setup_gis_weather_setting_item_list_integer_editor_land_y_editor_resource_id
+	{
+	unset_value = 0;
+	min = -2147483647;
+	max = 2147483647;
+	}
+RESOURCE AVKON_INTEGER_EDWIN r_setup_gis_weather_setting_item_list_integer_editor_land_x_editor_resource_id
+	{
+	unset_value = 0;
+	min = -2147483647;
+	max = 2147483647;
+	}
+RESOURCE AVKON_SETTING_PAGE r_setup_gis_weather_setting_item_list_integer_editor2_setting_page_resource
+	{
+	label = STR_SetupGisWeatherSettingItemListView_10;
+	type = EAknCtIntegerEdwin;
+	editor_resource_id = r_setup_gis_weather_setting_item_list_integer_editor2_editor_resource_id;
+	}
+RESOURCE AVKON_INTEGER_EDWIN r_setup_gis_weather_setting_item_list_integer_editor2_editor_resource_id
+	{
+	unset_value = 0;
+	min = -2147483647;
+	max = 2147483647;
+	}
+RESOURCE AVKON_SETTING_PAGE r_setup_gis_weather_setting_item_list_integer_editor3_setting_page_resource
+	{
+	label = STR_SetupGisWeatherSettingItemListView_11;
+	type = EAknCtIntegerEdwin;
+	editor_resource_id = r_setup_gis_weather_setting_item_list_integer_editor3_editor_resource_id;
+	}
+RESOURCE AVKON_SETTING_PAGE r_setup_gis_weather_setting_item_list_integer_editor_land_y_setting_page_resource
+	{
+	label = STR_SetupGisWeatherSettingItemListView_land_y;
+	type = EAknCtIntegerEdwin;
+	editor_resource_id = r_setup_gis_weather_setting_item_list_integer_editor3_editor_resource_id;
+	}
+RESOURCE AVKON_SETTING_PAGE r_setup_gis_weather_setting_item_list_integer_editor_land_x_setting_page_resource
+	{
+	label = STR_SetupGisWeatherSettingItemListView_land_x;
+	type = EAknCtIntegerEdwin;
+	editor_resource_id = r_setup_gis_weather_setting_item_list_integer_editor3_editor_resource_id;
+	}
+RESOURCE AVKON_INTEGER_EDWIN r_setup_gis_weather_setting_item_list_integer_editor3_editor_resource_id
+	{
+	unset_value = 0;
+	min = -2147483647;
+	max = 2147483647;
+	}
+RESOURCE AVKON_SETTING_PAGE r_setup_gis_weather_setting_item_list_edit1_setting_page_resource
+	{
+	label = STR_SetupGisWeatherSettingItemListView_16;
+	type = EEikCtEdwin;
+	editor_resource_id = r_setup_gis_weather_setting_item_list_edit1_editor_resource_id;
+	}
+RESOURCE EDWIN r_setup_gis_weather_setting_item_list_edit1_editor_resource_id
+	{
+	maxlength = 255;
+	default_case = EAknEditorTextCase;
+	allowed_case_modes = EAknEditorAllCaseModes;
+	numeric_keymap = EAknEditorStandardNumberModeKeymap;
+	default_input_mode = EAknEditorTextInputMode;
+	allowed_input_modes = EAknEditorTextInputMode | EAknEditorNumericInputMode | EAknEditorSecretAlphaInputMode | EAknEditorKatakanaInputMode | EAknEditorFullWidthTextInputMode | EAknEditorFullWidthNumericInputMode | EAknEditorFullWidthKatakanaInputMode | EAknEditorHiraganaKanjiInputMode | EAknEditorHalfWidthTextInputMode;
+	}
+RESOURCE TBUF r_setup_gis_weather_setting_item_list_edit1
+	{
+	buf = STR_SetupGisWeatherSettingItemListView_15;
+	}
+RESOURCE AVKON_SETTING_PAGE r_setup_gis_weather_setting_item_list_edit2_setting_page_resource
+	{
+	label = STR_SetupGisWeatherSettingItemListView_73;
+	type = EEikCtEdwin;
+	editor_resource_id = r_setup_gis_weather_setting_item_list_edit2_editor_resource_id;
+	}
+RESOURCE EDWIN r_setup_gis_weather_setting_item_list_edit2_editor_resource_id
+	{
+	maxlength = 255;
+	default_case = EAknEditorTextCase;
+	allowed_case_modes = EAknEditorAllCaseModes;
+	numeric_keymap = EAknEditorStandardNumberModeKeymap;
+	default_input_mode = EAknEditorTextInputMode;
+	allowed_input_modes = EAknEditorTextInputMode | EAknEditorNumericInputMode | EAknEditorSecretAlphaInputMode | EAknEditorKatakanaInputMode | EAknEditorFullWidthTextInputMode | EAknEditorFullWidthNumericInputMode | EAknEditorFullWidthKatakanaInputMode | EAknEditorHiraganaKanjiInputMode | EAknEditorHalfWidthTextInputMode;
+	}
+RESOURCE TBUF r_setup_gis_weather_setting_item_list_edit2
+	{
+	buf = STR_SetupGisWeatherSettingItemListView_72;
+	}
+RESOURCE AVKON_SETTING_PAGE r_setup_gis_weather_setting_item_list_edit3_setting_page_resource
+	{
+	label = STR_SetupGisWeatherSettingItemListView_82;
+	type = EEikCtEdwin;
+	editor_resource_id = r_setup_gis_weather_setting_item_list_edit3_editor_resource_id;
+	}
+RESOURCE EDWIN r_setup_gis_weather_setting_item_list_edit3_editor_resource_id
+	{
+	maxlength = 255;
+	default_case = EAknEditorTextCase;
+	allowed_case_modes = EAknEditorAllCaseModes;
+	numeric_keymap = EAknEditorStandardNumberModeKeymap;
+	default_input_mode = EAknEditorTextInputMode;
+	allowed_input_modes = EAknEditorTextInputMode | EAknEditorNumericInputMode | EAknEditorSecretAlphaInputMode | EAknEditorKatakanaInputMode | EAknEditorFullWidthTextInputMode | EAknEditorFullWidthNumericInputMode | EAknEditorFullWidthKatakanaInputMode | EAknEditorHiraganaKanjiInputMode | EAknEditorHalfWidthTextInputMode;
+	}
+RESOURCE TBUF r_setup_gis_weather_setting_item_list_edit3
+	{
+	buf = STR_SetupGisWeatherSettingItemListView_81;
+	}
+	RESOURCE DIALOG r_about_query_dialog
+	{
+	flags = EGeneralQueryFlags | EEikDialogFlagNoBorder | EEikDialogFlagNoShadow;
+	buttons = R_AVKON_SOFTKEYS_OK_EMPTY;
+	items=
+		{
+		DLG_LINE 
+			{
+			type = EAknCtPopupHeadingPane;
+			id = EAknMessageQueryHeaderId;
+			itemflags = EEikDlgItemNonFocusing;
+			control=AVKON_HEADING
+				{
+				headinglayout=R_AVKON_LIST_HEADING_PANE_POPUPS;
+				};
+			},
+		DLG_LINE
+			{
+			type = EAknCtMessageQuery;
+			id = EAknMessageQueryContentId;
+			control = AVKON_MESSAGE_QUERY
+				{
+				message="";
+				};
+			}
+		};
+	}
+	
+RESOURCE TBUF32 r_str_success
+	{
+		buf=STR_Success;
+	}
+RESOURCE TBUF32 r_str_failed
+	{
+		buf=STR_Failed;
+	}
+RESOURCE TBUF32 r_str_saved
+	{
+		buf=STR_Saved;
+	}
+RESOURCE TBUF32 r_str_started
+	{
+		buf=STR_Start;
+	}
+RESOURCE TBUF32 r_str_title_url
+	{
+		buf=STR_Title_URL_INPUT;
+	}
+RESOURCE TBUF32 r_str_prompt_url
+	{
+		buf=STR_Prompt_URL;
+	}
+/*RESOURCE AVKON_SETTING_ITEM_LIST r_setting_list_setting_time
+    {
+    flags = EAknSettingItemNumberedStyle;
+    title = "Setting list";
+    initial_number = 1;
+    items =
+        {
+        AVKON_SETTING_ITEM
+            {
+            identifier = ESetupGisWeatherTimeEditFrom;
+            setting_page_resource = r_time_setting_page_from;
+            name = "Current time";
+            }
+        };
+    }*/
+
+RESOURCE TBUF32 r_str_time_from_prompt
+	{
+		buf=STR_Time_From_Prompt;
+	}
+
+RESOURCE TBUF32 r_str_time_do_prompt
+	{
+		buf=STR_Time_Do_Prompt;
+	}
+RESOURCE AVKON_SETTING_PAGE r_time_setting_page_from
+    {
+    number = 1;
+    label = STR_Time_From_Prompt;
+    type = EEikCtTimeEditor;
+    editor_resource_id = r_settinglist_time_editor_from;
+    }
+RESOURCE AVKON_SETTING_PAGE r_time_setting_page_do
+    {
+    //flags = EEikTimeWithoutSecondsField;
+    number = 1;
+    label = STR_Time_Do_Prompt;
+    type = EEikCtTimeEditor;
+    editor_resource_id = r_settinglist_time_editor_do;
+    }
+
+
+RESOURCE TIME_EDITOR r_settinglist_time_editor_from
+    {
+    flags = EEikTimeWithoutSecondsField;
+    minTime = TIME
+        {
+        second = 0;
+        minute = 0;
+        hour = 0;
+        };
+    maxTime = TIME
+        {
+        second = 59;
+        minute = 59;
+        hour = 23;
+        };
+    }
+RESOURCE TIME_EDITOR r_settinglist_time_editor_do
+    {
+    flags = EEikTimeWithoutSecondsField;
+    minTime = TIME
+        {
+        second = 0;
+        minute = 0;
+        hour = 0;
+        };
+    maxTime = TIME
+        {
+        second = 59;
+        minute = 59;
+        hour = 23;
+        };
+    }
+RESOURCE TBUF32 r_select_app
+	{
+		buf=STR_Select_APP;
+	}
+STRUCT STRING
+	{
+	LTEXT text;
+	}
+RESOURCE STRING r_about
+	{
+	text = STR_About;
+	}
+RESOURCE TBUF32 r_about_title
+	{
+	buf=STR_SetupGisWeatherSettingItemListView_79;
+	}
+	

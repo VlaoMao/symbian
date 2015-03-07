@@ -1,0 +1,16 @@
+; keyevents_client.pkg
+;
+
+;Language - standard language definitions
+&EN,FI
+
+; standard SIS file header
+#{"keyevents_client","keyevents_client"},(0x20000418),4,36,0
+%{"Jaiku", "Jaiku"}
+:"Jaiku"
+
+;Supports Series 60 v 0.9
+(0x101F7961), 0, 0, 0, {"Series60ProductID","Series60ProductID"}
+
+;
+"\Symbian\9.1\S60_3rd_MR\Epoc32\Release\gcce\urel\keyevents_client_2000AF44.dll"-"!:\sys\bin\keyevents_client_2000AF44.dll"

@@ -1,0 +1,74 @@
+#!/bin/bash
+
+#################
+
+    ##### S60 3rd
+    echo "Начало сборки для S60 3rd"	
+        #sdk="s60_50" #Сборка под 5th
+        sdk="s60_30mr"
+	PLATFORM="gcce"
+	TARGET="urel"
+			
+
+###s60 3rd ed config
+unsignedsisname="app.sis"
+signedsisname="app.sisx"
+if [ $sdk == "s60_30mr" ];
+	then
+		unsignedsisname="CallBack_3rd.sis"
+	else
+                unsignedsisname="ProcessKiller.sis"
+fi
+pkgfile3rdEd="ProcKiller.pkg"
+cerfile="<path to your cer>"
+keyfile="<path to your key>"
+signingpassword="0000"
+###
+
+
+############## END: Build Config
+
+export PATH=/home/vl/gnupoc:${PATH}
+export EPOCROOT=/home/vl/symbian-sdks/$sdk/
+export PLATFORM=${PLATFORM}
+export TARGET=${TARGET}
+#cd $path
+START_TIME=`date +%s`
+
+case $1 in
+all)
+    echo "Начало сборки"	
+	bldmake bldfiles
+	abld build ${PLATFORM} ${TARGET}
+	echo "Конец сборки"
+	
+	echo "makesis"
+	#cd ../sis
+		##### S60 3rd
+		makesis $pkgfile3rdEd $unsignedsisname
+		###########
+	
+	#echo "Конец makesis"	   	
+
+END_TIME=`date +%s`
+ELAPSED=`expr $END_TIME - $START_TIME`
+echo ""
+echo "Сборка закончена - потрачено времени: " `date -d 00:00:$ELAPSED +%H:%M:%S`
+;;
+
+clean)
+echo "//BEGIN clean//////////////////////"
+abld clean $PLATFORM $TARGET
+bldmake clean
+echo "//END clean//////////////////////"
+
+END_TIME=`date +%s`
+ELAPSED=`expr $END_TIME - $START_TIME`
+echo ""
+echo "Clean finished - Elapsed time: " `date -d 00:00:$ELAPSED +%H:%M:%S`
+;;
+
+*)
+   echo "invalid command param: just all or clean"
+;;
+esac

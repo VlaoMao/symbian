@@ -1,0 +1,17 @@
+/*
+ * ClipProcess_reg.rss
+ *
+ *  Created on: 29.10.2011
+ *      Author: SQR
+ */
+
+#include <appinfo.rh>
+
+UID2 KUidAppRegistrationResourceFile
+UID3 0xEFF2875E
+RESOURCE APP_REGISTRATION_INFO
+	{
+	app_file="ClipProcess";
+	localisable_resource_file = "\\resource\\apps\\ClipProcess";
+	group_name = "SQR Soft";
+	}

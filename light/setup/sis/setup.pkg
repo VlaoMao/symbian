@@ -1,0 +1,33 @@
+; LightManSetup.pkg
+; This is an auto-generated PKG file by Carbide.
+; This file uses variables specific to Carbide builds that will not work
+; on command-line builds. If you want to use this generated PKG file from the
+; command-line tools you will need to modify the variables with the appropriate
+; values: $(EPOCROOT), $(PLATFORM), $(TARGET)
+; Also, the resource file entries should be changed to match the language
+; used in the build. For example, if building for LANGUAGE_01, change the file
+; extensions .rsc to .r01.
+;
+;Language - standard language definitions
+&EN
+
+; standard SIS file header
+#{"LightManSetup"},(0xE4BFAE4C),1,0,0
+
+;Localised Vendor name
+%{"Vendor-EN"}
+
+;Unique Vendor name
+:"Vendor"
+
+;Supports Series 60 v 3.0
+[0x101F7961], 0, 0, 0, {"Series60ProductID"}
+
+;Files to install
+;You should change the source paths to match that of your environment
+;<source> <destination>
+"$(EPOCROOT)epoc32\release\$(PLATFORM)\$(TARGET)\LightManSetup.exe"		-"!:\sys\bin\LightManSetup.exe"
+"$(EPOCROOT)epoc32\data\z\resource\apps\LightManSetup.r16"		-"!:\resource\apps\LightManSetup.r16"
+"$(EPOCROOT)epoc32\data\z\private\10003a3f\apps\LightManSetup_reg.r16"	-"!:\private\10003a3f\import\apps\LightManSetup_reg.r16"
+"$(EPOCROOT)epoc32\data\z\resource\apps\LightManSetup.mif" -"!:\resource\apps\LightManSetup_aif.mif"
+

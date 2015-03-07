@@ -1,0 +1,13 @@
+/*bld.inf
+
+ Created on: 05.11.2010
+     Author: vl
+*/
+
+PRJ_PLATFORMS
+DEFAULT
+PRJ_MMPFILES
+rfile.mmp
+..\ui\group\ui.mmp
+gnumakefile Icons_scalable_dc.mk
+gnumakefile ..\ui\group\Icons_aif_scalable_dc.mk

@@ -1,0 +1,45 @@
+
+TARGET			SetupGisWeather.exe
+UID			   0 0x20041D0E
+//VENDORID	  	  0
+TARGETTYPE		exe
+EPOCSTACKSIZE	 0x5000
+
+LANG 01 16
+
+SYSTEMINCLUDE \epoc32\include \epoc32\include\variant \epoc32\include\ecom
+USERINCLUDE	   ..\inc ..\data
+
+SOURCEPATH		..\data
+START RESOURCE	SetupGisWeather.rss
+HEADER
+TARGETPATH resource\apps
+END //RESOURCE
+
+START RESOURCE	SetupGisWeather_reg.rss
+TARGETPATH 	  \private\10003a3f\apps
+END //RESOURCE
+
+LIBRARY			euser.lib apparc.lib cone.lib eikcore.lib avkon.lib
+LIBRARY			commonengine.lib efsrv.lib estor.lib eikcoctl.lib eikdlg.lib 
+LIBRARY			eikctl.lib bafl.lib fbscli.lib aknnotify.lib aknicon.lib
+LIBRARY			etext.lib gdi.lib egul.lib insock.lib commdb.lib flogger.lib
+LIBRARY			ecom.lib apgrfx.lib apsettingshandlerui.lib apengine.lib ws32.lib
+
+
+START BITMAP	SetupGisWeather.mbm
+HEADER
+TARGETPATH		\resource\apps
+SOURCEPATH		..\gfx
+SOURCE	c12,1	list_icon.bmp list_icon_mask.bmp
+END
+
+SOURCEPATH		..\src
+
+#ifdef ENABLE_ABIV2_MODE
+DEBUGGABLE_UDEBONLY
+#endif
+
+SOURCE SetupGisWeatherSettingItemListSettings.cpp SetupGisWeatherSettingItemList.cpp SetupGisWeatherSettingItemListView.cpp SetupGisWeatherApplication.cpp SetupGisWeatherAppUi.cpp SetupGisWeatherDocument.cpp
+CAPABILITY LocalServices NetworkServices ReadUserData WriteUserData UserEnvironment
+//CommDD DiskAdmin LocalServices Location MultimediaDD NetworkControl NetworkServices PowerMgmt ProtServ ReadDeviceData ReadUserData SurroundingsDD SwEvent TrustedUI UserEnvironment WriteDeviceData WriteUserData

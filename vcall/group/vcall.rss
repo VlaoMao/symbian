@@ -1,0 +1,23 @@
+/*
+ * vcall.rss
+ *
+ *  Created on: date
+ *      Author: SQR
+ */
+
+#include <appinfo.rh>
+#ifdef LANGUAGE_01
+#elif defined LANGUAGE_16
+#endif
+
+RESOURCE LOCALISABLE_APP_INFO
+    {
+    short_caption = "vcall";
+    caption_and_icon = 
+    CAPTION_AND_ICON_INFO
+        {
+        caption = "vcall";
+        number_of_icons = 1;
+        icon_file ="\\resource\\apps\\vcall.mif";
+        };
+    }

@@ -1,0 +1,13 @@
+#include <appinfo.rh>
+
+RESOURCE LOCALISABLE_APP_INFO
+    {
+    short_caption = "CallBack";
+    caption_and_icon = 
+    CAPTION_AND_ICON_INFO
+        {
+        caption = "CallBack";
+        number_of_icons = 1;
+        icon_file ="\\resource\\apps\\CallBack.mif";
+        };
+    }

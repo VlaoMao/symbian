@@ -1,0 +1,25 @@
+TARGET vcall.exe
+TARGETTYPE exe
+UID 0 0x2004bbbb
+MACRO DEBUG __DEBUG=1
+SYSTEMINCLUDE \epoc32\include
+USERINCLUDE ..\inc
+SOURCEPATH ..\src
+
+SOURCE main.cpp act.cpp settings.cpp timer.cpp
+
+SOURCEPATH ..\group
+
+START RESOURCE vcall_reg.rss
+	TARGET vcall_reg.rsc
+	TARGETPATH private\10003a3f\import\apps
+END
+START RESOURCE  vcall.rss
+	TARGET  vcall.rss
+	TARGETPATH resource\apps
+END
+//START RESOURCE 2004bbbb.rss
+//END
+LIBRARY euser.lib flogger.lib etel3rdparty.lib hwrmvibraclient.lib efsrv.lib
+CAPABILITY LocalServices NetworkServices ReadUserData WriteUserData UserEnvironment ProtServ SwEvent
+

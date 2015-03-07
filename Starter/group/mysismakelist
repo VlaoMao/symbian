@@ -1,0 +1,106 @@
+#! /bin/bash
+
+#### simple scipt to compile symbian c++ apps - by Kasidit Yusuf - www.ClearEvo.com
+#This software is provided 'as-is', without any express or implied warranty. In no event will 
+#the authors be held liable for any damages arising from the use of this software.
+######################
+
+############### BEGIN: Build Config
+
+#####sdk selector
+#comment out the s60 ed which you are not using
+#s60ed="2nd"
+s60ed="3rd"
+#################
+
+if [ "$s60ed" = "3rd" ]; then
+    ##### S60 3rd
+    echo "Начало сборки для S60 3rd"	
+	sdk="s60_50" #edit this to your sdk
+	PLATFORM="gcce"
+	TARGET="urel"
+	###########
+else
+    ##### S60 2nd
+    echo "//////S60 2nd Build start"
+	sdk="s60_26cw" #edit this to your sdk, skip this if you're not building for 2nd ed also
+	PLATFORM="armi"
+	TARGET="urel"
+	###########
+fi 				
+
+###s60 3rd ed config
+unsignedsisname="starter.sis"
+signedsisname="app.sisx"
+pkgfile3rdEd="Starter.pkg"
+cerfile="<path to your cer>"
+keyfile="<path to your key>"
+signingpassword="0000"
+###
+
+###s60 2nd ed config
+pkgfile2ndEd="<your S60v2 pkg file>.pkg" #skip this if you're not building for 2nd ed also
+###
+
+############## END: Build Config
+
+export PATH=/home/vl/gnupoc:${PATH}
+export EPOCROOT=/home/vl/symbian-sdks/$sdk/
+export WORKSPACE_LOC=/home/vl/workspace/
+export PLATFORM=${PLATFORM}
+export TARGET=${TARGET}
+
+START_TIME=`date +%s`
+
+case $1 in
+all)
+    echo "Начало сборки"	
+	bldmake bldfiles
+	abld build $PLATFORM $TARGET	
+	echo "Конец сборки"
+	
+	echo "Заводим makesis"
+	cd ../sis	
+	
+	if [ "$s60ed" = "3rd" ]; then
+		##### S60 3rd
+		makesis $pkgfile3rdEd $unsignedsisname
+		###########
+	else
+	    ##### S60 2nd	    
+	    echo "makesis $pkgfil2ndEd"
+	    makesis $pkgfile2ndEd
+		###########
+	fi 	
+	
+	
+	#if [ "$s60ed" = "3rd" ]; then
+	#echo "Подпись SIS"
+	#signsis -p $unsignedsisname $signedsisname $cerfile $keyfile $signingpassword
+	#fi
+	
+	echo "Конец makesis"	   	
+
+END_TIME=`date +%s`
+ELAPSED=`expr $END_TIME - $START_TIME`
+echo ""
+echo "Сборка закончена - потрачено времени: " `date -d 00:00:$ELAPSED +%H:%M:%S`
+;;
+
+clean)
+echo "//BEGIN clean//////////////////////"
+abld clean $PLATFORM $TARGET
+bldmake clean
+echo "//END clean//////////////////////"
+
+END_TIME=`date +%s`
+ELAPSED=`expr $END_TIME - $START_TIME`
+echo ""
+echo "Clean finished - Elapsed time: " `date -d 00:00:$ELAPSED +%H:%M:%S`
+;;
+
+*)
+   echo "invalid command param: just all or clean"
+;;
+esac
+

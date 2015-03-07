@@ -1,0 +1,43 @@
+
+TARGET			DiskActiveConf.exe
+UID			   0 0x20066b59
+VENDORID	  	  0
+TARGETTYPE		exe
+EPOCSTACKSIZE	 0x5000
+
+SYSTEMINCLUDE \epoc32\include \epoc32\include\variant \epoc32\include\ecom
+USERINCLUDE	   ..\inc ..\data
+LANG 01 16
+
+SOURCEPATH		..\data
+START RESOURCE	ui.rss
+HEADER
+TARGETPATH resource\apps
+END //RESOURCE
+
+START RESOURCE	ui_reg.rss
+TARGETPATH 	  \private\10003a3f\apps
+END //RESOURCE
+
+LIBRARY			euser.lib apparc.lib cone.lib eikcore.lib avkon.lib
+LIBRARY			commonengine.lib efsrv.lib estor.lib eikcoctl.lib eikdlg.lib 
+LIBRARY			eikctl.lib bafl.lib fbscli.lib aknnotify.lib aknicon.lib
+LIBRARY			etext.lib gdi.lib egul.lib insock.lib
+LIBRARY			ecom.lib inetprotutil.lib http.lib esock.lib
+
+START BITMAP	ui.mbm
+HEADER
+TARGETPATH		\resource\apps
+SOURCEPATH		..\gfx
+SOURCE	c12,1	list_icon.bmp list_icon_mask.bmp
+END
+
+SOURCEPATH		..\src
+
+#ifdef ENABLE_ABIV2_MODE
+DEBUGGABLE_UDEBONLY
+#endif
+
+SOURCE uiSettingItemList.cpp UiSettingItemListSettings.cpp UiSettingItemListView.cpp uiDocument.cpp uiApplication.cpp uiAppUi.cpp
+
+CAPABILITY PowerMgmt

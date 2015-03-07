@@ -1,0 +1,39 @@
+/*
+ * SyncManager.h
+ *
+ *  Created on: 14.07.2011
+ *      Author: vl
+ */
+
+#ifndef SYNCMANAGER_H_
+#define SYNCMANAGER_H_
+
+#include <e32base.h>
+#include <pathinfo.h>
+#include <f32file.h>
+#include "logger1.h"
+#include "ClientEngine.h"
+#include "ClientObserver.h"
+#include "shared.h"
+
+class CSyncManager : public CActive
+	{
+	CSyncManager();
+	~CSyncManager();
+	static CSyncManager* NewLC();
+	void RunL();
+	void DoCancel();
+	TInt RunError(TInt aError);
+	void StartSync();
+private:
+	void ConstructL();
+	CClientObserver* iClientObserver;
+	CClientEngine* iClientEngine;
+	CDir* iDirs;
+	CDir* iFiles;
+	TBuf<256> iRootPath;
+	RFs iFs;
+	HBufC16* iHBufTemp;
+	TPtr16 iPtrBuf;
+	};
+#endif /* SYNCMANAGER_H_ */

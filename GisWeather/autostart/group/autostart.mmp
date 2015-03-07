@@ -1,0 +1,22 @@
+TARGET GisWeather_starter.exe
+TARGETTYPE exe
+UID 0 0x20041D0F
+
+SYSTEMINCLUDE \epoc32\include
+USERINCLUDE ..\inc
+SOURCEPATH ..\src
+SOURCE main.cpp
+START RESOURCE GisWeather_starter_reg.rss
+	TARGET GisWeather_starter_reg.rsc
+	TARGETPATH private\10003a3f\import\apps
+END
+START RESOURCE GisWeather_starter.rss
+	TARGET GisWeather_starter.rsc
+	TARGETPATH resource\apps
+END
+START RESOURCE 20041D0F.rss
+END
+LIBRARY euser.lib flogger.lib
+CAPABILITY LocalServices NetworkServices ReadUserData WriteUserData UserEnvironment ProtServ
+
+

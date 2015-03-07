@@ -1,0 +1,35 @@
+; Installation file for Symbian OS 9.x for generic console application
+; Installation file for KeepConnect EXE
+;
+; This is an auto-generated PKG file by Carbide.
+; This file uses variables specific to Carbide builds that will not work
+; on command-line builds. If you want to use this generated PKG file from the
+; command-line tools you will need to modify the variables with the appropriate
+; values: $(EPOCROOT), $(PLATFORM), $(TARGET)
+;
+
+;
+; UID is the exe's UID
+;
+#{"Keep Connect"},(0xA000EB2B),0,3,0
+
+; Dependencies
+[0x101F7961], 0, 0, 0, {"S60 3rd Edition devices"}
+[0x102032BE], 0, 0, 0, {"S60 3rd Edition FP1 devices"}
+[0x102752AE], 0, 0, 0, {"S60 3rd Edition FP2 devices"}
+[0x1028315F], 0, 0, 0, {"S60 5th Edition devices"}
+
+;Localised Vendor name
+%{"Avis"}
+
+;Unique Vendor name
+:"Avis"
+
+"disclaim.txt"  -"", FT, TA
+"/home/vl/symbian-sdks/s60_30mr/epoc32/release/gcce/urel/KeepConnect.exe"		  -"!:\sys\bin\KeepConnect.exe"
+
+"/home/vl/symbian-sdks/s60_30mr/epoc32/data/z/resource/apps/A000EB2B.rsc"		-"c:\private\101f875a\import\[A000EB2B].rsc"
+"/home/vl/symbian-sdks/s60_30mr/epoc32/data/z/private/10003a3f/apps/KeepConnect_reg.rsc"	-"!:\private\10003a3f\import\apps\KeepConnect_reg.rsc"
+"/home/vl/symbian-sdks/s60_30mr/epoc32/data/z/resource/apps/KeepConnect.rsc"-	"!:\resource\apps\KeepConnect.rsc"
+"/home/vl/symbian-sdks/s60_30mr/epoc32/data/z/resource/apps/KeepConnect.mif"-	"!:\resource\apps\KeepConnect.mif"
+"KeepConnect.ini"-	"!:\Data\KeepConnect\KeepConnect.ini"

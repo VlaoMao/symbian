@@ -1,0 +1,23 @@
+/*
+ * ============================================================================
+ *  Name     : Client.hrh
+ *  Part of  : HTTP Client Example
+ *  Created  : 06/26/2006 by Forum Nokia
+ *  Version  : 2.0
+ *  Copyright: Forum Nokia
+ * ============================================================================
+ */
+
+#ifndef __CLIENT_HRH__
+#define __CLIENT_HRH__
+
+// Client enumerate command codes
+enum TClientIds
+    {
+    EClientGet = 1, // start value must not be 0
+    EClientPost,
+    EClientCancel
+    };
+
+
+#endif // __CLIENT_HRH__

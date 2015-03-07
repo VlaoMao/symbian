@@ -1,0 +1,76 @@
+/*
+============================================================================
+ Name        : VRex_2nd_ed.mmp
+ Author      : Forum Nokia
+ Created     : 31/08/2006 by Forum  Nokia
+ Version     : 2.0
+ Copyright   : Nokia Corporation, 2006
+ Description : 
+    This is the project specification file for S60 2nd edition Video example.
+============================================================================
+*/
+
+TARGET          VRex.app
+TARGETTYPE      app
+
+UID             0x100039CE 0x1EF9CA30 
+TARGETPATH      \system\apps\VRex
+
+SOURCEPATH      ..\src
+SOURCE          VRexApp.cpp 
+SOURCE          VRexAppUi.cpp
+SOURCE          VRexDocument.cpp
+SOURCE          VRexListView.cpp
+SOURCE          VRexListContainer.cpp
+SOURCE          VRexVideoView.cpp
+SOURCE          VRexVideoContainer.cpp
+SOURCE          VRexEngine.cpp
+SOURCE          VRexRecorderAdapter.cpp
+SOURCE          VRexPlayerAdapter.cpp
+SOURCE          VRexViewFinder.cpp
+SOURCE          VRexFileDetails.cpp
+SOURCE          VRexFileDetailsDialog.cpp
+SOURCE          VRexNaviDecoratorTime.cpp
+
+// needed for adding /sis contents to IDE when importing to Carbide
+#ifdef _CARBIDE_CPP_
+SOURCEPATH        ..\sis
+SOURCE            VRex_Carbide.pkg
+#endif
+
+RESOURCE        ..\data\VRex.rss
+RESOURCE        ..\data\VRex_caption.rss
+LANG            SC
+
+USERINCLUDE         ..\inc
+
+SYSTEMINCLUDE           . 
+SYSTEMINCLUDE       \epoc32\include 
+SYSTEMINCLUDE       \epoc32\include\mmf\plugin
+SYSTEMINCLUDE       \epoc32\include\mmf\common
+
+LIBRARY         MMFControllerFramework.lib
+
+LIBRARY         MediaClientVideo.lib // CVideoRecorderUtility
+LIBRARY         ecam.lib // CCamera, MCameraObserver (in Onboard Camera)
+LIBRARY         fbscli.lib gdi.lib
+
+LIBRARY         euser.lib 
+LIBRARY         apparc.lib 
+LIBRARY         cone.lib 
+LIBRARY         eikcore.lib 
+LIBRARY         eikcoctl.lib 
+LIBRARY         avkon.lib
+
+LIBRARY         commonui.lib
+LIBRARY         apmime.lib
+LIBRARY         aknskins.lib
+LIBRARY         efsrv.lib 
+LIBRARY         commonengine.lib
+LIBRARY         charconv.lib
+LIBRARY         bafl.lib
+
+LIBRARY         PlatformEnv.lib
+
+AIF VRex.aif ..\aif VRexAif.rss c8 context_pane_icon.bmp context_pane_icon_mask.bmp list_icon.bmp list_icon_mask.bmp
+

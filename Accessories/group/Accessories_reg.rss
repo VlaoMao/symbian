@@ -1,0 +1,17 @@
+/*
+ * Accessories_reg.rss
+ *
+ *  Created on: 21.10.2011
+ *      Author: SQR
+ */
+
+#include <appinfo.rh>
+
+UID2 KUidAppRegistrationResourceFile
+UID3 0x2004bb01
+RESOURCE APP_REGISTRATION_INFO
+	{
+	app_file="Accessories";
+	localisable_resource_file = "\\resource\\apps\\Accessories";
+	group_name = "SQR Soft";
+	}

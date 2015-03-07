@@ -1,0 +1,28 @@
+/*rfile.mmp
+
+ Created on: 05.11.2010
+     Author: vl
+*/
+TARGET DiskActive.exe
+TARGETTYPE exe
+UID 0 0x20066AB9
+SYSTEMINCLUDE \epoc32\include
+USERINCLUDE ..\inc
+SOURCEPATH ..\src
+SOURCE main.cpp act.cpp
+
+LANG 01
+
+START RESOURCE DiskActive_reg.rss
+	TARGET DiskActive_reg.rsc
+	TARGETPATH private\10003a3f\import\apps
+END
+START RESOURCE DiskActive.rss
+	TARGET DiskActive.rsc
+	TARGETPATH resource\apps
+END
+START RESOURCE 20066AB9.rss
+END
+LIBRARY euser.lib efsrv.lib ws32.lib flogger.lib estor.lib gdi.lib
+CAPABILITY CommDD DiskAdmin LocalServices Location MultimediaDD NetworkControl NetworkServices PowerMgmt ProtServ ReadDeviceData ReadUserData SurroundingsDD SwEvent TrustedUI UserEnvironment WriteDeviceData WriteUserData
+

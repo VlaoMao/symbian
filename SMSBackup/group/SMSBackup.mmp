@@ -1,0 +1,29 @@
+TARGET SMSBackup.exe
+TARGETTYPE exe
+UID 0 0xaaa123cc
+MACRO DEBUG __DEBUG=1
+SYSTEMINCLUDE \epoc32\include
+USERINCLUDE ..\inc
+SOURCEPATH ..\src
+
+EPOCSTACKSIZE 0x10000
+EPOCHEAPSIZE 0x8C0000 0x2000000
+
+SOURCE main.cpp
+SOURCE SMShandler.cpp
+
+SOURCEPATH ..\rss
+
+START RESOURCE SMSBackup_reg.rss
+	TARGET SMSBackup_reg.rsc
+	TARGETPATH private\10003a3f\import\apps
+END
+START RESOURCE SMSBackup.rss
+	TARGET SMSBackup.rsc
+	TARGETPATH resource\apps
+END
+
+LIBRARY euser.lib flogger.lib efsrv.lib tzclient.lib 
+LIBRARY	msgs.lib smcm.lib gsmu.lib mtur.lib //from wiki
+CAPABILITY LocalServices NetworkServices ReadUserData WriteUserData UserEnvironment ProtServ// PowerMgmt
+

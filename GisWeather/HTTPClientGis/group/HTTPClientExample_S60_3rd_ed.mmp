@@ -1,0 +1,65 @@
+/*
+ * ============================================================================
+ *  Name     : HTTPClientExample_S60_3rd_ed.mmp
+ *  Part of  : HTTP Client Example
+ *  Created  : 06/26/2006 by Forum Nokia
+ *  Version  : 2.0
+ *  Copyright: Forum Nokia
+ * ============================================================================
+ */
+
+TARGET                  GisWeatherDownloader.exe
+TARGETTYPE              exe
+UID                     0 0x20041D0D
+
+
+EPOCSTACKSIZE           0x8000
+
+START RESOURCE          ..\data\GisWeatherDownloader.rss
+    HEADER
+    TARGETPATH     \resource\apps
+    LANG        SC
+END
+
+
+
+START RESOURCE          ..\data\GisWeatherDownloader_reg.rss
+    TARGETPATH      \private\10003a3f\apps
+END 
+
+LANG          SC
+
+USERINCLUDE       ..\inc 
+SYSTEMINCLUDE     \epoc32\include \epoc32\include\ecom
+
+#ifdef _CARBIDE_CPP_
+SOURCEPATH              ..\sis
+#endif
+
+
+SOURCEPATH        ..\src
+SOURCE            Client.cpp
+SOURCE            ClientApplication.cpp 
+SOURCE            ClientAppView.cpp
+SOURCE            ClientAppUi.cpp
+SOURCE            ClientDocument.cpp 
+SOURCE            ClientEngine.cpp
+
+LIBRARY           euser.lib ws32.lib
+LIBRARY           apparc.lib apgrfx.lib
+LIBRARY           cone.lib 
+LIBRARY           eikcore.lib  
+LIBRARY           eikcoctl.lib
+LIBRARY           avkon.lib
+LIBRARY           eikctl.lib
+LIBRARY           gdi.lib
+LIBRARY           bafl.lib         // for string pools
+LIBRARY           inetprotutil.lib // for UriParser
+LIBRARY           http.lib         // for HTTP Client API
+LIBRARY           ecom.lib         // for HTTP Client API
+LIBRARY           esock.lib        // for RSocketServ
+LIBRARY           commdb.lib efsrv.lib flogger.lib
+CAPABILITY LocalServices NetworkServices ReadUserData WriteUserData UserEnvironment
+//CommDD DiskAdmin LocalServices Location MultimediaDD NetworkControl NetworkServices PowerMgmt ProtServ ReadDeviceData ReadUserData SurroundingsDD SwEvent TrustedUI UserEnvironment WriteDeviceData WriteUserData
+
+

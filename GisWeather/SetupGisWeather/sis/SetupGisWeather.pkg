@@ -1,0 +1,36 @@
+; SetupGisWeather.pkg
+; This is an auto-generated PKG file by Carbide.
+; This file uses variables specific to Carbide builds that will not work
+; on command-line builds. If you want to use this generated PKG file from the
+; command-line tools you will need to modify the variables with the appropriate
+; values: $(EPOCROOT), $(PLATFORM), $(TARGET)
+; Also, the resource file entries should be changed to match the language
+; used in the build. For example, if building for LANGUAGE_01, change the file
+; extensions .rsc to .r01.
+;
+;Language - standard language definitions
+&EN
+
+; standard SIS file header
+#{"SetupGisWeather"},(0xE8AE00BB),1,0,0
+
+;Localised Vendor name
+%{"SQR"}
+
+;Unique Vendor name
+:"SQR"
+
+;Supports Series 60 v 3.0
+[0x101F7961], 0, 0, 0, {"Series60ProductID"}
+
+;Files to install
+;You should change the source paths to match that of your environment
+;<source> <destination>
+"/home/vl/symbian-sdks/s60_30mr/epoc32/release/gcce/urel/SetupGisWeather.exe"		-"!:\sys\bin\SetupGisWeather.exe"
+"/home/vl/symbian-sdks/s60_30mr/epoc32/data/z/resource/apps/SetupGisWeather.r16"		-"!:\resource\apps\SetupGisWeather.r16"
+"/home/vl/symbian-sdks/s60_30mr/epoc32/data/z/private/10003a3f/apps/SetupGisWeather_reg.r16"	-"!:\private\10003a3f\import\apps\SetupGisWeather_reg.r16"
+"/home/vl/symbian-sdks/s60_30mr/epoc32/data/z/resource/apps/SetupGisWeather.mif" -"!:\resource\apps\SetupGisWeather.mif"
+"/home/vl/symbian-sdks/s60_30mr/epoc32/data/z/resource/apps/SetupGisWeather.mbm" -"!:\resource\apps\SetupGisWeather.mbm"
+; Add any installation notes if applicable
+;"SetupGisWeather.txt"					  -"!:\private\0xE8AE00BB\SetupGisWeather.txt"
+

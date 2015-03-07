@@ -1,0 +1,15 @@
+&EN,RU
+#{"CallBack","CallBack"},(0xe14fff54),1,0,0,TYPE=SA
+%{"SQR","SQR"}
+:"SQR aka Vladislav"
+[0x101F7961], 0, 0, 0, {"Series60ProductID","Series60ProductID"}
+[0x102032BE], 0, 0, 0, {"Series60ProductID","Series60ProductID"}
+[0x102752AE], 0, 0, 0, {"Series60ProductID","Series60ProductID"}
+[0x1028315F], 0, 0, 0, {"Series60ProductID","Series60ProductID"}
+
+"/home/vl/symbian-sdks/belle/epoc32/data/z/private/10003a3f/import/apps/CallBack_reg.rsc" -"!:\private\10003a3f\import\apps\CallBack_reg.rsc"
+"/home/vl/symbian-sdks/belle/epoc32/data/z/resource/apps/CallBack.rsc" -"!:\resource\apps\CallBack.rsc"
+"/home/vl/symbian-sdks/belle/epoc32/data/z/resource/apps/CallBack.mif" - "!:\resource\apps\CallBack.mif"
+"$(HOME)/workspace/CallBack/sis/callback.png" - "C:\system\apps\fastCallback\callback.png"
+"/home/vl/symbian-sdks/belle/epoc32/data/E14FFF54.rsc" - "C:\private\101f875a\import\[e14fff54].rsc"
+"/home/vl/symbian-sdks/belle/epoc32/release/gcce/urel/CallBack.exe" -"!:\sys\bin\CallBack.exe",FR,RI

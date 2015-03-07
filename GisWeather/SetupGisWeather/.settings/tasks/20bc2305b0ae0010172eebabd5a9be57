@@ -1,0 +1,96 @@
+/*
+ * AutoAnswer : main.cpp
+ *
+ *  Created on: 30.04.2011
+ *  Author: Vladislav
+ */
+#include <e32base.h>
+#include "observer.h"
+#include "logger1.h"
+#include "SyncManager.h"
+
+_LIT(KName,"Dicto.exe*");
+
+LOCAL_C void Work()
+	{
+	__LOGSTR("Work");
+	RProcess proc;
+	TProcessId Id;
+	Id=proc.Id();
+	proc.SetPriority(EPriorityHigh);
+	proc.Close();
+/*	__LOGSTR("Start connection");
+	CFTP* ftp = CFTP::NewLC();
+	ftp->SetupConnectionL();
+	User::After(10000000);
+	_CPOPD(ftp);
+	__LOGSTR("Create and stop connection done");*/
+	RFs fs;
+	fs.Connect();
+	fs.CreatePrivatePath(EDriveC);
+	fs.Close();
+	__LOGSTR("Creating observer");
+	CMyObserverClass* obs = CMyObserverClass::NewLC();
+	__LOGSTR("creating phone receiver");
+	CPhoneReceiver* res = CPhoneReceiver::NewLC(*obs);
+	res->StartL();
+	CSyncManager* man = CSyncManager::NewLC();
+	CActiveScheduler::Start();
+	_CPOPD(3);//obs,res,man
+	}
+LOCAL_C void Run()
+    {
+    /*RProcess proc;
+    TInt val;
+    TBuf<5> buf2;
+    TLex lex;
+    buf2.Copy(proc.FullName().Right(1));
+    lex.Assign(buf2);
+    lex.Val(val);
+
+    if(val>1)
+	{
+    TBuf<256> buf;
+    TFullName result;
+    TFindProcess procFinder;
+    buf.Copy(KName);
+    buf.Append(_L("0"));
+    buf.Append(_L("0"));
+    buf.Append(_L("0"));
+
+    for(TInt i=1;i<=val;i++)
+	{
+	buf.AppendNum(i);
+#ifdef __DEBUG
+	__LOGSTR1("buf = %S",&buf);
+#endif
+	procFinder=buf;
+	while(procFinder.Next(result)==KErrNone)
+	    {
+	    proc.Open(procFinder,EOwnerProcess);
+	    proc.Terminate(EExitTerminate);
+	    proc.Close();
+	    }
+	buf.Delete(buf.Length()-1,1);
+	}
+	}else{*/
+	Work();
+	//}
+    }
+
+LOCAL_C void SavePanic(TInt aError)
+	{
+	__LOGSTR1("Panic: %d",aError);
+	}
+GLDEF_C TInt E32Main()
+	{
+	CActiveScheduler* shed = new(ELeave) CActiveScheduler();
+	CActiveScheduler::Install(shed);
+	__UHEAP_MARK;
+	CTrapCleanup* cleanup = CTrapCleanup::New();
+	TRAPD(error,Run());
+	__ASSERT_ALWAYS(!error,SavePanic(error));
+	delete cleanup;
+	__UHEAP_MARKEND;
+	return 0;
+	}

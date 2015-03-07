@@ -1,0 +1,233 @@
+/*
+========================================================================
+ Name        : uiSettingItemList.rssi
+ Author      : SQR
+ Copyright   : Your copyright notice
+ Description : 
+========================================================================
+*/
+#include "uiSettingItemList.hrh"
+#include "uiSettingItemList.loc"
+
+RESOURCE AVKON_VIEW r_ui_setting_item_list_ui_setting_item_list_view
+	{
+	cba = R_AVKON_SOFTKEYS_OPTIONS_EXIT;
+	menubar = r_ui_setting_item_list_options_menu;
+	toolbar = 0;
+	}
+RESOURCE MENU_BAR r_ui_setting_item_list_options_menu
+	{
+	titles =
+		{
+		MENU_TITLE
+			{
+			menu_pane = r_ui_setting_item_list_menu_pane1_menu_pane;
+			}
+		};
+	}
+RESOURCE MENU_PANE r_ui_setting_item_list_menu_pane1_menu_pane
+	{
+	items =
+		{
+		MENU_ITEM
+			{
+			command = EUiSettingItemListViewMenuItem1Command;
+			txt = STR_uiSettingItemListView_6;
+			},
+		MENU_ITEM
+			{
+			command = EUiSettingItemListViewSaveMenuItemCommand;
+			txt = STR_uiSettingItemListView_29;
+			},
+		MENU_ITEM
+			{
+			command = EUiSettingItemListViewRestart_DAMenuItemCommand;
+			txt = STR_uiSettingItemListView_30;
+			},
+		MENU_ITEM
+			{
+			command = EUiSettingItemListViewAboutMenuItemCommand;
+			txt = STR_uiSettingItemListView_32;
+			},
+		MENU_ITEM
+			{
+			command = EUiSettingItemListViewExitMenuItemCommand;
+			txt = STR_uiSettingItemListView_31;
+			}
+		};
+	}
+RESOURCE STATUS_PANE_APP_MODEL r_ui_setting_item_list_status_pane
+	{
+	panes =
+		{
+		SPANE_PANE
+			{
+			id = EEikStatusPaneUidTitle;
+			type = EAknCtTitlePane;
+			resource = r_ui_setting_item_list_title_resource;
+			}
+		};
+	}
+RESOURCE TITLE_PANE r_ui_setting_item_list_title_resource
+	{
+	txt = STR_uiSettingItemListView_4;
+	}
+RESOURCE AVKON_SETTING_ITEM_LIST r_ui_setting_item_list_ui_setting_item_list
+	{
+	flags = EAknSettingItemNumberedStyle;
+	items =
+		{
+		AVKON_SETTING_ITEM
+			{
+			name = STR_uiSettingItemListView_14;
+			identifier = EUiSettingItemListViewIntegerEditor1;
+			setting_page_resource = r_ui_setting_item_list_integer_editor1_setting_page_resource;
+			},
+		AVKON_SETTING_ITEM
+			{
+			name = STR_uiSettingItemListView_16;
+			identifier = EUiSettingItemListViewIntegerEditor2;
+			setting_page_resource = r_ui_setting_item_list_integer_editor2_setting_page_resource;
+			},
+		AVKON_SETTING_ITEM
+			{
+			name = STR_uiSettingItemListView_21;
+			identifier = EUiSettingItemListViewIntegerEditor4;
+			setting_page_resource = r_ui_setting_item_list_integer_editor4_setting_page_resource;
+			},
+		AVKON_SETTING_ITEM
+			{
+			name = STR_uiSettingItemListView_19;
+			identifier = EUiSettingItemListViewIntegerEditor3;
+			setting_page_resource = r_ui_setting_item_list_integer_editor3_setting_page_resource;
+			},
+		AVKON_SETTING_ITEM
+			{
+			name = STR_uiSettingItemListView_23;
+			identifier = EUiSettingItemListViewIntegerEditor5;
+			setting_page_resource = r_ui_setting_item_list_integer_editor5_setting_page_resource;
+			},
+		AVKON_SETTING_ITEM
+			{
+			name = STR_uiSettingItemListView_26;
+			identifier = EUiSettingItemListViewEdit1;
+			setting_page_resource = r_ui_setting_item_list_edit1_setting_page_resource;
+			}
+		};
+	}
+RESOURCE AVKON_SETTING_PAGE r_ui_setting_item_list_integer_editor1_setting_page_resource
+	{
+	label = STR_uiSettingItemListView_14;
+	type = EAknCtIntegerEdwin;
+	editor_resource_id = r_ui_setting_item_list_integer_editor1_editor_resource_id;
+	}
+RESOURCE AVKON_INTEGER_EDWIN r_ui_setting_item_list_integer_editor1_editor_resource_id
+	{
+	unset_value = 0;
+	min = -2147483647;
+	max = 2147483647;
+	}
+RESOURCE AVKON_SETTING_PAGE r_ui_setting_item_list_integer_editor2_setting_page_resource
+	{
+	label = STR_uiSettingItemListView_16;
+	type = EAknCtIntegerEdwin;
+	editor_resource_id = r_ui_setting_item_list_integer_editor2_editor_resource_id;
+	}
+RESOURCE AVKON_INTEGER_EDWIN r_ui_setting_item_list_integer_editor2_editor_resource_id
+	{
+	unset_value = 0;
+	min = -2147483647;
+	max = 2147483647;
+	}
+RESOURCE AVKON_SETTING_PAGE r_ui_setting_item_list_integer_editor3_setting_page_resource
+	{
+	label = STR_uiSettingItemListView_19;
+	type = EAknCtIntegerEdwin;
+	editor_resource_id = r_ui_setting_item_list_integer_editor3_editor_resource_id;
+	}
+RESOURCE AVKON_INTEGER_EDWIN r_ui_setting_item_list_integer_editor3_editor_resource_id
+	{
+	unset_value = 0;
+	min = -2147483647;
+	max = 2147483647;
+	}
+RESOURCE AVKON_SETTING_PAGE r_ui_setting_item_list_integer_editor4_setting_page_resource
+	{
+	label = STR_uiSettingItemListView_21;
+	type = EAknCtIntegerEdwin;
+	editor_resource_id = r_ui_setting_item_list_integer_editor4_editor_resource_id;
+	}
+RESOURCE AVKON_INTEGER_EDWIN r_ui_setting_item_list_integer_editor4_editor_resource_id
+	{
+	unset_value = 0;
+	min = -2147483647;
+	max = 2147483647;
+	}
+RESOURCE AVKON_SETTING_PAGE r_ui_setting_item_list_integer_editor5_setting_page_resource
+	{
+	label = STR_uiSettingItemListView_23;
+	type = EAknCtIntegerEdwin;
+	editor_resource_id = r_ui_setting_item_list_integer_editor5_editor_resource_id;
+	}
+RESOURCE AVKON_INTEGER_EDWIN r_ui_setting_item_list_integer_editor5_editor_resource_id
+	{
+	unset_value = 0;
+	min = -2147483647;
+	max = 2147483647;
+	}
+RESOURCE AVKON_SETTING_PAGE r_ui_setting_item_list_edit1_setting_page_resource
+	{
+	label = STR_uiSettingItemListView_26;
+	type = EEikCtEdwin;
+	editor_resource_id = r_ui_setting_item_list_edit1_editor_resource_id;
+	}
+RESOURCE EDWIN r_ui_setting_item_list_edit1_editor_resource_id
+	{
+	maxlength = 255;
+	default_case = EAknEditorTextCase;
+	allowed_case_modes = EAknEditorAllCaseModes;
+	numeric_keymap = EAknEditorStandardNumberModeKeymap;
+	default_input_mode = EAknEditorTextInputMode;
+	allowed_input_modes = EAknEditorTextInputMode | EAknEditorNumericInputMode | EAknEditorSecretAlphaInputMode | EAknEditorKatakanaInputMode | EAknEditorFullWidthTextInputMode | EAknEditorFullWidthNumericInputMode | EAknEditorFullWidthKatakanaInputMode | EAknEditorHiraganaKanjiInputMode | EAknEditorHalfWidthTextInputMode;
+	}
+RESOURCE TBUF r_ui_setting_item_list_edit1
+	{
+	buf = STR_uiSettingItemListView_25;
+	}
+RESOURCE TBUF32 r_str_success
+	{
+	buf = STR_Success;
+	}
+RESOURCE TBUF32 r_str_failed
+	{
+	buf = STR_Failed;
+	}
+RESOURCE DIALOG r_about_query_dialog
+	{
+	flags = EGeneralQueryFlags | EEikDialogFlagNoBorder | EEikDialogFlagNoShadow;
+	buttons = R_AVKON_SOFTKEYS_OK_EMPTY;
+	items=
+		{
+		DLG_LINE 
+			{
+			type = EAknCtPopupHeadingPane;
+			id = EAknMessageQueryHeaderId;
+			itemflags = EEikDlgItemNonFocusing;
+			control=AVKON_HEADING
+				{
+				headinglayout=R_AVKON_LIST_HEADING_PANE_POPUPS;
+				};
+			},
+		DLG_LINE
+			{
+			type = EAknCtMessageQuery;
+			id = EAknMessageQueryContentId;
+			control = AVKON_MESSAGE_QUERY
+				{
+				message="";
+				};
+			}
+		};
+	}
+RESOURCE TBUF32 r_about_dialog_title { buf=qtn_about_title; }
+RESOURCE TBUF r_about_dialog_text { buf=qtn_about_text; }

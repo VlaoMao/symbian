@@ -1,0 +1,24 @@
+/*
+ * shared.h
+ *
+ *  Created on: 18.06.2011
+ *      Author: vl
+ */
+
+#ifndef SHARED_H_
+#define SHARED_H_
+
+#include <pathinfo.h>
+
+const TUint KAudioPrefOutput = 0x05220001;
+const TUint KAudioPrefInput = 0x05210001;
+// guesswork
+const TUint KAudioPrefInput2 = 0x05200001;
+
+_LIT(KFormat,"%d_%d_%d\\");//YYYY_MM_DD
+_LIT(KFormatTime,"_%d_%d.amr");
+const TInt KBufferLength = 85000;
+
+_LIT(KRootPath,PathInfo::MemoryCardRootPath()+"");
+
+#endif /* SHARED_H_ */

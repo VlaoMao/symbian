@@ -1,0 +1,7 @@
+PRJ_PLATFORMS
+DEFAULT
+PRJ_MMPFILES
+keyevents_client.mmp
+keyevents_server.mmp
+main.mmp
+//gnumakefile icons_scalable_dc.mk

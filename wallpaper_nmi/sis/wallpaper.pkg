@@ -1,0 +1,5 @@
+#{"mShell wallpaper 5th module"},(0xa0009885),1,0,0,TYPE=SP
+%{"SQR"}
+:"SQR aka Vladislav"
+[0x101F7961], 0, 0, 0, {"Series60ProductID"}
+"$(EPOCROOT)epoc32/release/gcce/urel/wallpaper_mm.dll" -"!:\sys\bin\wallpaper_mm.dll"

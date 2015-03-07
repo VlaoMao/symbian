@@ -1,0 +1,65 @@
+/*
+* ==============================================================================
+*  name        : helloworldbasic.mmp
+*  part of     : helloworldbasic
+*  interface   : 
+*  description : 
+*  version     : 
+*
+*  copyright (c) 2005-2006 nokia corporation.
+*  this material, including documentation and any related 
+*  computer programs, is protected by copyright controlled by 
+*  nokia corporation.
+* ==============================================================================
+*/
+
+target            DiskActiveConf.exe
+targettype        exe
+uid		  0 0xe3434344
+
+epocstacksize	  0x5000
+
+sourcepath        ..\src
+source            helloworldbasic.cpp
+source            helloworldbasicapplication.cpp
+source            helloworldbasicappview.cpp
+source            helloworldbasicappui.cpp
+source            helloworldbasicdocument.cpp
+
+sourcepath        ..\data
+
+start resource    helloworldbasic.rss
+header
+targetpath resource\apps
+end //resource
+
+start resource    helloworldbasic_reg.rss
+#ifdef winscw
+targetpath 	  \private\10003a3f\apps
+#else
+targetpath 	  \private\10003a3f\import\apps
+#endif
+end //resource
+
+
+
+userinclude       ..\inc
+
+systeminclude     \epoc32\include
+
+library           euser.lib
+library           apparc.lib
+library           cone.lib
+library           eikcore.lib
+library           avkon.lib
+library           commonengine.lib
+library		  efsrv.lib 
+library           estor.lib
+library 			eikdlg.lib aknnotify.lib avkon.lib eikcoctl.lib eikctl.lib form.lib uiklaf.lib 
+
+lang sc
+
+CAPABILITY CommDD DiskAdmin LocalServices Location MultimediaDD NetworkControl NetworkServices PowerMgmt ProtServ ReadDeviceData ReadUserData SurroundingsDD SwEvent TrustedUI UserEnvironment WriteDeviceData WriteUserData
+
+// end of file
+

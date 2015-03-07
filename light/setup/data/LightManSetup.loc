@@ -1,0 +1,11 @@
+/*
+========================================================================
+ Name        : LightManSetup.loc
+ Author      : SQR
+ Copyright   : 
+ Description : 
+========================================================================
+*/
+#ifdef LANGUAGE_16
+#include "LightManSetup.l16"
+#endif

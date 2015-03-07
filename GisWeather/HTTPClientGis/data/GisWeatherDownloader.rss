@@ -1,0 +1,45 @@
+/*
+ * ============================================================================
+ *  Name     : HTTPClientExample.rss
+ *  Part of  : HTTP Client Example
+ *  Created  : 06/26/2006 by Forum Nokia
+ *  Version  : 2.0
+ *  Copyright: Forum Nokia
+ * ============================================================================
+ */
+
+NAME HTTP
+
+#include <eikon.rh>
+#include <avkon.rh>
+#include <avkon.rsg>
+#include <appinfo.rh>
+
+RESOURCE RSS_SIGNATURE
+    {
+    }
+
+
+// ---------------------------------------------------------
+//   
+//    Default Document Name
+//
+// ---------------------------------------------------------
+//
+RESOURCE LOCALISABLE_APP_INFO
+    {
+    short_caption = "GisWeatherDownloader";
+    caption_and_icon = 
+    CAPTION_AND_ICON_INFO
+        {
+        caption = "GisWeatherDownloader";
+	number_of_icons = 0;
+	};
+    }
+RESOURCE TBUF r_default_document_name
+    {
+    buf="";
+    }
+
+
+// End of file

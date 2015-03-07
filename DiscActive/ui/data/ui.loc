@@ -1,0 +1,13 @@
+/*
+========================================================================
+ Name        : ui.loc
+ Author      : SQR
+ Copyright   : Your copyright notice
+ Description : 
+========================================================================
+*/
+#if defined LANGUAGE_16
+#include "ui.l16"
+#elif defined LANGUAGE_01
+#include "ui.l01"
+#endif

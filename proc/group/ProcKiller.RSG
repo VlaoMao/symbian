@@ -1,0 +1,8 @@
+/*
+ * ProcKiler.RSG
+ *
+ *  Created on: 05.02.2010
+ *      Author: Влад
+ */
+
+#define R_PROCKILLER_LOCALISABLE_APP_INFO        0x2aa8a013

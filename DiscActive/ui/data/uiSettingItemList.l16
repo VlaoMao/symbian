@@ -1,0 +1,31 @@
+/*
+========================================================================
+ Name        : uiSettingItemList.l16
+ Author      : SQR
+ Copyright   : Your copyright notice
+ Description : 
+========================================================================
+*/
+// localized strings for language: Russian (16)
+CHARACTER_SET UTF8
+
+#define STR_uiSettingItemListView_3 ""
+#define STR_uiSettingItemListView_4 "Настройка DiskActive"
+#define STR_uiSettingItemListView_6 "Изменить"
+#define STR_uiSettingItemListView_1 "Settings"
+#define STR_uiSettingItemListView_2 ""
+#define STR_uiSettingItemListView_14 "Позиция X"
+#define STR_uiSettingItemListView_16 "Позиция Y"
+#define STR_uiSettingItemListView_21 "Ширина"
+#define STR_uiSettingItemListView_23 "Время отображения"
+#define STR_uiSettingItemListView_19 "Высота"
+#define STR_uiSettingItemListView_25 "0x0000ff"
+#define STR_uiSettingItemListView_26 "Цвет"
+#define STR_uiSettingItemListView_30 "Перезапуск DA"
+#define STR_uiSettingItemListView_31 "Выход"
+#define STR_uiSettingItemListView_32 "О программе"
+#define STR_uiSettingItemListView_29 "Сохранить"
+#define STR_Success "Готово"
+#define STR_Failed "Не удалось"
+#define qtn_about_text "DiskActive кофигуратор\nВерсия 1.1\nАвтор SQR\nМыло: vlaomao@gmail.com\n(c)2010, Россия"
+#define qtn_about_title "О программе"

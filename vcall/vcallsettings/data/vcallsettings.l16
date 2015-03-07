@@ -1,0 +1,14 @@
+/*
+========================================================================
+ Name        : vcallsettings.l16
+ Author      : SQR
+ Copyright   : 
+ Description : 
+========================================================================
+*/
+// localized strings for language: Russian (16)
+#define STR_vcallsettingsApplication_4 "vcallsettings"
+#define STR_vcallsettingsApplication_5 "vcallsettings"
+#define STR_vcallsettingsApplication_1 ""
+#define STR_vcallsettingsApplication_2 ""
+#define STR_vcallsettingsApplication_3 ""

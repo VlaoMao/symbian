@@ -1,0 +1,32 @@
+/*GisWeather.mmp
+
+ Created on: 25.11.2010
+     Author: vl
+*/
+TARGET ProShow.exe
+TARGETTYPE exe
+UID 0 0x3232ff00
+MACRO DEBUG __DEBUG=1
+//MACRO SELF __SELF_SIGN__=1 //uncomment to build with self signed caps
+SYSTEMINCLUDE \epoc32\include
+USERINCLUDE ..\inc
+SOURCEPATH ..\src
+SOURCE main.cpp server.cpp
+
+START RESOURCE ProShow_reg.rss
+	TARGET ProShow_reg.rsc
+	TARGETPATH private\10003a3f\import\apps
+END
+START RESOURCE ProShow.rss
+	TARGET ProShow.rsc
+	TARGETPATH resource\apps
+END
+LIBRARY euser.lib efsrv.lib ws32.lib apgrfx.lib fbscli.lib gdi.h bitgdi.lib
+LIBRARY flogger.lib bafl.lib profileeng.lib
+
+#ifdef __SELF_SIGN__
+CAPABILITY LocalServices NetworkServices ReadUserData WriteUserData UserEnvironment
+#else
+CAPABILITY LocalServices NetworkServices ReadUserData WriteUserData UserEnvironment ProtServ WriteDeviceData
+#endif
+

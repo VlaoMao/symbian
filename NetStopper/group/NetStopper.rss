@@ -1,0 +1,37 @@
+/*
+ * NetStopper.rss
+ *
+ *  Created on: 22.02.2010
+ *      Author:SQR
+ */
+//NAME JOPA
+
+#include <appinfo.rh>
+//#include <eikon.rh>
+//#include "NetStopper.loc"
+
+/*RESOURCE RSS_SIGNATURE
+	{
+
+	}
+RESOURCE TBUF R_MESSAGE
+	{
+		buf=MESSAGE;
+	}
+RESOURCE TBUF R_MESSAGE_NUM
+	{
+		buf=MESSAGE_NUM;
+	}
+*/
+RESOURCE LOCALISABLE_APP_INFO
+    {
+    short_caption = "NetStopper";
+    caption_and_icon = 
+    CAPTION_AND_ICON_INFO
+        {
+        caption = "NetStopper";
+        number_of_icons = 1;
+        icon_file = 
+                "\\resource\\apps\\NetStopper.mif";
+        };
+    }

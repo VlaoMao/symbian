@@ -1,0 +1,6 @@
+#include <startupitem.rh>
+RESOURCE STARTUP_ITEM_INFO startexe
+						{
+						executable_name="!:\\sys\\bin\\vcall.exe";
+						recovery=EStartupItemExPolicyNone;
+						}

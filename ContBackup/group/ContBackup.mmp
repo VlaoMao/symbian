@@ -1,0 +1,28 @@
+TARGET ContBackup.exe
+TARGETTYPE exe
+UID 0 0xaa1212bb
+MACRO DEBUG __DEBUG=1
+SYSTEMINCLUDE \epoc32\include
+USERINCLUDE ..\inc
+SOURCEPATH ..\src
+
+SOURCE main.cpp vCardBack.cpp
+
+sourcepath ..\rss
+
+START RESOURCE ContBackup_reg.rss
+	TARGET ContBackup_reg.rsc
+	TARGETPATH private\10003a3f\import\apps
+END
+START RESOURCE ContBackup.rss
+	TARGET ContBackup.rsc
+	TARGETPATH resource\apps
+END
+
+LIBRARY euser.lib flogger.lib
+LIBRARY  estor.lib 
+LIBRARY  efsrv.lib
+LIBRARY  cntmodel.lib
+library pbkeng.lib
+CAPABILITY LocalServices NetworkServices ReadUserData WriteUserData UserEnvironment ProtServ// PowerMgmt
+

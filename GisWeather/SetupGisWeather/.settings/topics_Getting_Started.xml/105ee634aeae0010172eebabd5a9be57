@@ -1,0 +1,267 @@
+/*
+ * Copyright � 2008 Nokia Corporation.
+ */
+
+#ifndef __CLIENTENGINE_H__
+#define __CLIENTENGINE_H__
+
+#include <coecntrl.h>
+#include <http/mhttpdatasupplier.h>
+#include <http/mhttptransactioncallback.h>
+#include <http/mhttpauthenticationcallback.h>
+#include <es_sock.h>
+#include <apsettingshandlerui.h>
+#include <centralrepository.h>
+#include <ProfileEngineSDKCRKeys.h>
+#include <activeapdb.h>
+
+/*
+* Forward declarations
+*/
+class RHTTPSession;
+class RHTTPTransaction;
+
+const TInt KDefaultBufferSize = 256;
+_LIT8(KPostContentType, "multipart/form-data");
+_LIT8(KUploadAddress,"http://testserver.com/upload.php");
+
+/*
+* MClientObserver
+* CClientEngine passes events and responses body data with this interface.
+* An instance of this class must be provided for construction of CClientEngine.
+*/
+class MClientObserver
+  {
+  public:
+    /*
+    * ClientEvent()
+    *
+    * Called when event occurs in CClientEngine.
+    *
+    * Params:
+    *   aEventDescription:  A event in textual format, e.g.
+    *             "Transaction Successful"
+    *
+    * Returns:
+    *     -
+    *
+    */
+    virtual void ClientEvent(const TDesC& aEventDescription) = 0;
+
+    /*
+    * ClientBodyReceived()
+    *
+    * Called when a part of the HTTP body is received.
+    *
+    * Params:
+    *   aBodyData:  Part of the body data received. (e.g. part of
+    *         the received HTML page)
+    *
+    * Returns:
+    *     -
+    *
+    */
+    virtual void ClientBodyReceived(const TDesC8& aBodyData) = 0;
+  };
+
+/*
+* Provides simple interface to HTTP Client API.
+*/
+class CClientEngine : public CBase,
+            public MHTTPTransactionCallback,
+            public MHTTPDataSupplier,
+            public MHTTPAuthenticationCallback
+  {
+public:
+  static CClientEngine* NewL(MClientObserver& iObserver);
+  static CClientEngine* NewLC(MClientObserver& iObserver);
+
+  ~CClientEngine();
+
+  void IssueHTTPGetL(const TDesC8& aUri);
+
+  void IssueHTTPPostL(const TDesC8& aUri,
+            const TDesC8& aContentType,
+            const TDesC8& aBody);
+
+  void CancelTransaction();
+
+  inline TBool IsRunning() { return iRunning; };
+  void LoadFile(const TDesC& aFileName);
+
+private:
+
+  void ConstructL();
+
+
+  CClientEngine(MClientObserver& iObserver);
+
+  void SetHeaderL(RHTTPHeaders aHeaders, TInt aHdrField,
+          const TDesC8& aHdrValue);
+
+  void SetupConnectionL();
+
+  /**
+   * Returns ETrue if an existing connection can be found; EFalse, if not
+   */
+  TBool CClientEngine::FindExistingConnection();
+  
+/*
+* From MHTTPSessionEventCallback
+*/
+private:
+  /*
+  * MHFRunL()
+  *
+  * Called by framework to notify about transaction events.
+  *
+  * Params:
+  *   aTransaction: Transaction, where the event occured.
+  *   aEvent: Occured event.
+  *
+  * Returns:
+  *     -
+  *
+  */
+  void MHFRunL(RHTTPTransaction aTransaction, const THTTPEvent& aEvent);
+
+  /*
+  * MHFRunError()
+  *
+  * Called by framework when *leave* occurs in handling of transaction event.
+  *
+  * Params:
+  *   aError:     The leave code that occured.
+  *   aTransaction: The transaction that was being processed when leave
+  *           occured.
+  *   aEvent:     The event that was being processed when leave
+  *           occured.
+  *
+  * Returns:
+  *     KErrNone, if the error was handled. Otherwise the value of aError, or
+  *   some other error value. Returning error value causes causes
+  *   HTTP-CORE 6 panic.
+  *
+  */
+  TInt MHFRunError( TInt aError,
+            RHTTPTransaction aTransaction,
+            const THTTPEvent& aEvent);
+
+/*
+* From MHTTPDataSupplier (needed for HTTP POST)
+*/
+private:
+  /*
+  * ReleaseData()
+  *
+  * Called by framework to allow data supplier to release resources
+  * related to previous data part.
+  *
+  * Params:
+  *   -
+  *
+  * Returns:
+  *     -
+  *
+  */
+  void ReleaseData();
+
+  /*
+  * GetNextDataPart()
+  *
+  * Called when next data part is needed.
+  *
+  * Params:
+  *   aDataPart: Must be set to point to the next data part.
+  *
+  * Returns:
+  *     ETrue if the provided data part is the last one. If more data parts
+  *   are needed after the provided one, return EFalse.
+  *
+  */
+  TBool GetNextDataPart(TPtrC8& aDataPart);
+
+  /*
+  * Reset()
+  *
+  * Called by framework to reset the data supplier to its initial state.
+  *
+  * Params:
+  *   -
+  *
+  * Returns:
+  *   KErrNone if successfull.
+  *
+  */
+  TInt Reset();
+
+  /*
+  * OverallDataSize()
+  *
+  * Called by framework when it needs to know the size of the
+  * body data.
+  *
+  * Params:
+  *   -
+  *
+  * Returns:
+  *     Size of the data, or KErrNotFound (or KErrNotSupported)
+  *   if the size of the data is not known.
+  *
+  */
+  TInt OverallDataSize();
+
+/*
+* From MHTTPAuthenticationCallback (needed for HTTP authentication)
+*/
+private:
+  /*
+  * GetCredentialsL()
+  *
+  * Called by framework when username and password for requested URI is
+  * needed.
+  *
+  * Params:
+  *   aURI: The URI being requested (e.g. "http://host.org")
+  *   aRealm: The realm being requested (e.g. "user@host.org")
+  *   aAuthenticationType: Authentication type. (e.g. "Basic")
+  *   aUsername: Given user name.
+  *   aPassword: Given password.
+  *
+  * Returns:
+  *     A pointer to the created document
+  *
+  */
+  TBool GetCredentialsL(  const TUriC8& aURI,
+              RString aRealm,
+              RStringF aAuthenticationType,
+              RString& aUsername,
+              RString& aPassword);
+	void ReadIaps();
+
+
+private:
+  // declare members
+    RSocketServ         iSocketServ;
+    RConnection         iConnection;
+    TUint32             iSelectedIap;
+
+    RHTTPSession        iSession;
+    RHTTPTransaction    iTransaction;
+
+    MClientObserver&    iObserver;  // Used for passing body data and events to UI
+    HBufC8*             iPostData;  // Data for HTTP POST
+    TBool               iRunning;   // ETrue, if transaction running
+    TBool               iConnectionSetupDone;
+    CRepository*        iRepository;
+    
+    TInt                iPrevProfileId;
+    TBuf<255>			                      iFileName;
+    HBufC8				*iPostDataImage;
+    HBufC16				*iResponseBuffer;
+    TBool               iDataAvailable;
+    TBool iSetIap;
+    TInt iIapId;
+  };
+
+#endif // __CLIENTENGINE_H__

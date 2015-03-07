@@ -1,0 +1,13 @@
+
+#ifndef __HELLOWORLDBASIC_HRH__
+#define __HELLOWORLDBASIC_HRH__
+
+// HelloWorldBasic enumerate command codes
+enum THelloWorldBasicIds
+    {
+    EHelloWorldBasicCommand1 = 0x6001, // start value must not be 0
+    EHelloWorldBasicCommand2,
+    EHelloWorldBasicCommand3
+    };
+
+#endif // __HELLOWORLDBASIC_HRH__

@@ -1,0 +1,16 @@
+/*
+ * ============================================================================
+ *  Name     : bld.inf
+ *  Part of  : HTTP Client Example
+ *  Created  : 06/26/2006 by Forum Nokia
+ *  Version  : 2.0
+ *  Copyright: Forum Nokia
+ * ============================================================================
+ */
+ 
+PRJ_PLATFORMS
+DEFAULT
+
+PRJ_MMPFILES
+HTTPClientExample_S60_3rd_ed.mmp
+//gnumakefile Icons_scalable_dc.mk

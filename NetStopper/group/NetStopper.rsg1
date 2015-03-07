@@ -1,0 +1,9 @@
+/*
+ * NetStopper.rsg
+ *
+ *  Created on: 23.02.2010
+ *      Author: Влад
+ */
+
+#define R_MESSAGE	0xb561003
+#define R_MESSAGE_NUM	0xb561004

@@ -1,0 +1,12 @@
+&EN,RU
+#{"test_asm","test_asm"},(0x2004bb02),1,0,0,TYPE=SA
+%{"SQR","SQR"}
+:"SQR aka Vladislav"
+[0x101F7961], 0, 0, 0, {"Series60ProductID","Series60ProductID"}
+[0x102032BE], 0, 0, 0, {"Series60ProductID","Series60ProductID"}
+[0x102752AE], 0, 0, 0, {"Series60ProductID","Series60ProductID"}
+[0x1028315F], 0, 0, 0, {"Series60ProductID","Series60ProductID"}
+
+"$(EPOCROOT)epoc32/release/gcce/urel/test.exe" -"!:\sys\bin\test.exe"
+
+

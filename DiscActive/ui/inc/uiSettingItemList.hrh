@@ -1,0 +1,25 @@
+/*
+========================================================================
+ Name        : uiSettingItemList.hrh
+ Author      : SQR
+ Copyright   : Your copyright notice
+ Description : 
+========================================================================
+*/
+enum TUiSettingItemListViewCommands
+	{
+	EUiSettingItemListViewMenuItem1Command = 0x6000,
+	EUiSettingItemListViewSaveMenuItemCommand,
+	EUiSettingItemListViewRestart_DAMenuItemCommand,
+	EUiSettingItemListViewAboutMenuItemCommand,
+	EUiSettingItemListViewExitMenuItemCommand
+	};
+enum TUiSettingItemListViewItems
+	{
+	EUiSettingItemListViewIntegerEditor1 = 1,
+	EUiSettingItemListViewIntegerEditor2,
+	EUiSettingItemListViewIntegerEditor3,
+	EUiSettingItemListViewIntegerEditor4,
+	EUiSettingItemListViewIntegerEditor5,
+	EUiSettingItemListViewEdit1
+	};

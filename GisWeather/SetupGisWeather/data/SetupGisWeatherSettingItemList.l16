@@ -1,0 +1,44 @@
+/*
+========================================================================
+ Name        : SetupGisWeatherSettingItemList.l16
+ Author      : SQR
+ Copyright   : Created SQR, 2010, Russia
+ Description : 
+========================================================================
+*/
+// localized strings for language: Russian (16)
+CHARACTER_SET UTF8
+
+#define STR_SetupGisWeatherSettingItemListView_1 "Settings"
+#define STR_SetupGisWeatherSettingItemListView_2 ""
+#define STR_SetupGisWeatherSettingItemListView_3 ""
+#define STR_SetupGisWeatherSettingItemListView_4 "Настройка GisWeather"
+#define STR_SetupGisWeatherSettingItemListView_6 "Изменить"
+#define STR_SetupGisWeatherSettingItemListView_10 "Портрет: позиция Y"
+#define STR_SetupGisWeatherSettingItemListView_land_y "Альбом: позиция Y"
+#define STR_SetupGisWeatherSettingItemListView_land_x "Альбом: позиция X"
+#define STR_SetupGisWeatherSettingItemListView_11 "Интервал обновления"
+#define STR_SetupGisWeatherSettingItemListView_15 "Edit text"
+#define STR_SetupGisWeatherSettingItemListView_16 "UID приложения"
+#define STR_SetupGisWeatherSettingItemListView_9 "Портрет: позиция X"
+#define STR_SetupGisWeatherSettingItemListView_72 "Edit text"
+#define STR_SetupGisWeatherSettingItemListView_73 "Точка доступа"
+#define STR_SetupGisWeatherSettingItemListView_75 "Выход"
+#define STR_SetupGisWeatherSettingItemListView_76 "Скачать информер"
+#define STR_SetupGisWeatherSettingItemListView_77 "Сохранить"
+#define STR_SetupGisWeatherSettingItemListView_78 "Выключить информер"
+#define STR_SetupGisWeatherSettingItemListView_79 "О программе"
+#define STR_SetupGisWeatherSettingItemListView_80 "Запустить информер"
+#define STR_SetupGisWeatherSettingItemListView_81 "Edit text"
+#define STR_SetupGisWeatherSettingItemListView_82 "URL информера"
+#define STR_Success "Готово"
+#define STR_Failed "Не удалось"
+#define STR_Saved "Сохранено"
+#define STR_Start "Загрузка начата"
+#define STR_Time_From "Обновлять с:"
+#define STR_Time_Do "Обновлять до:"
+#define STR_Time_From_Prompt "Введите начало времени"
+#define STR_Time_Do_Prompt "Введите конец времени"
+#define STR_Autostart "Автозапуск"
+#define STR_Autostart_on "Вкл"
+#define STR_Autostart_off "Выкл"

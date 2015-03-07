@@ -1,0 +1,14 @@
+/*bld.inf
+
+ Created on: 25.11.2010
+     Author: vl
+*/
+
+PRJ_PLATFORMS
+DEFAULT
+PRJ_MMPFILES
+GisWeather.mmp
+../autostart/group/autostart.mmp
+../HTTPClientGis/group/HTTPClientExample_S60_3rd_ed.mmp
+../SetupGisWeather/group/SetupGisWeather.mmp
+//gnumakefile Icons_scalable_dc.mk

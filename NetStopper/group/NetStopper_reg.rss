@@ -1,0 +1,16 @@
+/*
+ * NetStopper_reg.rss
+ *
+ *  Created on: 22.02.2010
+ *      Author: Влад
+ */
+
+#include <appinfo.rh>
+
+UID2 KUidAppRegistrationResourceFile
+UID3 0xE663956B
+RESOURCE APP_REGISTRATION_INFO
+	{
+	app_file="NetStopper";
+	localisable_resource_file = "\\resource\\apps\\NetStopper";
+	}

@@ -1,0 +1,17 @@
+/*
+========================================================================
+ Name        : SetupGisWeather.l01
+ Author      : SQR
+ Copyright   : Created SQR, 2010, Russia
+ Description : 
+========================================================================
+*/
+// localized strings for language: English (01)
+#define STR_SetupGisWeatherApplication_1 ""
+#define STR_SetupGisWeatherApplication_2 ""
+#define STR_SetupGisWeatherApplication_3 "GisWeather setup"
+#define STR_SetupGisWeatherApplication_4 "GisWeather setup"
+#define STR_Title_URL_INPUT "Enter informer URL"
+#define STR_Prompt_URL "http://"
+#define STR_Select_APP "Select application"
+#define STR_About "Autor: VlaoMao\nSupport email: vlaomao@gmail.com\n(c)2010-2011,Russia"

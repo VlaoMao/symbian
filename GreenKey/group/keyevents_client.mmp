@@ -1,0 +1,22 @@
+
+//#include <sdk_version.mmp>  // for platform version defines
+//#include "../../context.mmp"   // capabilities
+//#include "../../context_uids.rh"
+#include "client_server.rh"
+
+TARGET          KEYEVENTS_CLIENT_DLL_NAME
+TARGETTYPE      dll
+UID             0x1000008D 0x12121212
+
+
+SOURCEPATH      ..\src
+SOURCE          client.cpp
+
+USERINCLUDE     ..\inc
+
+SYSTEMINCLUDE   \epoc32\include
+
+LIBRARY         euser.lib
+LIBRARY         ws32.lib
+
+EXPORTUNFROZEN

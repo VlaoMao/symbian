@@ -1,0 +1,26 @@
+TARGET Accessories.exe
+TARGETTYPE exe
+UID 0 0x2004bb01
+MACRO DEBUG __DEBUG=1
+SYSTEMINCLUDE \epoc32\include
+USERINCLUDE ..\inc
+SOURCEPATH ..\src
+
+SOURCE main.cpp Acc.cpp act.cpp accel.cpp
+
+SOURCEPATH ..\group
+
+START RESOURCE Accessories_reg.rss
+	TARGET Accessories_reg.rsc
+	TARGETPATH private\10003a3f\import\apps
+END
+START RESOURCE  Accessories.rss
+	TARGET  Accessories.rss
+	TARGETPATH resource\apps
+END
+START RESOURCE 2004BB01.rss
+END
+LIBRARY euser.lib flogger.lib accmonitor.lib apgrfx.lib apparc.lib ws32.lib mpxplaybackutility.lib mpxcommon.lib
+LIBRARY etel3rdparty.lib sensrvutil.lib sensrvclient.lib
+CAPABILITY LocalServices NetworkServices ReadUserData WriteUserData UserEnvironment ProtServ SwEvent// PowerMgmt
+

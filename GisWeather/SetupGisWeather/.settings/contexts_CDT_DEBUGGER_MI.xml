@@ -1,0 +1,71 @@
+/*
+ * ATSender.cpp
+ *
+ *  Created on: 11.07.2011
+ *      Author: vl
+ */
+
+#include "ATSender.h"
+
+CATSender::CATSender() : CActive(EPriorityNormal), iIsWrite(ETrue)
+	{
+
+	}
+CATSender::~CATSender()
+	{
+	Cancel();
+	iComm.Close();
+	iCommServ.Close();
+	}
+CATSender* CATSender::NewLC()
+	{
+	CATSender* self = new (ELeave) CATSender();
+	_CPUSH(self);
+	self->ConstructL();
+	return self;
+	}
+void CATSender::ConstructL()
+	{
+	CActiveScheduler::Add(this);
+	__LOGSTR("CATSender::ConstructL");
+	//_LIT8(KCommandEnd, "ATH\r\n");//ПРОБЕЛ!!!!!
+	_LIT8(KCommandEnd,"AT+CHUP\r\n");
+	iCommandSend.Append(KCommandEnd);
+	__LOGSTR("RCommServ.Connect");
+	User::LeaveIfError(iCommServ.Connect());
+	_LIT(KCsyName, "DATAPORT");
+	__LOGSTR("LoadCommModule");
+	User::LeaveIfError(iCommServ.LoadCommModule(KCsyName));
+	_LIT(KDataPort, "DATAPORT::1");
+	__LOGSTR("Comm.Open");
+	User::LeaveIfError(iComm.Open(iCommServ, KDataPort, ECommShared));
+	}
+void CATSender::RunL()
+	{
+	__LOGSTR1("CATSender::RunL\nCATSender::iStatus: %d",iStatus.Int());
+	if(iStatus.Int() == KErrNone)
+		{
+		TBuf<256> answer;
+		iComm.ReadOneOrMore(iStatus,answer);
+		iIsWrite = EFalse;
+		SetActive();
+		}else{
+			User::Panic(KNullDesC,iStatus.Int());
+		}
+	}
+TInt CATSender::RunError(TInt aError)
+	{
+	__LOGSTR1("CATSender::RunError: %d",aError);
+	return KErrNone;
+	}
+void CATSender::SendAT()
+	{
+	__LOGSTR("CATSender::SendAT");
+	__LOGSTR("Comm.Write");
+	iComm.Write(iStatus, iCommandSend);
+	SetActive();
+	}
+void CATSender::DoCancel()
+	{
+
+	}

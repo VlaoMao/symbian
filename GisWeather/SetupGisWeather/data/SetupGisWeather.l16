@@ -1,0 +1,18 @@
+/*
+========================================================================
+ Name        : SetupGisWeather.l16
+ Author      : SQR
+ Copyright   : Created SQR, 2010, Russia
+ Description : 
+========================================================================
+*/
+// localized strings for language: Russian (16)
+#define STR_SetupGisWeatherApplication_1 ""
+#define STR_SetupGisWeatherApplication_2 ""
+#define STR_SetupGisWeatherApplication_3 "Настройка GisWeather"
+#define STR_SetupGisWeatherApplication_4 "Настройка GisWeather"
+#define STR_Title_URL_INPUT "Введите URL информера"
+#define STR_Prompt_URL "http://"
+#define STR_Select_APP "Выберите приложение"
+#define STR_About "Автор: SQR (VlaoMao)\nПоддержка: vlaomao@gmail.com\n(c)2010-2011,Россия"
+

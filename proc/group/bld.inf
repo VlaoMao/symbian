@@ -1,0 +1,16 @@
+/*
+============================================================================
+ Name		: bld.inf
+ Author	  : SQR
+ Copyright   : 
+ Description : This file provides the information required for building the
+				whole of a proc.
+============================================================================
+*/
+
+PRJ_PLATFORMS
+DEFAULT
+
+PRJ_MMPFILES
+proc.mmp
+gnumakefile Icons_scalable_dc.mk

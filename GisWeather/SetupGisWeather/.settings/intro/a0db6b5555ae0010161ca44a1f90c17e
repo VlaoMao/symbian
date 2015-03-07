@@ -1,0 +1,95 @@
+/*
+ * SyncManager.cpp
+ *
+ *  Created on: 14.07.2011
+ *      Author: vl
+ */
+
+#include "SyncManager.h"
+
+CSyncManager::CSyncManager() : CActive(EPriorityNormal)
+	{
+
+	}
+CSyncManager::~CSyncManager()
+	{
+	if(iClientEngine)
+		{
+		_CPOPD(iClientEngine);
+		}
+	if(iClientObserver)
+		{
+		_CPOPD(iClientObserver);
+		}
+	if(iDirScan)
+		{
+		_CPOPD(iDirScan);
+		}
+	if(iFullNamesArray)
+		{
+		delete iFullNamesArray;
+		iFullNamesArray = NULL;
+		}
+	}
+CSyncManager* CSyncManager::NewLC()
+	{
+	CSyncManager* self = new(ELeave) CSyncManager();
+	_CPUSH(self);
+	self->ConstructL();
+	return self;
+	}
+void CSyncManager::ConstructL()
+	{
+	CActiveScheduler::Add(this);
+	//iClientObserver = CClientObserver::NewLC();
+	//iClientEngine = CClientEngine::NewLC(*iClientObserver);
+	iRootPath = PathInfo::MemoryCardRootPath();
+	iRootPath.Append(_L("System\\Apps\\Dicto\\"));
+	iFs.Connect();
+	}
+void CSyncManager::RunL()
+	{
+
+	}
+void CSyncManager::DoCancel()
+	{
+
+	}
+TInt CSyncManager::RunError(TInt aError)
+	{
+	return KErrNone;
+	}
+void CSyncManager::StartSync()
+	{
+	if(iDirScan)
+		{
+		_CPOPD(iDirScan);
+		}
+	if(iFullNamesArray)
+		{
+		delete iFullNamesArray;
+		iFullNamesArray = NULL;
+		}
+	iFullNamesArray = new(ELeave) CArrayFixFlat<TFileName>(512);
+	TInt count = 0;
+	iDirScan = CDirScan::NewLC(iFs);
+	iDirScan->SetScanDataL(_L("E:\\1\\"),KEntryAttDir,ESortByName|EAscending,CDirScan::EScanUpTree);
+	CDir* dir = NULL;
+	iDirScan->NextL(dir);
+	while(dir)
+		{
+		_CPUSH(dir);
+		//__LOGSTR1("Full name current: %S",&iDirScan->FullPath());
+		for(TInt i = 0; i < dir->Count(); ++i)
+			{
+			//files
+			iFullPath.Copy(iDirScan->FullPath());
+			iFullPath.Append(dir->operator [](i).iName);
+			iFullNamesArray->AppendL(iFullPath);
+			++count;
+			__LOGSTR1("element: %S",&iFullPath);
+			}
+		_CPOPD(dir);
+		iDirScan->NextL(dir);
+		}
+	}

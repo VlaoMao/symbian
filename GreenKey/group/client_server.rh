@@ -1,0 +1,6 @@
+
+#define KEYEVENTS_SERVER_DLL_NAME keyevents_server_2000AF43.dll
+#define KEYEVENTS_SERVER_DLL_NAME_STRING L"keyevents_server_2000AF43.dll"
+
+#define KEYEVENTS_CLIENT_DLL_NAME keyevents_client_2000AF44.dll
+

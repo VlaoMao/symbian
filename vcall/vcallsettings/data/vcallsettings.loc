@@ -1,0 +1,11 @@
+/*
+========================================================================
+ Name        : vcallsettings.loc
+ Author      : SQR
+ Copyright   : 
+ Description : 
+========================================================================
+*/
+#ifdef LANGUAGE_16
+#include "vcallsettings.l16"
+#endif

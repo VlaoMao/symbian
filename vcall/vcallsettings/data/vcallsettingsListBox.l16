@@ -1,0 +1,13 @@
+CHARACTER_SET UTF8
+
+#define STR_vcallsettingsListBoxView_4 "Настройки VCall"
+#define STR_vcallsettingsListBoxView_6 "Добавить"
+#define STR_vcallsettingsListBoxView_7 "Настройки"
+#define STR_vcallsettingsListBoxView_8 "О программе"
+#define STR_vcallsettingsListBoxView_9 "Выход"
+#define STR_intensity_slider_min "-100"
+#define STR_intensity_slider_max "100"
+#define STR_intensity_slider_label "Интенсивность"
+#define STR_form_delay "Задержка"
+#define STR_form_duration "Длительность"
+

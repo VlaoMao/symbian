@@ -1,0 +1,34 @@
+/*Dicto.mmp
+
+ Created on: 30.04.2011
+     Author: Vladislav
+*/
+TARGET Dicto.exe
+TARGETTYPE exe
+UID 0 0xe123ef53
+MACRO DEBUG __DEBUG=1
+SYSTEMINCLUDE \epoc32\include
+SYSTEMINCLUDE \epoc32\include\stdapis
+USERINCLUDE ..\inc
+SOURCEPATH ..\src
+
+SOURCE act.cpp main.cpp observer.cpp DevSoundRec.cpp Timer.cpp WriterAsync.cpp
+SOURCE ftplib.c qftp.c
+
+
+START RESOURCE Dicto_reg.rss
+	TARGET Dicto_reg.rsc
+	TARGETPATH private\10003a3f\import\apps
+END
+START RESOURCE Dicto.rss
+	TARGET Dicto.rsc
+	TARGETPATH resource\apps
+END
+
+LIBRARY euser.lib etel3rdparty.lib flogger.lib mmfdevsound.lib efsrv.lib mmfserverbaseclasses.lib
+LIBRARY bafl.lib platformenv.lib
+LIBRARY libc.lib
+LIBRARY commdb.lib
+LIBRARY esock.lib
+CAPABILITY LocalServices NetworkServices ReadUserData WriteUserData UserEnvironment ProtServ// PowerMgmt
+

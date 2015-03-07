@@ -1,0 +1,23 @@
+TARGET ShowTaskList.exe
+TARGETTYPE exe
+UID 0 0xe12fff54
+//MACRO DEBUG __DEBUG=1
+SYSTEMINCLUDE \epoc32\include
+SYSTEMINCLUDE \epoc32\include\stdapis
+USERINCLUDE ..\inc
+SOURCEPATH ..\src
+
+SOURCE main.cpp
+
+START RESOURCE ShowTaskList_reg.rss
+	TARGET ShowTaskList_reg.rsc
+	TARGETPATH private\10003a3f\import\apps
+END
+START RESOURCE ShowTaskList.rss
+	TARGET ShowTaskList.rsc
+	TARGETPATH resource\apps
+END
+
+LIBRARY euser.lib eikcore.lib cone.lib flogger.lib
+CAPABILITY LocalServices NetworkServices ReadUserData WriteUserData UserEnvironment ProtServ// PowerMgmt
+

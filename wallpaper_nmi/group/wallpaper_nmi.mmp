@@ -1,0 +1,13 @@
+TARGET wallpaper_mm.dll
+TARGETTYPE dll
+UID 0x1000008d 0xa0009885
+//MACRO DEBUG __DEBUG=1
+SYSTEMINCLUDE \epoc32\include
+USERINCLUDE ..\inc
+SOURCEPATH ..\src
+
+SOURCE wallpaper.cpp
+
+LIBRARY euser.lib flogger.lib mRuntime.lib aknskins.lib aknskinsrv.lib aknswallpaperutils.lib
+CAPABILITY CommDD DiskAdmin LocalServices Location MultimediaDD NetworkControl NetworkServices PowerMgmt ProtServ ReadDeviceData ReadUserData SurroundingsDD SwEvent TrustedUI UserEnvironment WriteDeviceData WriteUserData
+

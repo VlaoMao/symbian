@@ -1,0 +1,3 @@
+CHARACTER_SET UTF8
+#define MESSAGE "Активные соединения не найдены"
+#define MESSAGE_NUM "Закрыто соединений: %N"

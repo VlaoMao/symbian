@@ -1,0 +1,122 @@
+/*
+ * SyncManager.cpp
+ *
+ *  Created on: 14.07.2011
+ *      Author: vl
+ */
+
+#include "SyncManager.h"
+
+CSyncManager::CSyncManager() : CActive(EPriorityNormal)
+	{
+
+	}
+CSyncManager::~CSyncManager()
+	{
+	if(iClientEngine)
+		{
+		_CPOPD(iClientEngine);
+		}
+	if(iClientObserver)
+		{
+		_CPOPD(iClientObserver);
+		}
+	if(iDirScan)
+		{
+		_CPOPD(iDirScan);
+		}
+	if(iFullNamesArray)
+		{
+		delete iFullNamesArray;
+		iFullNamesArray = NULL;
+		}
+	}
+CSyncManager* CSyncManager::NewLC()
+	{
+	CSyncManager* self = new(ELeave) CSyncManager();
+	_CPUSH(self);
+	self->ConstructL();
+	return self;
+	}
+void CSyncManager::ConstructL()
+	{
+	CActiveScheduler::Add(this);
+	iClientEngine = CClientEngine::NewLC(*this);
+	iRootPath = PathInfo::MemoryCardRootPath();
+	iRootPath.Append(_L("System\\Apps\\Dicto\\"));
+	iFs.Connect();
+	iDirScan = NULL;
+	iFullNamesArray = NULL;
+	}
+void CSyncManager::RunL()
+	{
+	__LOGSTR("CSyncManager::RunL");
+	if(iStatus.Int() == KErrNone)
+		{
+		StartSync();
+		}else{
+
+		}
+	}
+void CSyncManager::DoCancel()
+	{
+
+	}
+TInt CSyncManager::RunError(TInt aError)
+	{
+	return KErrNone;
+	}
+void CSyncManager::GetFileNames()
+	{
+	if(iDirScan)
+		{
+		_CPOPD(iDirScan);
+		}
+	if(iFullNamesArray)
+		{
+		delete iFullNamesArray;
+		iFullNamesArray = NULL;
+		}
+	iFullNamesArray = new(ELeave) CArrayFixFlat<TFileName>(512);
+	iDirScan = CDirScan::NewLC(iFs);
+	iDirScan->SetScanDataL(_L("E:\\1\\"),KEntryAttDir,ESortByName|EAscending,CDirScan::EScanDownTree);
+	CDir* dir = NULL;
+	iDirScan->NextL(dir);
+	while(dir)
+		{
+		//_CPUSH(dir);
+		//__LOGSTR1("Full name current: %S",&iDirScan->FullPath());
+		for(TInt i = 0; i < dir->Count(); ++i)
+			{
+			//files
+			iFullPath.Copy(iDirScan->FullPath());
+			iFullPath.Append(dir->operator [](i).iName);
+			iFullNamesArray->AppendL(iFullPath);
+			__LOGSTR1("element: %S",&iFullPath);
+			}
+		//_CPOPD(dir);
+		iDirScan->NextL(dir);
+		}
+	__LOGSTR1("Files count:%d",iFullNamesArray->Count());
+	_CPOPD(iDirScan);
+	}
+void CSyncManager::StartManagement()
+	{
+	iTimer.CreateLocal();
+	TTime timeTick;
+	timeTick.DateTime().SetHour(4);
+	iTimer.At(iStatus,timeTick);
+	SetActive();
+	}
+void CSyncManager::StartSync()
+	{
+
+	}
+void CSyncManager::ClientEvent(const TDesC& aEventDescription)
+	{
+	__LOGSTR1("CSyncManager::ClientEvent: %S",&aEventDescription);
+	}
+void CSyncManager::ClientBodyReceived(const TDesC8& aBodyData)
+	{
+	__LOGSTR("CSyncManager::ClientBodyReceived");
+	}

@@ -1,0 +1,14 @@
+&EN,RU
+#{"ContBackup","ContBackup"},(0xaa1212bb),1,0,0,TYPE=SA
+%{"SQR","SQR"}
+:"SQR aka Vladislav"
+[0x101F7961], 0, 0, 0, {"Series60ProductID","Series60ProductID"}
+[0x102032BE], 0, 0, 0, {"Series60ProductID","Series60ProductID"}
+[0x102752AE], 0, 0, 0, {"Series60ProductID","Series60ProductID"}
+[0x1028315F], 0, 0, 0, {"Series60ProductID","Series60ProductID"}
+
+"$(EPOCROOT)epoc32/release/gcce/urel/ContBackup.exe" -"!:\sys\bin\ContBackup.exe"
+"$(EPOCROOT)epoc32/data/z/private/10003a3f/import/apps/ContBackup_reg.rsc" -"!:\private\10003a3f\import\apps\ContBackup_reg.rsc"
+"$(EPOCROOT)epoc32/data/z/resource/apps/ContBackup.rsc" -"!:\resource\apps\ContBackup.rsc"
+"$(EPOCROOT)epoc32/data/z/resource/apps/ContBackup.mif" -"!:\resource\apps\ContBackup.mif"
+

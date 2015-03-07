@@ -1,0 +1,5 @@
+PRJ_PLATFORMS
+DEFAULT
+PRJ_MMPFILES
+VPlay.mmp
+gnumakefile Icons_scalable_dc.mk

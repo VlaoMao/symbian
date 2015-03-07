@@ -1,0 +1,9 @@
+#include <appinfo.rh>
+
+UID2 KUidAppRegistrationResourceFile
+UID3 0xe14fff54
+RESOURCE APP_REGISTRATION_INFO
+	{
+	app_file="CallBack";
+	localisable_resource_file = "\\resource\\apps\\CallBack";
+	}

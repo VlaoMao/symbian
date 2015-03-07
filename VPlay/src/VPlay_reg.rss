@@ -1,0 +1,9 @@
+#include <appinfo.rh>
+
+UID2 KUidAppRegistrationResourceFile
+UID3 0x323fff0f
+RESOURCE APP_REGISTRATION_INFO
+	{
+	app_file="VPlay";
+	localisable_resource_file = "\\resource\\apps\\VPlay";
+	}

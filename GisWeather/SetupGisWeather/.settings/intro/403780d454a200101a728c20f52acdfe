@@ -1,0 +1,31 @@
+/*
+========================================================================
+ Name        : FreejeMainContainer_16.rls
+ Author      : arok
+ Copyright   : Freeje project 2010
+ Description : 
+========================================================================
+*/
+// localized strings for language: Russian (16)
+rls_string STR_FreejeMainContainerView_3 "Freeje"
+rls_string STR_FreejeMainContainerView_1 ""
+rls_string STR_FreejeMainContainerView_2 ""
+
+rls_string main_title "CallerMate"
+rls_string phone_button "Phone"
+rls_string skype_button "Skype"
+rls_string call_button "Позвонить"
+rls_string balance_button "Баланс"
+rls_string destination_number_title "Номер телефона для звонка"
+rls_string destination_skype_title "Skype логин для звонка"
+rls_string own_number_title "Ваш номер телефона"
+rls_string refill_sum_title "Сумма пополнения"
+rls_string no_number_title "Введите номера!"
+
+rls_string STR_FreejeMainContainerView_5 "Настройки"
+rls_string STR_FreejeMainContainerView_6 "О программе"
+rls_string STR_FreejeMainContainerView_4 "Пополнить баланс"
+
+rls_string len_skype_login_title "Skype имя может быть от 6 до 32 символов"
+rls_string connection_error_title "Проблемы с интернет-соединением"
+

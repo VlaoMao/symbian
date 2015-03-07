@@ -1,0 +1,25 @@
+#ifndef __VCALLSETTINGSLISTBOX_HRH__
+#define __VCALLSETTINGSLISTBOX_HRH__
+
+enum TVcallsettingsListBoxViewCommands
+	{
+        ECommandAdd = 0x6000,
+        ECommandSettings,
+        ECommandAbout,
+        ECommandExit,
+        ECommandDelete
+	};
+
+enum TTestFormViewControls
+                        {
+                        EmyformDlgCIdEdwin = 100,
+                        EmyformDlgCIdEdwin2,
+                        EmyformDlgCIdEdwin3,
+                        EmyformButton
+                        };
+enum TAddFormViewControls
+{
+    EFormDlg1 = 200
+};
+
+#endif

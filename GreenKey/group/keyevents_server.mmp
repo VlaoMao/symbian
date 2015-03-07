@@ -1,0 +1,20 @@
+
+//#include "context_uids.rh"
+#include "client_server.rh"
+
+TARGET          KEYEVENTS_SERVER_DLL_NAME
+TARGETTYPE      dll  // ANI not supported on 3rd ed WINSCW
+UID             0x10003b22 0x12121213
+
+CAPABILITY      ReadDeviceData WriteDeviceData PowerMgmt Protserv SwEvent
+
+SOURCEPATH      ..\src
+SOURCE          serverdll.cpp serveranim.cpp
+
+USERINCLUDE     ..\inc
+
+SYSTEMINCLUDE   \Epoc32\include
+
+LIBRARY         euser.lib
+
+EXPORTUNFROZEN  // There's only one export.

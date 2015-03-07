@@ -1,0 +1,43 @@
+
+TARGET			vcallsettings.exe
+UID			   0x100039CE 0xEB21BC3C
+VENDORID	  	  0
+TARGETTYPE		exe
+EPOCSTACKSIZE	 0x5000
+
+SYSTEMINCLUDE \epoc32\include \epoc32\include\variant \epoc32\include\ecom
+USERINCLUDE	   ..\inc ..\data
+
+SOURCEPATH		..\data
+START RESOURCE	vcallsettings.rss
+HEADER
+TARGETPATH resource\apps
+END //RESOURCE
+
+START RESOURCE	vcallsettings_reg.rss
+TARGETPATH 	  \private\10003a3f\apps
+END //RESOURCE
+
+LIBRARY			euser.lib apparc.lib cone.lib eikcore.lib avkon.lib
+LIBRARY			commonengine.lib efsrv.lib estor.lib eikcoctl.lib eikdlg.lib 
+LIBRARY			eikctl.lib bafl.lib fbscli.lib aknnotify.lib aknicon.lib
+LIBRARY			etext.lib gdi.lib egul.lib
+LIBRARY			hal.lib
+
+LANG 				01 16
+
+START BITMAP	vcallsettings.mbm
+HEADER
+TARGETPATH		\resource\apps
+SOURCEPATH		..\gfx
+SOURCE	c12,1	list_icon.bmp list_icon_mask.bmp
+END
+
+SOURCEPATH		..\src
+
+#ifdef ENABLE_ABIV2_MODE
+DEBUGGABLE_UDEBONLY
+#endif
+
+SOURCE VcallsettingsListBoxView.cpp vcallsettingsListBox.cpp vcallsettingsApplication.cpp vcallsettingsAppUi.cpp vcallsettingsDocument.cpp
+SOURCE myform.cpp addform.cpp

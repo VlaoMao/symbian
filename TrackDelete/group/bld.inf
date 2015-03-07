@@ -1,0 +1,5 @@
+PRJ_PLATFORMS
+DEFAULT
+PRJ_MMPFILES
+TrackDelete.mmp
+gnumakefile Icons_scalable_dc.mk

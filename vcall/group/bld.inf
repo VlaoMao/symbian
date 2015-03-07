@@ -1,0 +1,6 @@
+PRJ_PLATFORMS
+DEFAULT
+PRJ_MMPFILES
+vcall.mmp
+../vcallsettings/group/vcallsettings.mmp
+gnumakefile Icons_scalable_dc.mk

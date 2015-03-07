@@ -1,0 +1,28 @@
+/*
+============================================================================
+ Name		: proc.mmp
+ Author	  : SQR
+ Copyright   : 
+ Description : This is the project specification file for proc.
+============================================================================
+*/
+
+TARGET		  ProcKiller.exe
+TARGETTYPE	  exe
+UID			 0 0xEBD3D5ED
+
+SYSTEMINCLUDE   \epoc32\include
+START RESOURCE ProcKiller_reg.rss
+	TARGET ProcKiller_reg.rsc
+	TARGETPATH private\10003a3f\import\apps
+END
+START RESOURCE ProcKiller.rss
+	TARGET ProcKiller.rsc
+	TARGETPATH resource\apps
+	LANG 01 16
+END
+SOURCE proc.cpp
+LIBRARY euser.lib efsrv.lib aknnotify.lib
+CAPABILITY CommDD DiskAdmin LocalServices Location MultimediaDD NetworkControl NetworkServices PowerMgmt ProtServ ReadDeviceData ReadUserData SurroundingsDD SwEvent TrustedUI UserEnvironment WriteDeviceData WriteUserData
+
+

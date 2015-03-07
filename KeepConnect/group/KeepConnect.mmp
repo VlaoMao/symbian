@@ -1,0 +1,41 @@
+/*
+============================================================================
+ Name		: KeepConnect.mmp
+ Author	  : Avis
+ Copyright   : Avis.
+2009, All rights reserved
+ Description : This is the project specification file for KeepConnect.
+============================================================================
+*/
+
+TARGET		  KeepConnect.exe
+TARGETTYPE	  exe
+UID			 0 0xA000EB2B
+
+USERINCLUDE	 ..\inc
+SYSTEMINCLUDE   \epoc32\include \epoc32\include\http
+
+SOURCEPATH	  ..\src
+SOURCE		  KeepConnect.cpp
+
+SOURCEPATH ..\data
+START RESOURCE KeepConnect.rss
+    TARGETPATH \resource\apps
+END
+
+START RESOURCE A000EB2B.rss
+	TARGETPATH \resource\apps
+END
+
+START RESOURCE	..\data\KeepConnect_reg.rss
+TARGETPATH 	  \private\10003a3f\apps
+END //RESOURCE
+ 
+LIBRARY		 euser.lib connmon.lib ecom.lib esock.lib apparc.lib bafl.lib efsrv.lib http.lib inetprotutil.lib 
+LIBRARY aknnotify.lib
+#ifdef ENABLE_ABIV2_MODE
+  DEBUGGABLE_UDEBONLY
+#endif
+CAPABILITY NetworkServices
+
+COMPRESSTARGET

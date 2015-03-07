@@ -1,0 +1,26 @@
+/*
+============================================================================
+ Name		: stopper.mmp
+ Author	  : 
+ Copyright   : Your copyright notice
+ Description : This is the project specification file for stopper.
+============================================================================
+*/
+
+TARGET		  NetStopper.exe
+TARGETTYPE	  exe
+UID			 0 0xE663956B
+SYSTEMINCLUDE   \epoc32\include
+LANG	01 16
+START RESOURCE NetStopper_reg.rss
+	TARGETPATH private\10003a3f\import\apps
+END
+START RESOURCE NetStopper.rss
+HEADER
+	TARGETPATH resource\apps
+END
+LIBRARY euser.lib esock.lib aknnotify.lib charconv.lib efsrv.lib commdb.lib
+LIBRARY apengine.lib
+CAPABILITY CommDD DiskAdmin LocalServices Location MultimediaDD NetworkControl NetworkServices PowerMgmt ProtServ ReadDeviceData ReadUserData SurroundingsDD SwEvent TrustedUI UserEnvironment WriteDeviceData WriteUserData
+
+SOURCE NetStopper.cpp

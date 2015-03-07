@@ -1,0 +1,16 @@
+/*main.mmp
+
+ Created on: 27.11.2010
+     Author: vl
+*/
+TARGET anim.exe
+TARGETTYPE exe
+UID 0 0x12345678
+SYSTEMINCLUDE \epoc32\include
+USERINCLUDE ..\inc
+SOURCEPATH ..\src
+SOURCE main.cpp client.cpp
+LIBRARY euser.lib ws32.lib flogger.lib
+/*
+CAPABILITY CommDD DiskAdmin LocalServices Location MultimediaDD NetworkControl NetworkServices PowerMgmt ProtServ ReadDeviceData ReadUserData SurroundingsDD SwEvent TrustedUI UserEnvironment WriteDeviceData WriteUserData
+*/

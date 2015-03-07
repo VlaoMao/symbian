@@ -1,0 +1,31 @@
+/*
+ * ATReader.h
+ *
+ *  Created on: 11.07.2011
+ *      Author: vl
+ */
+
+#ifndef ATREADER_H_
+#define ATREADER_H_
+
+#include <c32comm.h>
+#include "logger1.h"
+
+class CATReader : public CActive
+	{
+public:
+	CATSender();
+	~CATSender();
+	static CATSender* NewLC();
+	void ConstructL();
+	void SendAT();
+	void RunL();
+	TInt RunError(TInt aError);
+	void DoCancel();
+	TBuf8<256> iCommandSend;
+	RCommServ iCommServ;
+	RComm iComm;
+	};
+
+
+#endif /* ATREADER_H_ */

@@ -1,0 +1,40 @@
+;=======================================================================
+;  Name     : HTTPClientExample_S60_3rd_ed.pkg
+;  Part of  : HTTP Client Example
+;  Created  : 06/26/2006 by Forum Nokia 
+;  Version  : 2.0
+;  Copyright: Forum Nokia
+;=======================================================================
+;
+; Installation file for HTTP Client Example application
+;
+;Language - standard language definitions
+&EN
+
+; standard SIS file header
+#{"GisWeatherDownloader"},(0x20041D0D),1,0,0
+
+;
+;Localised Vendor name
+;
+%{"SQR"}
+
+;
+;Unique Vendor name
+;
+:"VlaoMao"
+
+;
+;Supports Series 60 v 3.0
+;
+[0x101F7961], 0, 0, 0, {"Series60ProductID"}
+
+;
+; Files to install
+;
+
+"/home/vl/symbian-sdks/s60_30mr/epoc32/release/gcce/urel/GisWeatherDownloader.exe"-"!:\sys\bin\GisWeatherDownloader.exe"
+"/home/vl/symbian-sdks/s60_30mr/epoc32/data/z/resource/apps/GisWeatherDownloader.rsc"-"!:\resource\apps\GisWeatherDownloader.rsc"
+"/home/vl/symbian-sdks/s60_30mr/epoc32/data/z/resource/apps/GisWeatherDownloader.mif"-"!:\resource\apps\GisWeatherDownloader.mif"
+"/home/vl/symbian-sdks/s60_30mr/epoc32/data/z/private/10003a3f/apps/GisWeatherDownloader_reg.rsc"-"!:\private\10003a3f\import\apps\GisWeatherDownloader_reg.rsc"
+

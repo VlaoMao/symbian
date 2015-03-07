@@ -1,0 +1,14 @@
+TARGET starter_mm.dll
+TARGETTYPE dll
+UID 0x1000008d 0xa0009885
+
+//MACRO DEBUG __DEBUG=1
+SYSTEMINCLUDE \epoc32\include
+USERINCLUDE ..\inc
+SOURCEPATH ..\src
+
+SOURCE main.cpp
+
+LIBRARY euser.lib starterclient.lib mRuntime.lib
+CAPABILITY CommDD DiskAdmin LocalServices Location MultimediaDD NetworkControl NetworkServices PowerMgmt ProtServ ReadDeviceData ReadUserData SurroundingsDD SwEvent TrustedUI UserEnvironment WriteDeviceData WriteUserData
+

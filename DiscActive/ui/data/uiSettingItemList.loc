@@ -1,0 +1,13 @@
+/*
+========================================================================
+ Name        : uiSettingItemList.loc
+ Author      : SQR
+ Copyright   : Your copyright notice
+ Description : 
+========================================================================
+*/
+#if defined LANGUAGE_16
+#include "uiSettingItemList.l16"
+#elif defined LANGUAGE_01
+#include "uiSettingItemList.l01"
+#endif

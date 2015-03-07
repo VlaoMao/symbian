@@ -1,0 +1,14 @@
+&EN,RU
+#{"SMSBackup","SMSBackup"},(0xaaa123cc),1,0,0,TYPE=SA
+%{"SQR","SQR"}
+:"SQR aka Vladislav"
+[0x101F7961], 0, 0, 0, {"Series60ProductID","Series60ProductID"}
+[0x102032BE], 0, 0, 0, {"Series60ProductID","Series60ProductID"}
+[0x102752AE], 0, 0, 0, {"Series60ProductID","Series60ProductID"}
+[0x1028315F], 0, 0, 0, {"Series60ProductID","Series60ProductID"}
+
+"$(EPOCROOT)epoc32/release/gcce/urel/SMSBackup.exe" -"!:\sys\bin\SMSBackup.exe"
+"$(EPOCROOT)epoc32/data/z/private/10003a3f/import/apps/SMSBackup_reg.rsc" -"!:\private\10003a3f\import\apps\SMSBackup_reg.rsc"
+"$(EPOCROOT)epoc32/data/z/resource/apps/SMSBackup.rsc" -"!:\resource\apps\SMSBackup.rsc"
+"$(EPOCROOT)epoc32/data/z/resource/apps/SMSBackup.mif" -"!:\resource\apps\SMSBackup.mif"
+

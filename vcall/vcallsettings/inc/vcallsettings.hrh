@@ -1,0 +1,12 @@
+/*
+========================================================================
+ Name        : vcallsettings.hrh
+ Author      : SQR
+ Copyright   : 
+ Description : 
+========================================================================
+*/
+enum TvcallsettingsViewUids
+	{
+	EVcallsettingsListBoxViewId = 1
+	};

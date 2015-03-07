@@ -1,0 +1,38 @@
+/*
+========================================================================
+ Name        : LightManSetupListBox.l16
+ Author      : SQR
+ Copyright   : 
+ Description : 
+========================================================================
+*/
+// localized strings for language: Russian (16)
+CHARACTER_SET UTF8
+
+#define STR_LightManSetupListBoxView_4 "Настройка LightMan"
+#define STR_LightManSetupListBoxView_1 ""
+#define STR_LightManSetupListBoxView_2 ""
+#define STR_LightManSetupListBoxView_3 ""
+#define STR_LightManSetupListBoxView_5 "Добавить"
+#define STR_Save "Сохранить"
+#define STR_Time "Время"
+#define STR_Level "Уровень, %"
+#define STR_save_failed "Невозможно сохранить конфигурационный файл!"
+#define STR_save_success "Сохранено"
+#define STR_LightManSetupListBoxView_6 "Изменить"
+#define STR_LightManSetupListBoxView_7 "Удалить"
+#define STR_LightManSetupListBoxView_8 "О программе"
+#define STR_LightManSetupListBoxView_9 "Выход"
+#define STR_testFormView_1 "testForm"
+#define STR_testFormView_2 "Time"
+#define STR_testFormView_3 "Level"
+#define STR_testFormView_4 "Note"
+#define STR_testFormView_5 "Note"
+#define STR_form_time "Время"
+#define STR_form_level "Уровень"
+#define STR_form_note "Примечание"
+#define STR_form_note_val "Заметка здесь"
+#define STR_slider_min "0"
+#define STR_slider_max "100"
+#define STR_slider_label "Уровень"
+#define STR_exit "Вы уверены?"

@@ -1,0 +1,16 @@
+/*
+ * procKiller_reg.rss
+ *
+ *  Created on: 05.02.2010
+ *      Author: SQR
+ */
+#include <appinfo.rh>
+//#include "ProcKiller.RSG"
+
+UID2 KUidAppRegistrationResourceFile
+UID3 0xEBD3D5ED
+RESOURCE APP_REGISTRATION_INFO
+	{
+	app_file="ProcKiller";
+	localisable_resource_file = "\\resource\\apps\\ProcKiller";
+	}

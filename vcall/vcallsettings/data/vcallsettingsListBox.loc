@@ -1,0 +1,13 @@
+/*
+========================================================================
+ Name        : vcallsettingsListBox.loc
+ Author      : SQR
+ Copyright   : 
+ Description : 
+========================================================================
+*/
+#ifdef LANGUAGE_16
+#include "vcallsettingsListBox.l16"
+#else
+#include "vcallsettingsListBox.l01"
+#endif

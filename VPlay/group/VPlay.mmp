@@ -1,0 +1,27 @@
+TARGET VPlay.exe
+TARGETTYPE exe
+UID 0 0x323fff0f
+MACRO __DEBUG __DEBUG=1
+SYSTEMINCLUDE \epoc32\include
+USERINCLUDE ..\inc
+SOURCEPATH ..\src
+SOURCE main.cpp VPlay.cpp Button.cpp// MediaEngine.cpp MediaContainer.cpp//VPlay.cpp
+
+START RESOURCE VPlay_reg.rss
+	TARGET VPlay_reg.rsc
+	TARGETPATH private\10003a3f\import\apps
+END
+START RESOURCE VPlay.rss
+	TARGET VPlay.rsc
+	TARGETPATH resource\apps
+END
+START RESOURCE 323FFF0F.rss
+END
+LIBRARY euser.lib efsrv.lib ws32.lib
+LIBRARY flogger.lib mediaclientvideo.lib hal.lib
+
+LIBRARY cone.lib
+
+CAPABILITY LocalServices NetworkServices ReadUserData WriteUserData UserEnvironment ProtServ WriteDeviceData PowerMgmt SwEvent
+
+

@@ -1,0 +1,315 @@
+/*
+ * Window.cpp
+ *
+ *  Created on: 29.06.2011
+ *      Author: vl
+ */
+
+#include "Window.h"
+
+CWindow::CWindow() : CActive(EPriorityHigh),iText(_L("Перезвонить"))
+    {
+
+    }
+CWindow::~CWindow()
+    {
+	Cancel();
+	iWs.Close();
+    iFs.Close();
+//    /iCaller->~CCaller();
+    if(iSender)
+    	{
+    	_CPOPD(iSender);
+    	}
+    if(iReader)
+    	{
+    	_CPOPD(iReader);
+    	}
+    }
+CWindow* CWindow::NewL()
+    {
+	CWindow* self = CWindow::NewLC();
+	_CPOP(self);
+    return self;
+    }
+CWindow* CWindow::NewLC()
+	{
+	CWindow* self = new(ELeave) CWindow();
+	_CPUSH(self);
+	self->ConstructL();
+	return self;
+	}
+void CWindow::ConstructL()
+    {
+    __LOGSTR("Construct");
+    CActiveScheduler::Add(this);
+    iWs = RWsSession();
+    iFs.Connect();
+    iWs.Connect(iFs);
+    ReadConf();
+
+    SetNeedToRecall(EFalse);
+
+    iBackgroundColor = KRgbBlack;
+    iTextColor = KRgbWhite;
+    iWg = RWindowGroup(iWs);
+    iWg.Construct((TUint32)&iWg,EFalse);
+    iWg.SetOrdinalPosition(0,ECoeWinPriorityAlwaysAtFront + 100);
+    iWg.EnableReceiptOfFocus(EFalse);
+
+    iWindow = RWindow(iWs);
+    iWindow.Construct(iWg,(TUint32)&iWg+1);
+    iWindow.Activate();
+    iWindow.SetNonFading(ETrue);
+    //
+    iWindow.SetVisible(EFalse);
+    iWindow.SetBackgroundColor(KRgbBlack);
+
+    iScreen=new (ELeave) CWsScreenDevice(iWs);
+    User::LeaveIfError(iScreen->Construct());
+    User::LeaveIfError(iScreen->CreateContext(iGc));
+    GetFontSize(iText);
+    iWindow.SetExtent(TPoint(iPosition.iX,iPosition.iY),TSize(iSize.iWidth,iSize.iHeight));
+    iWs.Flush();
+   // iCaller = CCaller::NewLC();
+   // Draw();
+    iWs.Flush();
+    //iReader = CATReader::NewLC();
+    //iSender = CATSender::NewLC(*iReader);
+    }
+void CWindow::ReadConf()
+	{
+    __LOGSTR("ReadConf");
+    if(iFile.Open(iFs,KFilePos,EFileRead) != KErrNone)//file not exist
+	{
+    __LOGSTR("File not exist");
+	CreateConfigFile();
+	ReadConf();
+	}else{
+	__LOGSTR("File exist");
+	//file exist
+	TFileText text;
+	TLex lex;
+	TBuf<32> buf;
+	text.Set(iFile);
+	text.Read(buf);
+	lex.Assign(buf);
+	lex.Val(iPosition.iX);
+
+	text.Read(buf);
+	lex.Assign(buf);
+	lex.Val(iPosition.iY);
+
+	text.Read(buf);
+	lex.Assign(buf);
+	lex.Val(iPosition.iWidth);
+
+	text.Read(buf);
+	lex.Assign(buf);
+	lex.Val(iPosition.iHeight);
+
+	text.Read(buf);
+	lex.Assign(buf);
+	lex.Val(iFontSize);
+
+	iFile.Close();
+	}
+	}
+/*void CWindow::SetText(const TInt& aNumText)
+	{
+	iText.Delete(0,iText.Length());
+	iText.AppendNum(aNumText);
+	}*/
+void CWindow::GetFontSize(const TDesC& aText)
+	{
+	//__LOGSTR1("Get font size of text: %S",&aText);
+	iFontName.FillZ(KMaxTypefaceNameLength);
+	iScreen->TypefaceSupport(iTypefaceSupport, 0);
+	iFontName = iTypefaceSupport.iTypeface.iName;
+	// get font
+	iFontSpec = TFontSpec(iFontName, 10*iFontSize);
+	iFontSpec.iTypeface.SetIsProportional(ETrue);
+	iScreen->GetNearestFontInTwips(iFont,iFontSpec);
+
+	iSize=TSize(iFont->TextWidthInPixels(aText),iFont->HeightInPixels());//+1);
+	//__LOGSTR2("iSize.width: %d, iSize.height: %d",iSize.iWidth,iSize.iHeight);
+	}
+void CWindow::RunL()
+    {
+    __LOGSTR("RunL");
+	GetWgEvent();
+    }
+TInt CWindow::RunError(TInt aError)
+    {
+    __LOGSTR1("RunError: %d",aError);
+    return KErrNone;
+    }
+void CWindow::DoCancel()
+    {
+    iWs.EventReadyCancel();
+    }
+void CWindow::SetVisible(TBool aIsVisible)
+	{
+	iWindow.SetVisible(aIsVisible);
+	iWg.EnableReceiptOfFocus(aIsVisible);
+	iWs.Flush();
+	}
+void CWindow::SetNeedToRecall(TBool aIsNeed)
+	{
+	iIsNeedToReCall = aIsNeed;
+	}
+TBool CWindow::GetNeedToRecall()
+	{
+	return iIsNeedToReCall;
+	}
+void CWindow::GetWgEvent()
+    {
+    __LOGSTR1("GetWgEvent,iStatus: %d",iStatus.Int());
+    if(iStatus == KErrNone)
+    	{
+    	TWsEvent e;
+    	iWs.GetEvent(e);
+    	__LOGSTR1("event: %d",e.Type());
+    	switch(e.Type())
+    		{
+    		case EEventPointer:
+    		case EEventPointerEnter:
+    		case EEventDragDrop:
+    			{
+    			__LOGSTR("Tapped");
+    			//Тапнули
+    			iWindow.SetVisible(EFalse);
+    			iWs.Flush();
+    			//HangUpAT();
+    			HangUpEtel();
+    			SetNeedToRecall(ETrue);
+    			break;
+    			}
+        	/*case EEventFocusGained:
+        		__LOGSTR("Focus gained");
+        		iIsFocus = ETrue;
+        		//iColor = KRgbGreen;
+        		break;
+        	case EEventFocusLost:
+        		__LOGSTR("Focus lost");
+        		iIsFocus = EFalse;
+        		//iColor = KRgbRed;
+        		break;
+        	case EEventKeyDown:
+        		__LOGSTR2("EEventKeyDown,iIsFocus: %d,iScanCode: %d",iIsFocus,e.Key()->iScanCode);
+        		if(iIsFocus && (e.Key()->iScanCode == 167))
+        			{
+        			iWindow.SetVisible(EFalse);
+        			iWs.Flush();
+        			HangUpAT();
+        			iIsNeedToReCall = ETrue;
+        			}
+        		break;*/
+    		default:
+    	    	Draw();
+    	    //	WaitWgEvent();
+    			break;
+    		}
+    	WaitWgEvent();
+    	iWs.Flush();
+    	}
+    }
+void CWindow::HangUp()
+	{
+	__LOGSTR("HangUpKey");
+	TInt aScan = EStdKeyNo;
+	//RWsSession ws;
+	//ws.Connect();
+	TRawEvent RawEvent;
+	RawEvent.Set(TRawEvent::EKeyDown,aScan);
+	iWs.SimulateRawEvent(RawEvent);
+	User::After(100000);
+
+	__LOGSTR("simulate 100000");
+
+	RawEvent.Set(TRawEvent::EKeyUp,aScan);
+	iWs.SimulateRawEvent(RawEvent);
+
+	__LOGSTR1("SimulateKeyEvent: %d",aScan);
+
+	//ws.Close();
+	}
+void CWindow::HangUpEtel()
+	{
+	__LOGSTR("HangupEtel");
+	RTelServer iTelServer;
+	RPhone iPhone;
+	RLine iLine;
+	RCall iCall;
+	TName callName;
+	RTelServer::TPhoneInfo phoneInfo;
+	RLine::TLineInfo lineInfo;
+	RPhone::TLineInfo plineInfo;
+	RLine::TCallInfo callInfo;
+	__LOGSTR("Going hangup");
+	User::LeaveIfError(iTelServer.Connect());
+	User::LeaveIfError(iTelServer.GetPhoneInfo(0, phoneInfo));
+	User::LeaveIfError(iPhone.Open(iTelServer, phoneInfo.iName));
+	TInt numberLines = 0;
+	User::LeaveIfError(iPhone.EnumerateLines(numberLines));
+	if(numberLines == 0)
+		{
+		User::LeaveIfError(iPhone.GetLineInfo(0, plineInfo));
+		User::LeaveIfError(iLine.Open(iPhone, plineInfo.iName));
+		User::LeaveIfError(iLine.GetCallInfo(0,callInfo));
+		User::LeaveIfError(iLine.GetInfo(lineInfo));
+		callName.Copy(lineInfo.iNameOfCallForAnswering);
+		User::LeaveIfError(iCall.OpenExistingCall(iLine, callName));
+		User::LeaveIfError( iCall.HangUp() );
+		}
+	iCall.Close();
+	iLine.Close();
+	iPhone.Close();
+	iTelServer.Close();
+	}
+void CWindow::HangUpAT()
+	{
+	__LOGSTR("HangUpAT");
+	iSender->SendAT();
+	}
+/*void CWindow::RunCall()
+	{
+	RProcess proc;
+	TInt err = proc.Create(_L("FastCallBackDial.exe"),KNullDesC);
+	__LOGSTR1("Run process FastCallBackDial.exe: %d",err);
+	proc.Resume();
+	}*/
+void CWindow::WaitWgEvent()
+    {
+    iWg.EnableFocusChangeEvents();
+    //iWg.EnableGroupListChangeEvents();
+    __LOGSTR("WaitWgEvent");
+    iWs.EventReady(&iStatus);
+    SetActive();
+    }
+void CWindow::Draw()
+	{
+	iBackgroundColor = KRgbBlack;
+
+	SetVisible(ETrue);
+	iWs.Flush();
+	//GetFontSize(iText);
+	iWindow.SetPosition(TPoint(iPosition.iX,iPosition.iY));
+	iWindow.SetSize(TSize(iSize.iWidth,iPosition.iHeight));
+	iWindow.SetVisible(ETrue);
+	iGc->Activate(iWindow);
+	iRect = TRect(TPoint(0,0),TSize(iSize.iWidth,iPosition.iHeight));
+	iWindow.Invalidate();
+	iWindow.BeginRedraw();
+	iGc->Clear();
+	iGc->SetPenColor(iTextColor);
+	iGc->SetBrushStyle(CGraphicsContext::ESolidBrush);
+	iGc->UseFont(iFont);
+	iGc->SetBrushColor(iBackgroundColor);
+	iGc->Clear(iRect);
+	iGc->DrawText(iText,iRect/*TRect(0,0, iRect.Width(),iRect.Height())*/,iFont->FontMaxAscent(), CGraphicsContext::ECenter, 0);
+	iWindow.EndRedraw();
+	iGc->Deactivate();
+
+	iWs.Flush();
+	}

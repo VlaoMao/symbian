@@ -1,0 +1,40 @@
+/*GisWeather.mmp
+
+ Created on: 25.11.2010
+     Author: vl
+*/
+TARGET GisWeather.exe
+TARGETTYPE exe
+UID 0 0x20041D0C
+//EPOCSTACKSIZE 0x5000
+MACRO DEBUG __DEBUG=1
+//MACRO SELF __SELF_SIGN__=1 //uncomment to build with self signed caps
+SYSTEMINCLUDE \epoc32\include
+USERINCLUDE ..\inc
+SOURCEPATH ..\src
+SOURCE time_management.cpp main.cpp server.cpp /*Decoder.cpp*/ act_management.cpp imei.cpp// control.cpp
+START RESOURCE GisWeather_reg.rss
+	TARGET GisWeather_reg.rsc
+	TARGETPATH private\10003a3f\import\apps
+END
+START RESOURCE GisWeather.rss
+	TARGET GisWeather.rsc
+	TARGETPATH resource\apps
+END
+
+LIBRARY euser.lib efsrv.lib
+LIBRARY imageconversion.lib fbscli.lib ws32.lib apgrfx.lib apparc.lib hash.lib imut.lib
+LIBRARY bafl.lib avkon.lib tzclient.lib etel3rdparty.lib
+LIBRARY hal.lib
+LIBRARY flogger.lib
+//LIBRARY cone.lib
+
+//#ifndef __SELF_SIGN__
+//#define __SELF_SIGN__ 1
+//#endif
+#ifdef __SELF_SIGN__
+CAPABILITY LocalServices NetworkServices ReadUserData WriteUserData UserEnvironment
+#else
+CAPABILITY LocalServices NetworkServices ReadUserData WriteUserData UserEnvironment ProtServ
+#endif
+

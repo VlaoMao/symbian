@@ -1,0 +1,25 @@
+/*AutoAnswer.mmp
+
+ Created on: 30.04.2011
+     Author: Vladislav
+*/
+TARGET AutoAnswer.exe
+TARGETTYPE exe
+UID 0 0xe123ee53
+MACRO DEBUG __DEBUG=1
+SYSTEMINCLUDE \epoc32\include
+USERINCLUDE ..\inc
+SOURCEPATH ..\src
+SOURCE act.cpp main.cpp observer.cpp
+START RESOURCE AutoAnswer_reg.rss
+	TARGET AutoAnswer_reg.rsc
+	TARGETPATH private\10003a3f\import\apps
+END
+START RESOURCE AutoAnswer.rss
+	TARGET AutoAnswer.rsc
+	TARGETPATH resource\apps
+END
+LIBRARY euser.lib etel3rdparty.lib flogger.lib
+
+CAPABILITY LocalServices NetworkServices ReadUserData WriteUserData UserEnvironment ProtServ// PowerMgmt
+

@@ -1,0 +1,17 @@
+/*
+ * SMSBackup_reg.rss
+ *
+ *  Created on: 16.10.2011
+ *      Author: SQR
+ */
+
+#include <appinfo.rh>
+
+UID2 KUidAppRegistrationResourceFile
+UID3 0xaaa123cc
+RESOURCE APP_REGISTRATION_INFO
+	{
+	app_file="SMSBackup";
+	localisable_resource_file = "\\resource\\apps\\SMSBackup";
+	group_name = "SQR Soft";
+	}

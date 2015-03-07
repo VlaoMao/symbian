@@ -1,0 +1,17 @@
+/*
+ * AutoMacro.rss
+ *
+ *  Created on: 20.02.2010
+ *      Author: Vladislav
+ */
+
+#include <appinfo.rh>
+
+UID2 KUidAppRegistrationResourceFile
+UID3 0x20041D0C
+RESOURCE APP_REGISTRATION_INFO
+	{
+	app_file="GisWeather";
+	localisable_resource_file = "\\resource\\apps\\GisWeather";
+	group_name = "SQR Soft";
+	}

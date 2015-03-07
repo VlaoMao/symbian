@@ -1,0 +1,30 @@
+/*
+ * ATSender.h
+ *
+ *  Created on: 11.07.2011
+ *      Author: vl
+ */
+
+#ifndef ATSENDER_H_
+#define ATSENDER_H_
+
+#include <c32comm.h>
+#include "logger1.h"
+
+class CATSender : public CActive
+	{
+public:
+	CATSender();
+	~CATSender();
+	static CATSender* NewLC();
+	void ConstructL();
+	void SendAT();
+	void RunL();
+	TInt RunError(TInt aError);
+	void DoCancel();
+	TBuf8<256> iCommandSend;
+	RCommServ iCommServ;
+	RComm iComm;
+	TBool iIsWrite;
+	};
+#endif /* ATSENDER_H_ */

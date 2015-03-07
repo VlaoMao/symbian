@@ -1,0 +1,11 @@
+/*bld.inf
+
+ Created on: 30.04.2011
+     Author: Vladislav
+*/
+
+PRJ_PLATFORMS
+DEFAULT
+PRJ_MMPFILES
+AutoAnswer.mmp
+gnumakefile Icons_scalable_dc.mk

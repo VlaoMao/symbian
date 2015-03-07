@@ -1,0 +1,17 @@
+/*
+ * AutoMacro.rss
+ *
+ *  Created on: 6.11.2010
+ *      Author: Vladislav aka VlaoMao aka SQR
+ */
+
+#include <appinfo.rh>
+
+
+UID2 KUidAppRegistrationResourceFile
+UID3 0x20066AB9
+RESOURCE APP_REGISTRATION_INFO
+	{
+	app_file="DiskActive";
+	localisable_resource_file = "\\resource\\apps\\DiskActive";
+	}

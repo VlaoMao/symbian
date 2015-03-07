@@ -1,0 +1,12 @@
+/*
+========================================================================
+ Name        : SetupGisWeather.hrh
+ Author      : SQR
+ Copyright   : Created SQR, 2010, Russia
+ Description : 
+========================================================================
+*/
+enum TSetupGisWeatherViewUids
+	{
+	ESetupGisWeatherSettingItemListViewId = 1
+	};

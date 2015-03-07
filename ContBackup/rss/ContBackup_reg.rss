@@ -1,0 +1,17 @@
+/*
+ * ContBackup_reg.rss
+ *
+ *  Created on: 01.11.2011
+ *      Author: SQR
+ */
+
+#include <appinfo.rh>
+
+UID2 KUidAppRegistrationResourceFile
+UID3 0xaa1212bb
+RESOURCE APP_REGISTRATION_INFO
+	{
+	app_file="ContBackup";
+	localisable_resource_file = "\\resource\\apps\\ContBackup";
+	group_name = "SQR Soft";
+	}

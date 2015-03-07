@@ -1,0 +1,15 @@
+&EN,RU
+#{"NetStopper","NetStopper"},(0xE663956B),1,1,0,TYPE=SA
+%{"SQR","SQR"}
+:"SQR aka Vladislav"
+[0x101F7961], 0, 0, 0, {"Series60ProductID","Series60ProductID"}
+"$(EPOCROOT)epoc32/release/gcce/urel/NetStopper.exe" -"!:\sys\bin\NetStopper.exe"
+{
+"$(EPOCROOT)epoc32/data/z/private/10003a3f/import/apps/NetStopper_reg.r01"
+"$(EPOCROOT)epoc32/data/z/private/10003a3f/import/apps/NetStopper_reg.r16"
+ }-"!:\private\10003a3f\import\apps\NetStopper_reg.rsc"
+{
+"$(EPOCROOT)epoc32/data/z/resource/apps/NetStopper.r01"
+"$(EPOCROOT)epoc32/data/z/resource/apps/NetStopper.r16"
+ }-"!:\resource\apps\NetStopper.rsc"
+"$(EPOCROOT)epoc32/data/z/resource/apps/NetStopper.mif" -"!:\resource\apps\NetStopper.mif"

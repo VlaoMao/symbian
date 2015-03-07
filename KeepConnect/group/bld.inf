@@ -1,0 +1,17 @@
+/*
+============================================================================
+ Name		: bld.inf
+ Author	  : Avis
+ Copyright   : Avis.
+2009, All rights reserved
+ Description : This file provides the information required for building the
+				whole of a KeepConnect.
+============================================================================
+*/
+
+PRJ_PLATFORMS
+DEFAULT
+
+PRJ_MMPFILES
+KeepConnect.mmp
+gnumakefile Icons_aif_scalable_dc.mk

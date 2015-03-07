@@ -1,0 +1,23 @@
+TARGET TrackDelete.exe
+TARGETTYPE exe
+UID 0 0x2004bb02
+MACRO DEBUG __DEBUG=1
+SYSTEMINCLUDE \epoc32\include
+USERINCLUDE ..\inc
+SOURCEPATH ..\src
+
+SOURCE main.cpp callback.cpp
+
+SOURCEPATH ..\group
+
+START RESOURCE TrackDelete_reg.rss
+	TARGET TrackDelete_reg.rsc
+	TARGETPATH private\10003a3f\import\apps
+END
+START RESOURCE  TrackDelete.rss
+	TARGET  TrackDelete.rss
+	TARGETPATH resource\apps
+END
+LIBRARY euser.lib flogger.lib efsrv.lib aknnotify.lib mpxplaybackutility.lib mpxcommon.lib
+CAPABILITY LocalServices NetworkServices ReadUserData WriteUserData UserEnvironment ProtServ SwEvent// PowerMgmt
+

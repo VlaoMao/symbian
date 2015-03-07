@@ -1,0 +1,3 @@
+﻿Keep Connect (0.3.0) - is a freeware app to keep Internet connection on-line. Run Keep Connect, then simply start Your internet APP, and connection will stay ON even if You close that APP. Use Long press of Red button to Disconnect, or just Kill KeepConnect process with TaskMan. You can config it in !:\Data\KeepConnect\KeepConnect.ini file.
+Any questions: avis@allnokia.ru
+More software at http://avis.allnokia.ru

@@ -1,0 +1,29 @@
+TARGET CallBack.exe
+TARGETTYPE exe
+UID 0 0xe14fff54
+MACRO DEBUG __DEBUG=1
+//MACRO __3RD__=1
+SYSTEMINCLUDE \epoc32\include \epoc32\include\mw \epoc32\include\caf \epoc32\include\platform
+USERINCLUDE ..\inc
+SOURCEPATH ..\src
+//LANG 01 16
+SOURCE main.cpp act.cpp observer.cpp Window.cpp Caller.cpp ATSender.cpp ATReader.cpp
+SOURCE property.cpp timer.cpp
+
+START RESOURCE CallBack_reg.rss
+	TARGET CallBack_reg.rsc
+	TARGETPATH private\10003a3f\import\apps
+END
+START RESOURCE CallBack.rss
+	TARGET CallBack.rsc
+	TARGETPATH resource\apps
+END
+
+START RESOURCE E14FFF54.rss
+END
+LIBRARY euser.lib flogger.lib etel3rdparty.lib efsrv.lib ws32.lib gdi.lib etel.lib c32.lib fbscli.lib
+LIBRARY imageconversion.lib bafl.lib estor.lib
+//CAPABILITY LocalServices NetworkServices ReadUserData WriteUserData UserEnvironment ProtServ PowerMgmt SwEvent CommDD ReadDeviceData WriteDeviceData NetworkControl NetworkServices LocalServices
+//CAPABILITY LocalServices NetworkServices ReadUserData WriteUserData UserEnvironment PowerMgmt CommDD ReadDeviceData WriteDeviceData NetworkControl NetworkServices LocalServices
+//CAPABILITY     LocalServices UserEnvironment NetworkServices ReadUserData WriteUserData SwEvent SurroundingsDD ProtServ PowerMgmt ReadDeviceData WriteDeviceData NetworkControl MultimediaDD CommDD DiskAdmin
+CAPABILITY ALL -TCB -DRM -AllFiles

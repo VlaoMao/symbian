@@ -1,0 +1,12 @@
+/*
+========================================================================
+ Name        : LightManSetup.hrh
+ Author      : SQR
+ Copyright   : 
+ Description : 
+========================================================================
+*/
+enum TLightManSetupViewUids
+	{
+	ELightManSetupListBoxViewId = 1
+	};

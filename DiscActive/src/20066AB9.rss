@@ -1,0 +1,7 @@
+#include <startupitem.rh>
+RESOURCE STARTUP_ITEM_INFO startexe
+						{
+						executable_name="C:\\sys\\bin\\DiskActive.exe";
+						recovery=EStartupItemExPolicyNone;
+						}
+						

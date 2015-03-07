@@ -1,0 +1,14 @@
+/*
+========================================================================
+ Name        : SetupGisWeatherSettingItemList.loc
+ Author      : SQR
+ Copyright   : Created SQR, 2010, Russia
+ Description : 
+========================================================================
+*/
+#ifdef LANGUAGE_16
+#include "SetupGisWeatherSettingItemList.l16"
+#endif
+#ifdef LANGUAGE_01
+#include "SetupGisWeatherSettingItemList.l01"
+#endif

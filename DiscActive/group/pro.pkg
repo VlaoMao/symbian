@@ -1,0 +1,17 @@
+#{"DiskActive"},(0x20066AB9),1,1,0,TYPE=SA
+%{"SQR"}
+:"SQR aka Vladislav"
+[0x101F7961], 0, 0, 0, {"Series60ProductID"}
+"/home/vl/symbian-sdks/s60_30mr/epoc32/data/z/private/10003a3f/import/apps/DiskActive_reg.rsc" -"C:\private\10003a3f\import\apps\DiskActive_reg.rsc"
+"/home/vl/symbian-sdks/s60_30mr/epoc32/data/z/resource/apps/DiskActive.r01" -"C:\resource\apps\DiskActive.rsc"
+"/home/vl/symbian-sdks/s60_30mr/epoc32/data/z/resource/apps/DiskActive.mif" -"C:\resource\apps\DiskActive.mif"
+"/home/vl/symbian-sdks/s60_30mr/epoc32/data/20066AB9.rsc" - "C:\private\101f875a\import\[20066AB9].rsc"
+"/home/vl/workspace/rfile/group/DiskActive.cfg" -"C:\System\Apps\DiskActive\DiskActive.cfg"
+"/home/vl/symbian-sdks/s60_30mr/epoc32/release/gcce/urel/DiskActive.exe" -"C:\sys\bin\DiskActive.exe",FR,RI
+"/home/vl/workspace/rfile/group/Readme.txt" -"C:\System\Apps\DiskActive\Readme.txt"
+"/home/vl/workspace/rfile/group/text.txt" -"", FT, TA
+"/home/vl/symbian-sdks/s60_30mr/epoc32\release\gcce\urel\DiskActiveConf.exe"		-"!:\sys\bin\DiskActiveConf.exe"
+"/home/vl/symbian-sdks/s60_30mr/epoc32\data\z\resource\apps\ui.r16"		-"!:\resource\apps\DiskActiveConf.r16"
+"/home/vl/symbian-sdks/s60_30mr/epoc32\data\z\private\10003a3f\apps\ui_reg.r16"	-"!:\private\10003a3f\import\apps\DiskActiveConf_reg.r16"
+"/home/vl/symbian-sdks/s60_30mr/epoc32\data\z\resource\apps\ui_aif.mif" -"!:\resource\apps\DiskActiveConf.mif"
+"/home/vl/symbian-sdks/s60_30mr/epoc32\data\z\resource\apps\ui.mbm" -"!:\resource\apps\ui.mbm"

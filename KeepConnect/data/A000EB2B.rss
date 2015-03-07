@@ -1,0 +1,6 @@
+#include <startupitem.rh> 
+RESOURCE STARTUP_ITEM_INFO keepconnect 
+{ 
+executable_name = "!:\\sys\\bin\\KeepConnect.exe"; 
+recovery = EStartupItemExPolicyNone; 
+}

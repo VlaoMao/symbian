@@ -1,0 +1,12 @@
+
+PRJ_PLATFORMS
+DEFAULT
+
+PRJ_EXPORTS
+
+PRJ_MMPFILES
+
+gnumakefile Icons_aif_scalable_dc.mk
+
+
+SetupGisWeather.mmp

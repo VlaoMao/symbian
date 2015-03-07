@@ -1,0 +1,7 @@
+#{"mShell starter 5th module"},(0xa0009885),1,0,0,TYPE=SP
+%{"SQR"}
+:"SQR aka Vladislav"
+[0x101F7961], 0, 0, 0, {"Series60ProductID"}
+
+
+"$(EPOCROOT)epoc32/release/gcce/urel/starter_mm.dll" -"!:\sys\bin\starter_mm.dll"

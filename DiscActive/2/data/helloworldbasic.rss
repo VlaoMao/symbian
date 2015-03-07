@@ -1,0 +1,209 @@
+/*
+* ==============================================================================
+*  Name        : Helloworldbasic.rss
+*  Part of     : Helloworldbasic
+*  Interface   : 
+*  Description : 
+*  Version     : 
+*
+*  Copyright (c) 2005-2006 Nokia Corporation.
+*  This material, including documentation and any related 
+*  computer programs, is protected by copyright controlled by 
+*  Nokia Corporation.
+* ==============================================================================
+*/
+
+//  RESOURCE IDENTIFIER
+NAME HEWB    // 4 letter ID
+CHARACTER_SET UTF8
+
+
+//  INCLUDES
+#include <eikon.rh>
+#include <avkon.rh>
+#include <avkon.rsg>
+#include <appinfo.rh>
+#include "helloworldbasic.hrh"
+#include "helloworldbasic.rls"
+
+//  RESOURCE DEFINITIONS
+// -----------------------------------------------------------------------------
+//
+//    Define the resource file signature
+//    This resource should be empty.
+//
+// -----------------------------------------------------------------------------
+//
+RESOURCE RSS_SIGNATURE
+    {
+    }
+
+// -----------------------------------------------------------------------------
+//
+//    Default Document Name
+//
+// -----------------------------------------------------------------------------
+//
+RESOURCE TBUF r_default_document_name
+    {
+    buf="HEWB";
+    }
+
+// -----------------------------------------------------------------------------
+//
+//    Define default menu and CBA key.
+//
+// -----------------------------------------------------------------------------
+//
+RESOURCE EIK_APP_INFO
+    {
+    menubar = r_helloworldbasic_menubar;
+    cba = R_AVKON_SOFTKEYS_OPTIONS_EXIT;
+    }
+
+
+// -----------------------------------------------------------------------------
+//
+//   r_helloworldbasic_menubar
+//   Menubar for HelloWorldBasic example
+//
+// -----------------------------------------------------------------------------
+//
+RESOURCE MENU_BAR r_helloworldbasic_menubar
+    {
+    titles =
+        {
+        MENU_TITLE { menu_pane = r_helloworldbasic_menu; }
+        };
+    }
+
+
+// -----------------------------------------------------------------------------
+//
+//   r_helloworldbasic_menu
+//   Menu for "Options"
+//
+// -----------------------------------------------------------------------------
+//
+RESOURCE MENU_PANE r_helloworldbasic_menu
+    {
+    items =
+        {
+        // added the new Options menu command here
+        MENU_ITEM
+                {
+                command = EHelloWorldBasicCommand1;
+                txt = STRING_hewb_command1;
+                },
+        MENU_ITEM
+                {
+                command = EHelloWorldBasicCommand2;
+                txt = STRING_hewb_command2;
+                },
+        MENU_ITEM
+                {
+                command = EHelloWorldBasicCommand3;
+                txt = STRING_hewb_command3;
+                },
+        MENU_ITEM
+                {
+                command = EAknSoftkeyExit;
+                txt = STRING_hewb_exit;
+                }
+        };
+    }
+
+// -----------------------------------------------------------------------------
+//
+// Resources for messages.
+//
+// -----------------------------------------------------------------------------
+//
+#define qtn_about_dialog_title "О программе"
+#define qtn_about_dialog_text "DiskActive кофигуратор.\nВерсия 1.0\nАвтор SQR\nМыло: vlaomao@gmail.com\n(c)2010, Россия "
+RESOURCE TBUF32 r_hewb_command1_text { buf=STRING_hewb_command1_text; }
+RESOURCE TBUF32 r_hewb_caption_string { buf=STRING_hewb_caption_string; }
+RESOURCE TBUF32 r_hewb_failed_string { buf=STRING_Failed_text;}
+RESOURCE TBUF32 r_hewb_about_string { buf=STRING_About_text;}
+RESOURCE TBUF32 r_about_dialog_title { buf=qtn_about_dialog_title; }
+RESOURCE TBUF r_about_dialog_text { buf=qtn_about_dialog_text; }
+#define qtn_prompt "prommmmt"
+#define qtn_title_prompt "Settings"
+
+// ---------------------------------------------------------------------------- 
+//
+// r_helloworldbasic_localisable_app_info
+//
+// ---------------------------------------------------------------------------- 
+//
+RESOURCE LOCALISABLE_APP_INFO r_helloworldbasic_localisable_app_info
+    {
+    short_caption = STRING_hewb_caption_string;
+    caption_and_icon = 
+    CAPTION_AND_ICON_INFO
+        {
+        caption = STRING_hewb_caption_string;
+
+        number_of_icons = 1;
+	   	icon_file = "\\resource\\apps\\DiskActiveConf.mif";
+	    };
+    }
+
+RESOURCE DIALOG r_about_query_dialog
+	{
+	flags = EGeneralQueryFlags | EEikDialogFlagNoBorder | EEikDialogFlagNoShadow;
+	buttons = R_AVKON_SOFTKEYS_OK_EMPTY;
+	items=
+		{
+		DLG_LINE 
+			{
+			type = EAknCtPopupHeadingPane;
+			id = EAknMessageQueryHeaderId;
+			itemflags = EEikDlgItemNonFocusing;
+			control=AVKON_HEADING
+				{
+				headinglayout=R_AVKON_LIST_HEADING_PANE_POPUPS;
+				};
+			},
+		DLG_LINE
+			{
+			type = EAknCtMessageQuery;
+			id = EAknMessageQueryContentId;
+			control = AVKON_MESSAGE_QUERY
+				{
+				message="";
+				};
+			}
+		};
+	}
+
+RESOURCE DIALOG r_myform_dialog
+{
+	flags=EEikDialogFlagNoDrag | EEikDialogFlagFillAppClientRect | EEikDialogFlagWait;
+	title=qtn_title_prompt;
+	buttons = R_AVKON_SOFTKEYS_OPTIONS_BACK;
+	form = r_myform_form;
+}
+RESOURCE FORM r_myform_form
+{
+	flags = EEikFormUseDoubleSpacedFormat;
+	items = 
+	DLG_LINE
+	{
+		type=EEikCtEdwin;
+		prompt=qtn_prompt;
+		id=0;
+		itemflags=EEikDlgItemTakesEnterKey | EEikDlgItemOfferAllHotKeys;
+		control=EDWIN
+		{
+		flags=EEikEdwinNoHorizScrolling | EEikEdwinResizable;
+		width=50;
+		lines=10;
+		maxlength=50;
+		max_view_height_in_lines=5;
+		base_line_delta=21;
+		};
+	};
+	}
+// End of File
+

@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<designerData version="1.1.0">
+  <componentManifest>
+    <manifestEntry id="com.nokia.sdt.series60.CAknView" version="1.2.0"/>
+    <manifestEntry id="com.nokia.sdt.series60.DesignTimeContainer" version="1.0.0"/>
+    <manifestEntry id="com.nokia.sdt.series60.CommonBase" version="1.0.0"/>
+    <manifestEntry id="com.nokia.sdt.series60.StatusPane" version="1.0.0"/>
+    <manifestEntry id="com.nokia.sdt.series60.ControlBase" version="1.0.0"/>
+    <manifestEntry id="com.nokia.sdt.series60.StatusPaneTitle" version="1.0.0"/>
+    <manifestEntry id="com.nokia.sdt.series60.StatusPaneTitleBase" version="1.0.0"/>
+    <manifestEntry id="com.nokia.sdt.series60.CBA" version="1.0.0"/>
+    <manifestEntry id="com.nokia.sdt.series60.CBABase" version="1.0.0"/>
+    <manifestEntry id="com.nokia.sdt.series60.CAknSettingItemList" version="1.1.0"/>
+    <manifestEntry id="com.nokia.sdt.series60.ContainerBase" version="1.0.0"/>
+    <manifestEntry id="com.nokia.sdt.series60.CAknIntegerEdwin" version="1.0.0"/>
+    <manifestEntry id="com.nokia.sdt.series60.CEikEdwinBase" version="1.0.0"/>
+    <manifestEntry id="com.nokia.sdt.series60.EditorBase" version="1.0.0"/>
+    <manifestEntry id="com.nokia.sdt.series60.CCoeControlBase" version="1.0.0"/>
+    <manifestEntry id="com.nokia.sdt.series60.CEikEdwin" version="1.0.0"/>
+    <manifestEntry id="com.nokia.sdt.series60.MenuBar" version="1.0.0"/>
+    <manifestEntry id="com.nokia.sdt.series60.MenuBase" version="1.0.0"/>
+    <manifestEntry id="com.nokia.sdt.series60.MenuPane" version="1.0.0"/>
+    <manifestEntry id="com.nokia.sdt.series60.MenuItem" version="1.0.0"/>
+    <manifestEntry id="com.nokia.sdt.series60.MenuItemBase" version="1.0.0"/>
+  </componentManifest>
+  <property id="com.nokia.sdt.symbian.dm.RESOURCE_DIRECTORY_ID">data</property>
+  <property id="com.nokia.sdt.component.symbian.version">3.0.1</property>
+  <property id="com.nokia.sdt.component.symbian.vendor">com.nokia.series60</property>
+  <property id="com.nokia.sdt.symbian.dm.COMPONENT_PROVIDER">com.nokia.sdt.component.symbian.Symbian-Provider</property>
+  <property id="com.nokia.sdt.symbian.dm.INCLUDE_DIRECTORY_ID">inc</property>
+  <property id="com.nokia.sdt.symbian.dm.SOURCE_DIRECTORY_ID">src</property>
+  <property id="com.nokia.sdt.symbian.dm.SOURCEGEN_PROVIDER">com.nokia.sdt.sourcegen.Symbian-Provider</property>
+  <property id="com.nokia.sdt.symbian.dm.BUILD_DIRECTORY_ID">group</property>
+  <component id="com.nokia.sdt.series60.CAknView">
+    <property id="className">CuiSettingItemListView</property>
+    <compoundProperty id="location">
+      <property id="x">52</property>
+      <property id="y">45</property>
+    </compoundProperty>
+    <property id="optionsMenu" type="componentRef">optionsMenu</property>
+    <property id="name">uiSettingItemListView</property>
+    <compoundProperty id="size">
+      <property id="width">240</property>
+      <property id="height">320</property>
+    </compoundProperty>
+    <component id="com.nokia.sdt.series60.StatusPane">
+      <compoundProperty id="location">
+        <property id="x">20</property>
+      </compoundProperty>
+      <property id="name">statusPane</property>
+      <compoundProperty id="size">
+        <property id="width">204</property>
+        <property id="height">66</property>
+      </compoundProperty>
+      <component id="com.nokia.sdt.series60.StatusPaneTitle">
+        <compoundProperty id="location">
+          <property id="x">56</property>
+        </compoundProperty>
+        <property id="name">title</property>
+        <property id="titleText" type="i18n">STR_uiSettingItemListView_4</property>
+        <compoundProperty id="size">
+          <property id="width">148</property>
+          <property id="height">43</property>
+        </compoundProperty>
+        <compoundProperty id="image"/>
+      </component>
+    </component>
+    <component id="com.nokia.sdt.series60.CBA">
+      <compoundProperty id="location">
+        <property id="y">288</property>
+      </compoundProperty>
+      <compoundProperty id="info">
+        <property id="leftText" type="i18n">STR_uiSettingItemListView_2</property>
+        <property id="rightText" type="i18n">STR_uiSettingItemListView_3</property>
+      </compoundProperty>
+      <property id="name">controlPane</property>
+      <compoundProperty id="size">
+        <property id="width">240</property>
+        <property id="height">32</property>
+      </compoundProperty>
+    </component>
+    <component id="com.nokia.sdt.series60.CAknSettingItemList">
+      <property id="title" type="i18n">STR_uiSettingItemListView_1</property>
+      <compoundProperty id="location">
+        <property id="y">66</property>
+      </compoundProperty>
+      <property id="className">CUiSettingItemList</property>
+      <property id="name">uiSettingItemList</property>
+      <compoundProperty id="size">
+        <property id="width">240</property>
+        <property id="height">222</property>
+      </compoundProperty>
+      <component id="com.nokia.sdt.series60.CAknIntegerEdwin">
+        <compoundProperty id="location">
+          <property id="x">0</property>
+          <property id="y">0</property>
+        </compoundProperty>
+        <property id="value">235</property>
+        <property id="name">integerEditor1</property>
+        <property id="itemTitle" type="i18n">STR_uiSettingItemListView_14</property>
+        <compoundProperty id="size">
+          <property id="height">42</property>
+          <property id="width">240</property>
+        </compoundProperty>
+      </component>
+      <component id="com.nokia.sdt.series60.CAknIntegerEdwin">
+        <compoundProperty id="location">
+          <property id="x">0</property>
+          <property id="y">42</property>
+        </compoundProperty>
+        <property id="name">integerEditor2</property>
+        <property id="itemTitle" type="i18n">STR_uiSettingItemListView_16</property>
+        <compoundProperty id="size">
+          <property id="height">42</property>
+          <property id="width">240</property>
+        </compoundProperty>
+      </component>
+      <component id="com.nokia.sdt.series60.CAknIntegerEdwin">
+        <compoundProperty id="location">
+          <property id="x">0</property>
+          <property id="y">84</property>
+        </compoundProperty>
+        <property id="value">5</property>
+        <property id="name">integerEditor4</property>
+        <property id="itemTitle" type="i18n">STR_uiSettingItemListView_21</property>
+        <compoundProperty id="size">
+          <property id="height">42</property>
+          <property id="width">240</property>
+        </compoundProperty>
+      </component>
+      <component id="com.nokia.sdt.series60.CAknIntegerEdwin">
+        <compoundProperty id="location">
+          <property id="x">0</property>
+          <property id="y">126</property>
+        </compoundProperty>
+        <property id="value">50</property>
+        <property id="name">integerEditor3</property>
+        <property id="itemTitle" type="i18n">STR_uiSettingItemListView_19</property>
+        <compoundProperty id="size">
+          <property id="height">42</property>
+          <property id="width">240</property>
+        </compoundProperty>
+      </component>
+      <component id="com.nokia.sdt.series60.CAknIntegerEdwin">
+        <compoundProperty id="location">
+          <property id="x">0</property>
+          <property id="y">168</property>
+        </compoundProperty>
+        <property id="value">50</property>
+        <property id="name">integerEditor5</property>
+        <property id="itemTitle" type="i18n">STR_uiSettingItemListView_23</property>
+        <compoundProperty id="size">
+          <property id="height">42</property>
+          <property id="width">240</property>
+        </compoundProperty>
+      </component>
+      <component id="com.nokia.sdt.series60.CEikEdwin">
+        <compoundProperty id="size">
+          <property id="height">42</property>
+          <property id="width">240</property>
+        </compoundProperty>
+        <compoundProperty id="avkonFlags"/>
+        <compoundProperty id="location">
+          <property id="x">0</property>
+          <property id="y">210</property>
+        </compoundProperty>
+        <property id="itemTitle" type="i18n">STR_uiSettingItemListView_26</property>
+        <compoundProperty id="flags"/>
+        <compoundProperty id="allowedCaseModes"/>
+        <property id="name">edit1</property>
+        <property id="text" type="i18n">STR_uiSettingItemListView_25</property>
+        <compoundProperty id="allowedInputModes">
+          <property id="EAknEditorKatakanaInputMode">true</property>
+          <property id="EAknEditorFullWidthTextInputMode">true</property>
+          <property id="EAknEditorFullWidthNumericInputMode">true</property>
+          <property id="EAknEditorFullWidthKatakanaInputMode">true</property>
+          <property id="EAknEditorHiraganaKanjiInputMode">true</property>
+          <property id="EAknEditorHalfWidthTextInputMode">true</property>
+        </compoundProperty>
+      </component>
+    </component>
+    <component id="com.nokia.sdt.series60.MenuBar">
+      <compoundProperty id="location">
+        <property id="x">5</property>
+        <property id="y">136</property>
+      </compoundProperty>
+      <property id="name">optionsMenu</property>
+      <compoundProperty id="size">
+        <property id="height">152</property>
+        <property id="width">229</property>
+      </compoundProperty>
+      <component id="com.nokia.sdt.series60.MenuPane">
+        <compoundProperty id="location"/>
+        <property id="name">menuPane1</property>
+        <compoundProperty id="size">
+          <property id="height">152</property>
+          <property id="width">229</property>
+        </compoundProperty>
+        <component id="com.nokia.sdt.series60.MenuItem">
+          <compoundProperty id="location">
+            <property id="x">5</property>
+            <property id="y">2</property>
+          </compoundProperty>
+          <property id="name">menuItem1</property>
+          <property id="text" type="i18n">STR_uiSettingItemListView_6</property>
+          <compoundProperty id="size">
+            <property id="width">214</property>
+            <property id="height">27</property>
+          </compoundProperty>
+          <eventBinding id="selected" handlerDisplay="HandleChangeSelectedSettingItemL" handlerSymbol="cpp@src//UiSettingItemListView.cpp/function(CuiSettingItemListView::HandleChangeSelectedSettingItemL(TInt))"/>
+        </component>
+        <component id="com.nokia.sdt.series60.MenuItem">
+          <compoundProperty id="location">
+            <property id="x">5</property>
+            <property id="y">31</property>
+          </compoundProperty>
+          <property id="name">saveMenuItem</property>
+          <property id="text" type="i18n">STR_uiSettingItemListView_29</property>
+          <compoundProperty id="size">
+            <property id="width">214</property>
+            <property id="height">27</property>
+          </compoundProperty>
+        </component>
+        <component id="com.nokia.sdt.series60.MenuItem">
+          <compoundProperty id="location">
+            <property id="x">5</property>
+            <property id="y">60</property>
+          </compoundProperty>
+          <property id="name">restart_DAMenuItem</property>
+          <property id="text" type="i18n">STR_uiSettingItemListView_30</property>
+          <compoundProperty id="size">
+            <property id="width">214</property>
+            <property id="height">27</property>
+          </compoundProperty>
+        </component>
+        <component id="com.nokia.sdt.series60.MenuItem">
+          <compoundProperty id="location">
+            <property id="x">5</property>
+            <property id="y">89</property>
+          </compoundProperty>
+          <property id="name">aboutMenuItem</property>
+          <property id="text" type="i18n">STR_uiSettingItemListView_32</property>
+          <compoundProperty id="size">
+            <property id="width">214</property>
+            <property id="height">27</property>
+          </compoundProperty>
+        </component>
+        <component id="com.nokia.sdt.series60.MenuItem">
+          <compoundProperty id="location">
+            <property id="x">5</property>
+            <property id="y">118</property>
+          </compoundProperty>
+          <property id="name">exitMenuItem</property>
+          <property id="text" type="i18n">STR_uiSettingItemListView_31</property>
+          <compoundProperty id="size">
+            <property id="width">214</property>
+            <property id="height">27</property>
+          </compoundProperty>
+          <eventBinding id="selected" handlerDisplay="HandleExitMenuItemSelectedL" handlerSymbol="cpp@src//UiSettingItemListView.cpp/function(CuiSettingItemListView::HandleExitMenuItemSelectedL(TInt))"/>
+        </component>
+      </component>
+    </component>
+  </component>
+  <stringBundle>
+    <stringTable language="LANG_Russian">
+      <string id="STR_uiSettingItemListView_1">Settings</string>
+      <string id="STR_uiSettingItemListView_2"/>
+      <string id="STR_uiSettingItemListView_3"/>
+      <string id="STR_uiSettingItemListView_4">Настройка DiskActive</string>
+      <string id="STR_uiSettingItemListView_6">Change</string>
+      <string id="STR_uiSettingItemListView_14">Позиция X</string>
+      <string id="STR_uiSettingItemListView_16">Позиция Y</string>
+      <string id="STR_uiSettingItemListView_19">Высота</string>
+      <string id="STR_uiSettingItemListView_21">Ширина</string>
+      <string id="STR_uiSettingItemListView_23">Время отображения</string>
+      <string id="STR_uiSettingItemListView_25">0x0000ff</string>
+      <string id="STR_uiSettingItemListView_26">Цвет</string>
+      <string id="STR_uiSettingItemListView_29">Сохранить</string>
+      <string id="STR_uiSettingItemListView_30">Перезапуск DA</string>
+      <string id="STR_uiSettingItemListView_31">Выход</string>
+      <string id="STR_uiSettingItemListView_32">О программе</string>
+    </stringTable>
+  </stringBundle>
+  <macroTable/>
+  <sourceMappingState>
+    <resourceMappings>
+      <resourceMapping instanceName="edit1">r_ui_setting_item_list_edit1_editor_resource_id</resourceMapping>
+      <resourceMapping instanceName="edit1" rsrcId="text">r_ui_setting_item_list_edit1</resourceMapping>
+      <resourceMapping instanceName="integerEditor5">r_ui_setting_item_list_integer_editor5_editor_resource_id</resourceMapping>
+      <resourceMapping instanceName="integerEditor4">r_ui_setting_item_list_integer_editor4_editor_resource_id</resourceMapping>
+      <resourceMapping instanceName="integerEditor3">r_ui_setting_item_list_integer_editor3_editor_resource_id</resourceMapping>
+      <resourceMapping instanceName="optionsMenu">r_ui_setting_item_list_options_menu</resourceMapping>
+      <resourceMapping instanceName="integerEditor2">r_ui_setting_item_list_integer_editor2_editor_resource_id</resourceMapping>
+      <resourceMapping instanceName="integerEditor1">r_ui_setting_item_list_integer_editor1_editor_resource_id</resourceMapping>
+      <resourceMapping instanceName="uiSettingItemList">r_ui_setting_item_list_ui_setting_item_list</resourceMapping>
+      <resourceMapping instanceName="title">r_ui_setting_item_list_title_resource</resourceMapping>
+      <resourceMapping instanceName="edit1" rsrcId="member$setting_page_resource">r_ui_setting_item_list_edit1_setting_page_resource</resourceMapping>
+      <resourceMapping instanceName="uiSettingItemListView">r_ui_setting_item_list_ui_setting_item_list_view</resourceMapping>
+      <resourceMapping instanceName="statusPane">r_ui_setting_item_list_status_pane</resourceMapping>
+      <resourceMapping instanceName="integerEditor2" rsrcId="member$setting_page_resource">r_ui_setting_item_list_integer_editor2_setting_page_resource</resourceMapping>
+      <resourceMapping instanceName="integerEditor1" rsrcId="member$setting_page_resource">r_ui_setting_item_list_integer_editor1_setting_page_resource</resourceMapping>
+      <resourceMapping instanceName="integerEditor4" rsrcId="member$setting_page_resource">r_ui_setting_item_list_integer_editor4_setting_page_resource</resourceMapping>
+      <resourceMapping instanceName="integerEditor3" rsrcId="member$setting_page_resource">r_ui_setting_item_list_integer_editor3_setting_page_resource</resourceMapping>
+      <resourceMapping instanceName="integerEditor5" rsrcId="member$setting_page_resource">r_ui_setting_item_list_integer_editor5_setting_page_resource</resourceMapping>
+      <resourceMapping instanceName="menuPane1">r_ui_setting_item_list_menu_pane1_menu_pane</resourceMapping>
+    </resourceMappings>
+    <enumMappings>
+      <enumMapping instanceName="aboutMenuItem" propertyId="command" nameAlgorithm="com.nokia.sdt.component.symbian.NAME_ALG_COMMANDS">EUiSettingItemListViewAboutMenuItemCommand</enumMapping>
+      <enumMapping instanceName="integerEditor5" propertyId="" nameAlgorithm="com.nokia.sdt.component.symbian.NAME_ALG_SETTING_ITEM_ID">EUiSettingItemListViewIntegerEditor5</enumMapping>
+      <enumMapping instanceName="integerEditor4" propertyId="" nameAlgorithm="com.nokia.sdt.component.symbian.NAME_ALG_SETTING_ITEM_ID">EUiSettingItemListViewIntegerEditor4</enumMapping>
+      <enumMapping instanceName="integerEditor3" propertyId="" nameAlgorithm="com.nokia.sdt.component.symbian.NAME_ALG_SETTING_ITEM_ID">EUiSettingItemListViewIntegerEditor3</enumMapping>
+      <enumMapping instanceName="edit1" propertyId="" nameAlgorithm="com.nokia.sdt.component.symbian.NAME_ALG_CONTROL_TYPE">EEikCtEdwin</enumMapping>
+      <enumMapping instanceName="integerEditor2" propertyId="" nameAlgorithm="com.nokia.sdt.component.symbian.NAME_ALG_SETTING_ITEM_ID">EUiSettingItemListViewIntegerEditor2</enumMapping>
+      <enumMapping instanceName="integerEditor1" propertyId="" nameAlgorithm="com.nokia.sdt.component.symbian.NAME_ALG_SETTING_ITEM_ID">EUiSettingItemListViewIntegerEditor1</enumMapping>
+      <enumMapping instanceName="restart_DAMenuItem" propertyId="command" nameAlgorithm="com.nokia.sdt.component.symbian.NAME_ALG_COMMANDS">EUiSettingItemListViewRestart_DAMenuItemCommand</enumMapping>
+      <enumMapping instanceName="title" propertyId="" nameAlgorithm="com.nokia.sdt.component.symbian.NAME_ALG_STATUS_PANE_ID">EEikStatusPaneUidTitle</enumMapping>
+      <enumMapping instanceName="uiSettingItemListView" propertyId="" nameAlgorithm="com.nokia.sdt.component.symbian.NAME_ALG_VIEW_UID">EUiSettingItemListViewId</enumMapping>
+      <enumMapping instanceName="edit1" propertyId="numericKeymap">EAknEditorStandardNumberModeKeymap</enumMapping>
+      <enumMapping instanceName="integerEditor5" propertyId="" nameAlgorithm="com.nokia.sdt.component.symbian.NAME_ALG_CONTROL_TYPE">EAknCtIntegerEdwin</enumMapping>
+      <enumMapping instanceName="menuItem1" propertyId="command" nameAlgorithm="com.nokia.sdt.component.symbian.NAME_ALG_COMMANDS">EUiSettingItemListViewMenuItem1Command</enumMapping>
+      <enumMapping instanceName="edit1" propertyId="defaultCase">EAknEditorTextCase</enumMapping>
+      <enumMapping instanceName="integerEditor3" propertyId="" nameAlgorithm="com.nokia.sdt.component.symbian.NAME_ALG_CONTROL_TYPE">EAknCtIntegerEdwin</enumMapping>
+      <enumMapping instanceName="integerEditor4" propertyId="" nameAlgorithm="com.nokia.sdt.component.symbian.NAME_ALG_CONTROL_TYPE">EAknCtIntegerEdwin</enumMapping>
+      <enumMapping instanceName="integerEditor1" propertyId="" nameAlgorithm="com.nokia.sdt.component.symbian.NAME_ALG_CONTROL_TYPE">EAknCtIntegerEdwin</enumMapping>
+      <enumMapping instanceName="edit1" propertyId="" nameAlgorithm="com.nokia.sdt.component.symbian.NAME_ALG_SETTING_ITEM_ID">EUiSettingItemListViewEdit1</enumMapping>
+      <enumMapping instanceName="integerEditor2" propertyId="" nameAlgorithm="com.nokia.sdt.component.symbian.NAME_ALG_CONTROL_TYPE">EAknCtIntegerEdwin</enumMapping>
+      <enumMapping instanceName="edit1" propertyId="defaultInputMode">EAknEditorTextInputMode</enumMapping>
+      <enumMapping instanceName="saveMenuItem" propertyId="command" nameAlgorithm="com.nokia.sdt.component.symbian.NAME_ALG_COMMANDS">EUiSettingItemListViewSaveMenuItemCommand</enumMapping>
+      <enumMapping instanceName="exitMenuItem" propertyId="command" nameAlgorithm="com.nokia.sdt.component.symbian.NAME_ALG_COMMANDS">EUiSettingItemListViewExitMenuItemCommand</enumMapping>
+      <enumMapping instanceName="title" propertyId="" nameAlgorithm="com.nokia.sdt.component.symbian.NAME_ALG_CONTROL_TYPE">EAknCtTitlePane</enumMapping>
+    </enumMappings>
+    <arrayMappings/>
+  </sourceMappingState>
+  <generatedFiles>
+    <file>src/uisettingitemlist.cpp</file>
+    <file>inc/uisettingitemlist.h</file>
+    <file>inc/uisettingitemlistview.h</file>
+    <file>inc/uisettingitemlistsettings.h</file>
+    <file>src/uisettingitemlistsettings.cpp</file>
+    <file>src/uisettingitemlistview.cpp</file>
+    <file>data/ui.rss</file>
+    <file>data/uisettingitemlist.rssi</file>
+    <file>inc/ui.hrh</file>
+    <file>inc/uisettingitemlist.hrh</file>
+    <file>data/ui.loc</file>
+    <file>data/ui.l16</file>
+    <file>data/uisettingitemlist.loc</file>
+    <file>data/uisettingitemlist.l16</file>
+  </generatedFiles>
+</designerData>

@@ -1,0 +1,27 @@
+&EN,RU
+#{"vcall","vcall"},(0x2004bbbb),1,0,0,TYPE=SA
+%{"SQR","SQR"}
+:"SQR aka Vladislav"
+[0x101F7961], 0, 0, 0, {"Series60ProductID","Series60ProductID"}
+[0x102032BE], 0, 0, 0, {"Series60ProductID","Series60ProductID"}
+[0x102752AE], 0, 0, 0, {"Series60ProductID","Series60ProductID"}
+[0x1028315F], 0, 0, 0, {"Series60ProductID","Series60ProductID"}
+
+"$(EPOCROOT)epoc32/data/z/private/10003a3f/import/apps/vcall_reg.rsc" -"!:\private\10003a3f\import\apps\vcall_reg.rsc"
+"$(EPOCROOT)epoc32/data/z/resource/apps/vcall.rsc" -"!:\resource\apps\vcall.rsc"
+"$(EPOCROOT)epoc32/data/z/resource/apps/vcall.mif" -"!:\resource\apps\vcall.mif"
+;"$(EPOCROOT)epoc32/data/2004BB01.rsc" - "C:\private\101f875a\import\[2004BB01].rsc"
+"$(EPOCROOT)epoc32/release/gcce/urel/vcall.exe" -"!:\sys\bin\vcall.exe"
+
+;Settings
+
+"$(EPOCROOT)epoc32\release\$(PLATFORM)\$(TARGET)\vcallsettings.exe"		-"!:\sys\bin\vcallsettings.exe"
+{
+"$(EPOCROOT)epoc32\data\z\resource\apps\vcallsettings.r01"
+"$(EPOCROOT)epoc32\data\z\resource\apps\vcallsettings.r16"
+} - "!:\resource\apps\vcallsettings.rsc"
+{
+"$(EPOCROOT)epoc32\data\z\private\10003a3f\apps\vcallsettings_reg.r01"
+"$(EPOCROOT)epoc32\data\z\private\10003a3f\apps\vcallsettings_reg.r16"
+} - "!:\private\10003a3f\import\apps\vcallsettings_reg.rsc"
+

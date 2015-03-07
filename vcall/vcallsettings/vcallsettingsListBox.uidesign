@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<designerData version="1.1.0">
+  <componentManifest>
+    <manifestEntry id="com.nokia.sdt.series60.CAknView" version="1.2.0"/>
+    <manifestEntry id="com.nokia.sdt.series60.DesignTimeContainer" version="1.0.0"/>
+    <manifestEntry id="com.nokia.sdt.series60.CommonBase" version="1.0.0"/>
+    <manifestEntry id="com.nokia.sdt.series60.StatusPane" version="1.0.0"/>
+    <manifestEntry id="com.nokia.sdt.series60.ControlBase" version="1.0.0"/>
+    <manifestEntry id="com.nokia.sdt.series60.StatusPaneTitle" version="1.0.0"/>
+    <manifestEntry id="com.nokia.sdt.series60.StatusPaneTitleBase" version="1.0.0"/>
+    <manifestEntry id="com.nokia.sdt.series60.CBA" version="1.0.0"/>
+    <manifestEntry id="com.nokia.sdt.series60.CBABase" version="1.0.0"/>
+    <manifestEntry id="com.nokia.sdt.series60.CCoeControl" version="1.2.0"/>
+    <manifestEntry id="com.nokia.sdt.series60.ContainerBase" version="1.0.0"/>
+    <manifestEntry id="com.nokia.sdt.series60.CAknListBox" version="1.0.0"/>
+    <manifestEntry id="com.nokia.sdt.series60.CCoeControlBase" version="1.0.0"/>
+    <manifestEntry id="com.nokia.sdt.series60.MenuBar" version="1.0.0"/>
+    <manifestEntry id="com.nokia.sdt.series60.MenuBase" version="1.0.0"/>
+    <manifestEntry id="com.nokia.sdt.series60.MenuPane" version="1.0.0"/>
+    <manifestEntry id="com.nokia.sdt.series60.MenuItem" version="1.0.0"/>
+    <manifestEntry id="com.nokia.sdt.series60.MenuItemBase" version="1.0.0"/>
+  </componentManifest>
+  <property id="com.nokia.sdt.symbian.dm.RESOURCE_DIRECTORY_ID">data</property>
+  <property id="com.nokia.sdt.component.symbian.version">5.0.0</property>
+  <property id="com.nokia.sdt.component.symbian.vendor">com.nokia.series60</property>
+  <property id="com.nokia.sdt.symbian.dm.COMPONENT_PROVIDER">com.nokia.sdt.component.symbian.Symbian-Provider</property>
+  <property id="com.nokia.sdt.symbian.dm.INCLUDE_DIRECTORY_ID">inc</property>
+  <property id="com.nokia.sdt.symbian.dm.SOURCE_DIRECTORY_ID">src</property>
+  <property id="com.nokia.sdt.symbian.dm.SOURCEGEN_PROVIDER">com.nokia.sdt.sourcegen.Symbian-Provider</property>
+  <property id="com.nokia.sdt.symbian.dm.BUILD_DIRECTORY_ID">group</property>
+  <component id="com.nokia.sdt.series60.CAknView">
+    <property id="className">CvcallsettingsListBoxView</property>
+    <compoundProperty id="location">
+      <property id="x">10</property>
+      <property id="y">10</property>
+    </compoundProperty>
+    <property id="optionsMenu" type="componentRef">optionsMenu</property>
+    <property id="name">vcallsettingsListBoxView</property>
+    <compoundProperty id="size">
+      <property id="width">360</property>
+      <property id="height">640</property>
+    </compoundProperty>
+    <component id="com.nokia.sdt.series60.StatusPane">
+      <compoundProperty id="location">
+        <property id="x">30</property>
+      </compoundProperty>
+      <property id="name">statusPane</property>
+      <compoundProperty id="size">
+        <property id="width">306</property>
+        <property id="height">95</property>
+      </compoundProperty>
+      <component id="com.nokia.sdt.series60.StatusPaneTitle">
+        <compoundProperty id="location"/>
+        <property id="name">title</property>
+        <property id="titleText" type="i18n">STR_vcallsettingsListBoxView_4</property>
+        <compoundProperty id="size">
+          <property id="width">222</property>
+          <property id="height">55</property>
+        </compoundProperty>
+        <compoundProperty id="image"/>
+      </component>
+    </component>
+    <component id="com.nokia.sdt.series60.CBA">
+      <compoundProperty id="location">
+        <property id="y">584</property>
+      </compoundProperty>
+      <compoundProperty id="info">
+        <property id="leftText" type="i18n">STR_vcallsettingsListBoxView_1</property>
+        <property id="rightText" type="i18n">STR_vcallsettingsListBoxView_2</property>
+        <property id="middleText" type="i18n">STR_vcallsettingsListBoxView_3</property>
+      </compoundProperty>
+      <property id="name">controlPane</property>
+      <compoundProperty id="size">
+        <property id="width">360</property>
+        <property id="height">56</property>
+      </compoundProperty>
+    </component>
+    <component id="com.nokia.sdt.series60.CCoeControl">
+      <property id="initialFocus" type="componentRef">listBox</property>
+      <compoundProperty id="location">
+        <property id="y">99</property>
+      </compoundProperty>
+      <property id="className">CVcallsettingsListBox</property>
+      <property id="name">vcallsettingsListBox</property>
+      <compoundProperty id="size">
+        <property id="width">360</property>
+        <property id="height">485</property>
+      </compoundProperty>
+      <component id="com.nokia.sdt.series60.CAknListBox">
+        <property id="style">CAknDoubleTimeStyleListBox</property>
+        <sequenceProperty id="alignmentInfo">
+          <element>Default</element>
+          <element>Default</element>
+          <element>Default</element>
+          <element>Default</element>
+        </sequenceProperty>
+        <compoundProperty id="size">
+          <property id="width">360</property>
+          <property id="height">485</property>
+        </compoundProperty>
+        <compoundProperty id="location"/>
+        <compoundProperty id="markIcon"/>
+        <sequenceProperty id="extraImages"/>
+        <property id="name">listBox</property>
+      </component>
+    </component>
+    <component id="com.nokia.sdt.series60.MenuBar">
+      <compoundProperty id="location">
+        <property id="x">12</property>
+        <property id="y">357</property>
+      </compoundProperty>
+      <property id="name">optionsMenu</property>
+      <compoundProperty id="size">
+        <property id="height">227</property>
+        <property id="width">335</property>
+      </compoundProperty>
+      <component id="com.nokia.sdt.series60.MenuPane">
+        <compoundProperty id="location"/>
+        <property id="name">menuPane1</property>
+        <compoundProperty id="size">
+          <property id="height">227</property>
+          <property id="width">335</property>
+        </compoundProperty>
+        <component id="com.nokia.sdt.series60.MenuItem">
+          <compoundProperty id="location">
+            <property id="x">5</property>
+            <property id="y">2</property>
+          </compoundProperty>
+          <property id="name">_MenuItem</property>
+          <property id="text" type="i18n">STR_vcallsettingsListBoxView_6</property>
+          <compoundProperty id="size">
+            <property id="width">320</property>
+            <property id="height">42</property>
+          </compoundProperty>
+        </component>
+        <component id="com.nokia.sdt.series60.MenuItem">
+          <compoundProperty id="location">
+            <property id="x">5</property>
+            <property id="y">46</property>
+          </compoundProperty>
+          <property id="name">_MenuItem1</property>
+          <property id="text" type="i18n">STR_vcallsettingsListBoxView_7</property>
+          <compoundProperty id="size">
+            <property id="width">320</property>
+            <property id="height">42</property>
+          </compoundProperty>
+        </component>
+        <component id="com.nokia.sdt.series60.MenuItem">
+          <compoundProperty id="location">
+            <property id="x">5</property>
+            <property id="y">90</property>
+          </compoundProperty>
+          <property id="name">_MenuItem2</property>
+          <property id="text" type="i18n">STR_vcallsettingsListBoxView_8</property>
+          <compoundProperty id="size">
+            <property id="width">320</property>
+            <property id="height">42</property>
+          </compoundProperty>
+        </component>
+        <component id="com.nokia.sdt.series60.MenuItem">
+          <compoundProperty id="location">
+            <property id="x">5</property>
+            <property id="y">134</property>
+          </compoundProperty>
+          <property id="name">_MenuItem3</property>
+          <property id="text" type="i18n">STR_vcallsettingsListBoxView_9</property>
+          <compoundProperty id="size">
+            <property id="width">320</property>
+            <property id="height">42</property>
+          </compoundProperty>
+          <eventBinding id="selected" handlerDisplay="Handle_MenuItem3SelectedL" handlerSymbol="cpp@src//VcallsettingsListBoxView.cpp/function(CvcallsettingsListBoxView::Handle_MenuItem3SelectedL(TInt))"/>
+        </component>
+      </component>
+    </component>
+  </component>
+  <stringBundle>
+    <stringTable language="LANG_Russian">
+      <string id="STR_vcallsettingsListBoxView_1"/>
+      <string id="STR_vcallsettingsListBoxView_2"/>
+      <string id="STR_vcallsettingsListBoxView_3"/>
+      <string id="STR_vcallsettingsListBoxView_4">Настройки VCall</string>
+      <string id="STR_vcallsettingsListBoxView_6">Добавить</string>
+      <string id="STR_vcallsettingsListBoxView_7">Настройки</string>
+      <string id="STR_vcallsettingsListBoxView_8">О программе</string>
+      <string id="STR_vcallsettingsListBoxView_9">Выход</string>
+    </stringTable>
+  </stringBundle>
+  <macroTable/>
+  <sourceMappingState>
+    <resourceMappings>
+      <resourceMapping instanceName="menuPane1">r_vcallsettings_list_box_menu_pane1_menu_pane</resourceMapping>
+      <resourceMapping instanceName="title">r_vcallsettings_list_box_title_resource</resourceMapping>
+      <resourceMapping instanceName="vcallsettingsListBoxView">r_vcallsettings_list_box_vcallsettings_list_box_view</resourceMapping>
+      <resourceMapping instanceName="optionsMenu">r_vcallsettings_list_box_options_menu</resourceMapping>
+      <resourceMapping instanceName="statusPane">r_vcallsettings_list_box_status_pane</resourceMapping>
+      <resourceMapping instanceName="listBox">r_vcallsettings_list_box_list_box</resourceMapping>
+    </resourceMappings>
+    <enumMappings>
+      <enumMapping instanceName="_MenuItem3" propertyId="command" nameAlgorithm="com.nokia.sdt.component.symbian.NAME_ALG_COMMANDS">EVcallsettingsListBoxView_MenuItem3Command</enumMapping>
+      <enumMapping instanceName="_MenuItem2" propertyId="command" nameAlgorithm="com.nokia.sdt.component.symbian.NAME_ALG_COMMANDS">EVcallsettingsListBoxView_MenuItem2Command</enumMapping>
+      <enumMapping instanceName="_MenuItem1" propertyId="command" nameAlgorithm="com.nokia.sdt.component.symbian.NAME_ALG_COMMANDS">EVcallsettingsListBoxView_MenuItem1Command</enumMapping>
+      <enumMapping instanceName="listBox" propertyId="type">EAknListBoxSelectionList</enumMapping>
+      <enumMapping instanceName="_MenuItem" propertyId="command" nameAlgorithm="com.nokia.sdt.component.symbian.NAME_ALG_COMMANDS">EVcallsettingsListBoxView_MenuItemCommand</enumMapping>
+      <enumMapping instanceName="vcallsettingsListBoxView" propertyId="" nameAlgorithm="com.nokia.sdt.component.symbian.NAME_ALG_VIEW_UID">EVcallsettingsListBoxViewId</enumMapping>
+      <enumMapping instanceName="title" propertyId="" nameAlgorithm="com.nokia.sdt.component.symbian.NAME_ALG_STATUS_PANE_ID">EEikStatusPaneUidTitle</enumMapping>
+      <enumMapping instanceName="title" propertyId="" nameAlgorithm="com.nokia.sdt.component.symbian.NAME_ALG_CONTROL_TYPE">EAknCtTitlePane</enumMapping>
+    </enumMappings>
+    <arrayMappings/>
+  </sourceMappingState>
+  <generatedFiles>
+    <file>inc/vcallsettingslistbox.h</file>
+    <file>inc/vcallsettingslistboxview.h</file>
+    <file>src/vcallsettingslistboxview.cpp</file>
+    <file>src/vcallsettingslistbox.cpp</file>
+    <file>data/vcallsettings.rss</file>
+    <file>inc/vcallsettings.hrh</file>
+    <file>data/vcallsettingslistbox.rssi</file>
+    <file>data/vcallsettings.loc</file>
+    <file>data/vcallsettings.l16</file>
+    <file>data/vcallsettingslistbox.loc</file>
+    <file>data/vcallsettingslistbox.l16</file>
+    <file>inc/vcallsettingslistbox.hrh</file>
+  </generatedFiles>
+</designerData>

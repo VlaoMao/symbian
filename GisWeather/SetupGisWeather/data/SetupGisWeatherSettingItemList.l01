@@ -1,0 +1,44 @@
+/*
+========================================================================
+ Name        : SetupGisWeatherSettingItemList.l01
+ Author      : SQR
+ Copyright   : Created SQR, 2010, Russia
+ Description : 
+========================================================================
+*/
+// localized strings for language: English (01)
+//CHARACTER_SET UTF8
+
+#define STR_SetupGisWeatherSettingItemListView_1 "Settings"
+#define STR_SetupGisWeatherSettingItemListView_2 ""
+#define STR_SetupGisWeatherSettingItemListView_3 ""
+#define STR_SetupGisWeatherSettingItemListView_4 "GisWeather setup"
+#define STR_SetupGisWeatherSettingItemListView_6 "Change"
+#define STR_SetupGisWeatherSettingItemListView_10 "Portrait: position Y"
+#define STR_SetupGisWeatherSettingItemListView_land_y "Landscape: position Y"
+#define STR_SetupGisWeatherSettingItemListView_land_x "Landscape: position X"
+#define STR_SetupGisWeatherSettingItemListView_11 "Update interval"
+#define STR_SetupGisWeatherSettingItemListView_15 "Edit text"
+#define STR_SetupGisWeatherSettingItemListView_16 "UID apllication"
+#define STR_SetupGisWeatherSettingItemListView_9 "Portrait: position X"
+#define STR_SetupGisWeatherSettingItemListView_72 "Edit text"
+#define STR_SetupGisWeatherSettingItemListView_73 "Access point"
+#define STR_SetupGisWeatherSettingItemListView_75 "Exit"
+#define STR_SetupGisWeatherSettingItemListView_76 "Download informer"
+#define STR_SetupGisWeatherSettingItemListView_77 "Save"
+#define STR_SetupGisWeatherSettingItemListView_78 "Stop informer"
+#define STR_SetupGisWeatherSettingItemListView_79 "About"
+#define STR_SetupGisWeatherSettingItemListView_80 "Start informer"
+#define STR_SetupGisWeatherSettingItemListView_81 "Edit text"
+#define STR_SetupGisWeatherSettingItemListView_82 "Informer URL"
+#define STR_Success "Done"
+#define STR_Failed "Failed"
+#define STR_Saved "Saved"
+#define STR_Start "Download started"
+#define STR_Time_From "Update from:"
+#define STR_Time_Do "Update to:"
+#define STR_Time_From_Prompt "Enter start time"
+#define STR_Time_Do_Prompt "Enter end time"
+#define STR_Autostart "Autostart"
+#define STR_Autostart_on "On"
+#define STR_Autostart_off "Off"

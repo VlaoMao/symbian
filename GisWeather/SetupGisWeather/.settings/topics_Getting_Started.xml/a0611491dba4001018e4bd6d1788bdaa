@@ -1,0 +1,22 @@
+/*
+========================================================================
+ Name        : FreejeSettingsContainer_16.rls
+ Author      : arok
+ Copyright   : Freeje project 2010
+ Description : 
+========================================================================
+*/
+// localized strings for language: Russian (16)
+rls_string STR_FreejeSettingsContainerView_1 "Сохранить"
+rls_string STR_FreejeSettingsContainerView_2 "Отмена"
+
+rls_string login_title "Логин"
+rls_string password_title "Пароль"
+rls_string number_title "Ваш номер телефона"
+rls_string title_need_login "Нужен логин и пароль?"
+rls_string title_need_register "Регистрация!"
+rls_string settings_title "Настройки CallerMate"
+
+rls_string login_error_title "Input your login"
+rls_string password_error_title "Input your password"
+rls_string number_error_title "Input your phone number"

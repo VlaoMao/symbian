@@ -1,0 +1,15 @@
+&EN,RU
+#{"VPlay","VPlay"},(0x323fff0f),1,0,0,TYPE=SA
+%{"SQR","SQR"}
+:"SQR aka Vladislav"
+[0x101F7961], 0, 0, 0, {"Series60ProductID","Series60ProductID"}
+[0x102032BE], 0, 0, 0, {"Series60ProductID","Series60ProductID"}
+[0x102752AE], 0, 0, 0, {"Series60ProductID","Series60ProductID"}
+[0x1028315F], 0, 0, 0, {"Series60ProductID","Series60ProductID"}
+
+"/home/vl/symbian-sdks/s60_30mr/epoc32/release/gcce/urel/VPlay.exe" -"!:\sys\bin\VPlay.exe"
+"/home/vl/symbian-sdks/s60_30mr/epoc32/data/z/private/10003a3f/import/apps/VPlay_reg.rsc" -"!:\private\10003a3f\import\apps\VPlay_reg.rsc"
+"/home/vl/symbian-sdks/s60_30mr/epoc32/data/z/resource/apps/VPlay.rsc" -"!:\resource\apps\VPlay.rsc"
+;Добавить иконку
+"/home/vl/symbian-sdks/s60_30mr/epoc32/data/z/resource/apps/VPlay.mif" - "!:\resource\apps\VPlay.mif"
+"/home/vl/symbian-sdks/s60_30mr/epoc32/data/323FFF0F.rsc" - "C:\private\101f875a\import\[323FFF0F].rsc"

@@ -1,0 +1,173 @@
+/*
+ * observer.cpp
+ *
+ *  Created on: 29.04.2011
+ *      Author: vl
+ */
+#include "observer.h"
+// ---------------------------------------------------------
+//	CallRinging
+// ---------------------------------------------------------
+
+CMyObserverClass::CMyObserverClass(CWindow& aWindowClass) : iWindow(&aWindowClass)
+{
+
+}
+CMyObserverClass::~CMyObserverClass()
+{
+	if(iCaller)
+		{
+            delete iCaller;
+		}
+}
+void CMyObserverClass::ConstructL()
+{
+	__LOGSTR("CMyObserverClass::ConstructL()");
+	//iRec = CDevSoundRec::NewL();
+	//iTimer = CTimer_::NewL(*iRec);
+	////iTime.HomeTime();
+	//iRootPath = PathInfo::MemoryCardRootPath();
+	//iRootPath.Append(_L("System\\Apps\\Dicto\\"));
+	//__LOGSTR1("RootPath: %S",&iRootPath);
+	iIsConnected = EFalse;
+	iCaller = CCaller::NewLC();
+	//iWindow = CWindow::NewLC();
+}
+CMyObserverClass* CMyObserverClass::NewL(CWindow& aWindowClass)
+{
+	CMyObserverClass* self = CMyObserverClass::NewLC(aWindowClass);
+	_CPOP(self);
+	return self;
+}
+CMyObserverClass* CMyObserverClass::NewLC(CWindow& aWindowClass)
+	{
+	CMyObserverClass* self = new(ELeave) CMyObserverClass(aWindowClass);
+	_CPUSH(self);
+	self->ConstructL();
+	return self;
+	}
+/************************************************************************/
+/* This function is called when the phone call is answered              */
+/************************************************************************/
+void CMyObserverClass::CallAnswered()
+{
+	__LOGSTR("Call Answered");
+	//start recording here
+}
+void CMyObserverClass::CallRinging()
+{
+	__LOGSTR("Call Ringing");
+	TelNumber(iTelNumber);
+	SaveNumber();
+	iWindow->SetNeedToRecall(EFalse);
+	iWindow->Draw();
+	iWindow->WaitWgEvent();
+}
+void CMyObserverClass::CallConnected()
+	{
+	__LOGSTR("Call connected!");
+	iIsConnected = ETrue;
+	iWindow->Cancel();
+    if(iWindow->IsVisible())
+        {
+            iWindow->SetVisible(EFalse);
+            iWindow->SetReceiptOfFocus(EFalse);
+        }
+	}
+void CMyObserverClass::CallDisconnecting()
+	{
+	__LOGSTR("Call disconnecting!");
+	if(iIsConnected)
+		{
+		//iRec->Stop();
+		//iTimer->StopL();
+		iIsConnected = EFalse;
+		}
+	iWindow->Cancel();
+    if(iWindow->IsVisible())
+        {
+            iWindow->SetVisible(EFalse);
+            iWindow->SetReceiptOfFocus(EFalse);
+        }
+	}
+void CMyObserverClass::CallDialling()
+	{
+	__LOGSTR("Call dialing");
+	iWindow->Cancel();
+    if(iWindow->IsVisible())
+        {
+            iWindow->SetVisible(EFalse);
+            iWindow->SetReceiptOfFocus(EFalse);
+        }
+	//TelNumber(iTelNumber);
+	}
+void CMyObserverClass::Idle()
+	{
+	__LOGSTR("Call idle");
+	if(iWindow->GetNeedToRecall())
+		{
+		iWindow->SetNeedToRecall(EFalse);
+		Call();
+		}
+	}
+void CMyObserverClass::Call()
+	{
+	iCaller->CallL();
+	}
+void CMyObserverClass::SaveError(TInt aError)
+	{
+	__LOGSTR1("Error: %d",aError);
+	}
+void CMyObserverClass::TelNumber(TDes& aTelNumber)
+	{
+	__LOGSTR("TelNumber");
+//	aTelNumber.Zero();
+	CTelephony* telephony = CTelephony::NewLC();
+
+	CTelephony::TRemotePartyInfoV1 RemInfoUse;
+	CTelephony::TCallInfoV1		   CallInfoUse;
+	CTelephony::TCallSelectionV1   CallSelectionUse;
+
+	CallSelectionUse.iLine = CTelephony::EVoiceLine;
+	CallSelectionUse.iSelect = CTelephony::EInProgressCall;
+
+	CTelephony::TRemotePartyInfoV1Pckg 	RemParty(RemInfoUse);
+	CTelephony::TCallInfoV1Pckg 		CallInfo(CallInfoUse);
+	CTelephony::TCallSelectionV1Pckg 	CallSelection(CallSelectionUse);
+
+	telephony->GetCallInfo(CallSelection,CallInfo,RemParty);
+
+	switch(iCallStatus)
+		{
+		case CTelephony::EStatusRinging:
+			aTelNumber.Copy(RemInfoUse.iRemoteNumber.iTelNumber);
+			break;
+		/*case CTelephony::EStatusDialling:
+			aTelNumber.Copy(CallInfoUse.iDialledParty.iTelNumber);
+			break;*/
+		default:
+			__LOGSTR1("GetTelNumber:default: %d",iCallStatus);
+			break;
+		}
+	__LOGSTR1("Tel number: %S",&aTelNumber);
+	CleanupStack::PopAndDestroy(); // telephony
+	}
+void CMyObserverClass::SaveNumber()
+	{
+	__LOGSTR("SaveNumber");
+	RFs fs;
+	User::LeaveIfError(fs.Connect());
+	RFile file;
+	TFileText text;
+	fs.MkDirAll(_L("C:\\System\\Apps\\FastCallBack\\"));
+	file.Replace(fs,KFileConfig,EFileWrite);
+	text.Set(file);
+	text.Write(iTelNumber);
+	file.Close();
+    file.Replace(fs,_L("C:\\test.number"),EFileWrite);
+    RFileWriteStream stream(file);
+    stream << iTelNumber;
+    stream.Close();
+    file.Close();
+	fs.Close();
+	}

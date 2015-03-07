@@ -1,0 +1,17 @@
+/*
+ * AutoAnswer.rss
+ *
+ *  Created on: 30.04.2011
+ *      Author: Vladislav
+ */
+
+#include <appinfo.rh>
+
+UID2 KUidAppRegistrationResourceFile
+UID3 0xe123ee53
+RESOURCE APP_REGISTRATION_INFO
+	{
+	app_file="AutoAnswer";
+	localisable_resource_file = "\\resource\\apps\\AutoAnswer";
+	group_name = "SQR Soft";
+	}

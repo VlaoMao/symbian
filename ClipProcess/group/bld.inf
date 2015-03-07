@@ -1,0 +1,6 @@
+PRJ_PLATFORMS
+DEFAULT
+
+PRJ_MMPFILES
+ClipProcess.mmp
+gnumakefile Icons_scalable_dc.mk

@@ -1,0 +1,12 @@
+/*
+========================================================================
+ Name        : ui.hrh
+ Author      : SQR
+ Copyright   : Your copyright notice
+ Description : 
+========================================================================
+*/
+enum TuiViewUids
+	{
+	EUiSettingItemListViewId = 1
+	};
